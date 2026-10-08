@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="صورة مؤقتة في انتظار رفع الصورة الحقيقية">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2e4d"/>
+      <stop offset="1" stop-color="#184d8e"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#grid)"/>
+
+  <circle cx="450" cy="500" r="180" fill="none" stroke="#61b7ff" stroke-width="8" stroke-dasharray="26 20" opacity="0.85"/>
+  <text x="450" y="560" fill="#ffffff" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="150" font-weight="700" text-anchor="middle">م.ب</text>
+
+  <rect x="120" y="800" width="660" height="4" rx="2" fill="#61b7ff" opacity="0.6"/>
+
+  <text x="450" y="900" fill="#ffffff" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="46" font-weight="700" text-anchor="middle">لا توجد صورة بعد</text>
+  <text x="450" y="975" fill="#b9d7f5" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="32" text-anchor="middle">ارفع ملف JPG/PNG حقيقي بنفس الاسم داخل مجلد images</text>
+</svg>
