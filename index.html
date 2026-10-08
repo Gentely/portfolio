@@ -1,1134 +1,2633 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمد أحمد محمد بحور | Technical Researcher</title>
+    <meta name="theme-color" content="#f6f4ef" />
     <meta
       name="description"
-      content="Portfolio Website for Mohamed Ahmed Mohammed Bahour, Technical Researcher in Cancer Registry Office, National Cancer Institute, Sabratha, Libya"
+      content="الملف المهني لمحمد أحمد بحور، مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة."
     />
+    <title>محمد أحمد بحور | الملف المهني</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     <style>
       :root {
-        --primary: #0b2e4d;
-        --primary-2: #184d8e;
-        --accent: #61b7ff;
-        --bg: #f5f8fc;
-        --card: #ffffff;
-        --text: #1a2433;
-        --muted: #5d6b7a;
-        --line: rgba(19, 42, 71, 0.08);
-        --shadow: 0 30px 70px rgba(11, 46, 77, 0.15);
+        color-scheme: light;
+        --paper: #f6f4ef;
+        --surface: #fffefa;
+        --ink: #173431;
+        --ink-soft: #294743;
+        --muted: #697976;
+        --line: rgba(23, 52, 49, 0.12);
+        --accent: #c77f5c;
+        --accent-soft: #f0d5c7;
+        --sage: #dfe7de;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(23, 52, 49, 0.09);
+        --radius: 28px;
+        --font-ar: "Cairo", sans-serif;
+        --font-en: "Manrope", sans-serif;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
       }
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 90px;
       }
 
       body {
-        font-family: "Cairo", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.8;
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-ar);
+        font-size: 16px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      html[lang="en"] body {
+        font-family: var(--font-en), var(--font-ar);
+      }
+
+      body,
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
       }
 
       a {
+        color: inherit;
         text-decoration: none;
       }
 
-      img {
-        max-width: 100%;
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      svg {
         display: block;
       }
 
       .container {
-        width: min(1180px, calc(100% - 32px));
-        margin: 0 auto;
+        width: min(1160px, calc(100% - 48px));
+        margin-inline: auto;
       }
 
-      .section {
-        padding: 95px 0;
+      .skip-link {
+        position: fixed;
+        z-index: 1000;
+        inset-block-start: 12px;
+        inset-inline-start: 12px;
+        padding: 10px 16px;
+        transform: translateY(-160%);
+        border-radius: 12px;
+        background: var(--ink);
+        color: var(--white);
+        transition: transform 180ms ease;
       }
 
-      .title {
-        text-align: center;
-        margin-bottom: 40px;
+      .skip-link:focus {
+        transform: translateY(0);
       }
 
-      .title span {
-        display: inline-block;
-        padding: 9px 18px;
-        border-radius: 999px;
-        background: rgba(97, 183, 255, 0.12);
-        color: var(--primary-2);
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .title h2 {
-        font-size: clamp(2rem, 3vw, 2.8rem);
-        color: var(--text);
-        font-weight: 800;
-      }
-
-      .topbar {
+      .site-header {
         position: sticky;
-        top: 0;
         z-index: 50;
-        backdrop-filter: blur(16px);
-        background: rgba(245, 248, 252, 0.8);
-        border-bottom: 1px solid var(--line);
+        inset-block-start: 0;
+        border-bottom: 1px solid rgba(23, 52, 49, 0.08);
+        background: rgba(246, 244, 239, 0.9);
+        -webkit-backdrop-filter: blur(18px);
+        backdrop-filter: blur(18px);
       }
 
-      .nav {
-        min-height: 78px;
+      .header-inner {
+        position: relative;
         display: flex;
+        min-height: 82px;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 26px;
       }
 
       .brand {
-        display: flex;
+        display: inline-flex;
+        min-width: max-content;
         align-items: center;
         gap: 12px;
-        font-weight: 800;
-        color: var(--text);
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
-        border-radius: 13px;
         display: grid;
+        width: 46px;
+        height: 46px;
+        flex: 0 0 46px;
         place-items: center;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        color: white;
-        box-shadow: 0 14px 26px rgba(17, 52, 90, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 15px;
+        background: var(--ink);
+        color: #f2c3a8;
+        font-family: var(--font-en);
+        font-size: 0.83rem;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+
+      .brand-copy {
+        display: grid;
+        line-height: 1.35;
+      }
+
+      .brand-copy strong {
+        font-size: 0.96rem;
+        font-weight: 800;
+      }
+
+      .brand-copy small {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.72rem;
       }
 
       .nav-menu {
         display: flex;
         align-items: center;
-        gap: 28px;
-        flex-wrap: wrap;
+        gap: clamp(16px, 2.1vw, 30px);
       }
 
       .nav-menu a {
-        color: var(--text);
-        font-weight: 600;
-        transition: 0.2s ease;
+        position: relative;
+        color: var(--ink-soft);
+        font-size: 0.88rem;
+        font-weight: 700;
+        transition: color 180ms ease;
       }
 
-      .nav-menu a:hover {
-        color: var(--primary-2);
+      .nav-menu a::after {
+        position: absolute;
+        inset-inline: 0;
+        inset-block-end: -8px;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: right;
+        background: var(--accent);
+        content: "";
+        transition: transform 180ms ease;
       }
 
-      .nav-btn {
+      html[dir="ltr"] .nav-menu a::after {
+        transform-origin: left;
+      }
+
+      .nav-menu a:hover,
+      .nav-menu a:focus-visible {
+        color: var(--accent);
+      }
+
+      .nav-menu a:hover::after,
+      .nav-menu a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .header-tools {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .language-switch,
+      .menu-toggle {
         display: inline-flex;
+        min-height: 42px;
         align-items: center;
         justify-content: center;
+        gap: 8px;
+        padding: 0 13px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0.82rem;
+        font-weight: 800;
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .language-switch:hover,
+      .menu-toggle:hover {
+        transform: translateY(-1px);
+        border-color: rgba(23, 52, 49, 0.28);
+        background: var(--white);
+      }
+
+      .language-switch svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .header-cta,
+      .button {
+        display: inline-flex;
         min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         padding: 0 20px;
+        border: 1px solid transparent;
         border-radius: 14px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        color: white;
-        font-weight: 700;
-        box-shadow: 0 18px 35px rgba(24, 77, 142, 0.25);
+        background: var(--ink);
+        color: var(--white);
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 800;
+        transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      }
+
+      .header-cta {
+        min-height: 42px;
+        padding-inline: 16px;
+        font-size: 0.82rem;
+      }
+
+      .header-cta:hover,
+      .button-primary:hover {
+        transform: translateY(-2px);
+        background: #244943;
+        box-shadow: 0 12px 24px rgba(23, 52, 49, 0.15);
+      }
+
+      .button svg,
+      .header-cta svg {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+      }
+
+      [dir="rtl"] .button-arrow {
+        transform: scaleX(-1);
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 44px;
+        padding: 0;
+      }
+
+      .menu-toggle svg {
+        width: 20px;
+        height: 20px;
       }
 
       .hero {
         position: relative;
+        overflow: hidden;
+        padding-block: clamp(58px, 8vw, 108px) clamp(68px, 9vw, 120px);
         background:
-          linear-gradient(135deg, rgba(9, 24, 39, 0.82), rgba(18, 62, 104, 0.78)),
-          url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80")
-            center/cover no-repeat;
-        min-height: 680px;
-        display: flex;
-        align-items: center;
+          radial-gradient(ellipse at 5% 12%, rgba(199, 127, 92, 0.09), transparent 27%),
+          radial-gradient(ellipse at 82% 96%, rgba(194, 211, 193, 0.38), transparent 28%),
+          var(--paper);
       }
 
-      .hero .container {
+      .hero::before {
+        position: absolute;
+        inset-block-start: 6%;
+        inset-inline-start: -180px;
+        width: 390px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(23, 52, 49, 0.055);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .hero-grid {
         position: relative;
-        z-index: 1;
-      }
-
-      .hero-inner {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-columns: 1.08fr 0.92fr;
         align-items: center;
-        gap: 50px;
-        padding: 60px 0 50px;
+        gap: clamp(46px, 7.5vw, 100px);
       }
 
       .hero-content {
-        color: white;
+        padding-block: 12px;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 10px 18px;
+        margin-bottom: 25px;
+        padding: 8px 14px;
+        border: 1px solid rgba(23, 52, 49, 0.11);
         border-radius: 999px;
-        margin-bottom: 18px;
-        font-weight: 700;
+        background: rgba(255, 254, 250, 0.68);
+        color: var(--ink-soft);
+        font-size: 0.81rem;
+        font-weight: 800;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: #688a68;
+        box-shadow: 0 0 0 4px rgba(104, 138, 104, 0.13);
+      }
+
+      .hero-pretitle {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-family: var(--font-en);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      html[lang="ar"] .hero-pretitle {
+        font-family: var(--font-ar);
+        letter-spacing: 0.04em;
       }
 
       .hero h1 {
-        font-size: clamp(2.7rem, 4vw, 5rem);
-        line-height: 1.12;
+        margin: 0;
+        font-size: clamp(3.1rem, 6.2vw, 5.6rem);
+        font-weight: 900;
+        letter-spacing: -0.055em;
+        line-height: 1.08;
+      }
+
+      html[lang="ar"] .hero h1 {
+        letter-spacing: -0.035em;
+        line-height: 1.22;
+      }
+
+      .hero-name {
+        display: block;
+        color: var(--ink);
+      }
+
+      .hero-statement {
+        display: block;
+        max-width: 660px;
+        margin-top: 15px;
+        color: var(--accent);
+        font-size: clamp(1.55rem, 3.1vw, 2.45rem);
         font-weight: 800;
-        margin-bottom: 20px;
+        letter-spacing: -0.035em;
+        line-height: 1.42;
       }
 
-      .hero h1 .accent {
-        color: #cfe9ff;
+      .hero-summary {
+        max-width: 610px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+        line-height: 2;
       }
 
-      .hero p {
-        max-width: 700px;
-        color: rgba(255, 255, 255, 0.82);
-        font-size: 1.08rem;
-        margin-bottom: 28px;
-      }
-
-      .cta-row {
+      .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
-        margin-bottom: 32px;
+        gap: 12px;
+        margin-top: 30px;
       }
 
-      .btn {
+      .button-secondary {
+        border-color: var(--line);
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .button-secondary:hover {
+        transform: translateY(-2px);
+        border-color: rgba(23, 52, 49, 0.25);
+        background: var(--surface);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        margin-top: 39px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-meta-item {
+        display: grid;
+        min-width: 145px;
+        gap: 3px;
+        padding-inline: 22px;
+        border-inline-start: 1px solid var(--line);
+      }
+
+      .hero-meta-item:first-child {
+        padding-inline-start: 0;
+      }
+
+      .hero-meta-item:last-child {
+        border-inline-start: 0;
+      }
+
+      .hero-meta-item span {
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .hero-meta-item strong {
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .hero-visual {
+        position: relative;
+        display: flex;
+        min-height: 518px;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 28px 30px 25px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 34px;
+        background:
+          radial-gradient(circle at 72% 43%, rgba(199, 127, 92, 0.2), transparent 29%),
+          radial-gradient(circle at 25% 76%, rgba(119, 155, 135, 0.19), transparent 31%),
+          var(--ink);
+        box-shadow: 0 35px 80px rgba(23, 52, 49, 0.18);
+        color: var(--white);
+        isolation: isolate;
+      }
+
+      .hero-visual::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+        background-size: 42px 42px;
+        content: "";
+        mask-image: linear-gradient(145deg, black, transparent 80%);
+      }
+
+      .hero-visual::after {
+        position: absolute;
+        z-index: -1;
+        inset-inline-end: -115px;
+        inset-block-end: -185px;
+        width: 330px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        box-shadow: 0 0 0 32px rgba(255, 255, 255, 0.025), 0 0 0 64px rgba(255, 255, 255, 0.02);
+        content: "";
+      }
+
+      .visual-topline,
+      .visual-bottomline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .visual-topline {
+        color: rgba(255, 255, 255, 0.67);
+        font-family: var(--font-en);
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      html[lang="ar"] .visual-topline {
+        font-family: var(--font-ar);
+        letter-spacing: 0.06em;
+      }
+
+      .visual-topline .visual-code {
+        direction: ltr;
+        color: #f0b99b;
+      }
+
+      .visual-center {
+        position: relative;
+        display: grid;
+        flex: 1;
+        min-height: 330px;
+        place-items: center;
+      }
+
+      .orbit {
+        position: absolute;
+        display: grid;
+        width: min(68%, 300px);
+        aspect-ratio: 1;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        transform: rotate(-18deg);
+      }
+
+      .orbit::before,
+      .orbit::after {
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .orbit::before {
+        inset: 17px -20px;
+        transform: rotate(52deg);
+      }
+
+      .orbit::after {
+        inset: -18px 23px;
+        transform: rotate(-56deg);
+      }
+
+      .orbit-point {
+        position: absolute;
+        inset-block-start: 13%;
+        inset-inline-end: 17%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #edb392;
+        box-shadow: 0 0 0 7px rgba(237, 179, 146, 0.12);
+      }
+
+      .monogram {
+        position: relative;
+        display: grid;
+        width: 205px;
+        height: 205px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.015));
+        box-shadow: inset 0 0 42px rgba(255, 255, 255, 0.035), 0 20px 70px rgba(0, 0, 0, 0.16);
+        color: #f4c3a5;
+        font-family: var(--font-ar);
+        font-size: 4.7rem;
+        font-weight: 900;
+        letter-spacing: -0.12em;
+        line-height: 1;
+        text-indent: -0.12em;
+      }
+
+      .monogram::before {
+        position: absolute;
+        inset: 11px;
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .visual-side-note {
+        position: absolute;
+        inset-inline-start: 1%;
+        inset-block-end: 18%;
+        display: grid;
+        gap: 3px;
+        padding: 10px 12px;
+        border-inline-start: 2px solid var(--accent);
+        background: rgba(23, 52, 49, 0.6);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.68rem;
+      }
+
+      .visual-side-note strong {
+        color: var(--white);
+        font-family: var(--font-en);
+        font-size: 0.77rem;
+        letter-spacing: 0.08em;
+      }
+
+      .visual-bottomline {
+        padding-top: 17px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.77rem;
+      }
+
+      .visual-bottomline strong {
+        color: var(--white);
+        font-size: 0.84rem;
+      }
+
+      .visual-coordinate {
+        direction: ltr;
+        font-family: var(--font-en);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .scroll-cue {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 10px;
+        margin: 44px auto 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .scroll-cue span {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+      }
+
+      .scroll-cue svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .section {
+        padding-block: clamp(74px, 9vw, 112px);
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 38px;
+      }
+
+      .section-heading-copy {
+        max-width: 700px;
+      }
+
+      .section-kicker {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 54px;
-        padding: 0 24px;
-        border-radius: 14px;
-        font-weight: 700;
-        transition: 0.25s ease;
+        gap: 9px;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-family: var(--font-en);
+        font-size: 0.71rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
       }
 
-      .btn-primary {
-        background: white;
-        color: var(--primary);
+      html[lang="ar"] .section-kicker {
+        font-family: var(--font-ar);
+        letter-spacing: 0.04em;
       }
 
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: white;
+      .section-kicker::before {
+        width: 25px;
+        height: 1px;
+        background: currentColor;
+        content: "";
       }
 
-      .btn:hover {
-        transform: translateY(-2px);
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(1.9rem, 4vw, 3.1rem);
+        font-weight: 900;
+        letter-spacing: -0.045em;
+        line-height: 1.3;
       }
 
-      .hero-stats {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-      }
-
-      .stat-box {
-        min-width: 155px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
-        padding: 16px 18px;
-      }
-
-      .stat-box strong {
-        display: block;
-        font-size: 1.55rem;
-      }
-
-      .stat-box span {
-        color: rgba(255, 255, 255, 0.75);
-      }
-
-      .portrait-card {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 28px;
-        padding: 18px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(8px);
-      }
-
-      .portrait-wrap {
-        overflow: hidden;
-        border-radius: 22px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-      }
-
-      .portrait {
-        width: 100%;
-        height: 520px;
-        object-fit: cover;
-        object-position: center top;
-      }
-
-      .mini-tag {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        margin-top: 16px;
-        background: rgba(255, 255, 255, 0.06);
-        padding: 12px 14px;
-        border-radius: 16px;
-      }
-
-      .mini-tag strong {
-        color: white;
-      }
-
-      .mini-tag span {
-        color: rgba(255, 255, 255, 0.78);
-        font-size: 0.8rem;
+      .section-heading > p {
+        max-width: 480px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.95;
       }
 
       .about-grid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 38px;
-        align-items: center;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 22px;
       }
 
-      .glass-card {
-        background: white;
-        border-radius: 28px;
+      .about-story,
+      .about-aside {
+        min-width: 0;
+        border-radius: var(--radius);
+      }
+
+      .about-story {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(28px, 4vw, 48px);
         border: 1px solid var(--line);
-        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
-        padding: 30px;
+        background: var(--surface);
+        box-shadow: 0 16px 52px rgba(23, 52, 49, 0.045);
       }
 
-      .about-card p {
+      .about-story::after {
+        position: absolute;
+        inset-inline-end: -44px;
+        inset-block-end: -75px;
+        width: 185px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(199, 127, 92, 0.16);
+        border-radius: 50%;
+        box-shadow: 0 0 0 19px rgba(199, 127, 92, 0.035), 0 0 0 39px rgba(199, 127, 92, 0.025);
+        content: "";
+        pointer-events: none;
+      }
+
+      .about-story p {
+        position: relative;
+        z-index: 1;
+        max-width: 740px;
+        margin: 0 0 17px;
         color: var(--muted);
-        font-size: 1.03rem;
-        margin-bottom: 14px;
+        font-size: 1rem;
+        line-height: 2.05;
       }
 
-      .info-list {
+      .about-story p:first-child {
+        color: var(--ink-soft);
+        font-size: 1.07rem;
+        font-weight: 600;
+      }
+
+      .work-principle {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 18px 20px;
+        border-inline-start: 3px solid var(--accent);
+        border-radius: 0 14px 14px 0;
+        background: #f7f2eb;
+      }
+
+      html[dir="rtl"] .work-principle {
+        border-radius: 14px 0 0 14px;
+      }
+
+      .work-principle svg {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 auto;
+        margin-top: 3px;
+        color: var(--accent);
+      }
+
+      .work-principle div {
+        display: grid;
+        gap: 3px;
+      }
+
+      .work-principle strong {
+        font-size: 0.83rem;
+      }
+
+      .work-principle span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .about-aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 30px;
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .aside-label {
+        color: rgba(255, 255, 255, 0.64);
+        font-size: 0.77rem;
+      }
+
+      .aside-quote {
+        max-width: 360px;
+        margin: 12px 0 0;
+        font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+        font-weight: 800;
+        line-height: 1.7;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .about-stat {
+        display: grid;
+        gap: 2px;
+      }
+
+      .about-stat strong {
+        color: #f1bd9e;
+        font-family: var(--font-en);
+        font-size: 1.65rem;
+        line-height: 1.3;
+      }
+
+      .about-stat span {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.68rem;
+      }
+
+      .skills-section {
+        padding-top: 18px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .skill-card {
+        min-height: 238px;
+        padding: 25px 22px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--surface);
+        transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(199, 127, 92, 0.42);
+        box-shadow: var(--shadow);
+      }
+
+      .skill-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 31px;
+      }
+
+      .skill-icon {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--sage);
+        color: var(--ink);
+      }
+
+      .skill-icon svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .skill-number {
+        color: rgba(23, 52, 49, 0.36);
+        font-family: var(--font-en);
+        font-size: 0.71rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+      }
+
+      .skill-card h3 {
+        margin: 0 0 9px;
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      .skill-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.9;
+      }
+
+      .experience-band {
+        position: relative;
+        overflow: hidden;
+        padding-block: clamp(76px, 9vw, 112px);
+        background:
+          radial-gradient(ellipse at 95% 8%, rgba(199, 127, 92, 0.12), transparent 25%),
+          var(--ink);
+        color: var(--white);
+      }
+
+      .experience-band::before {
+        position: absolute;
+        inset-inline-start: -175px;
+        inset-block-end: -240px;
+        width: 430px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 50%;
+        box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.025), 0 0 0 70px rgba(255, 255, 255, 0.018);
+        content: "";
+        pointer-events: none;
+      }
+
+      .experience-band .container {
+        position: relative;
+      }
+
+      .experience-band .section-kicker {
+        color: #e3a887;
+      }
+
+      .experience-band .section-heading > p {
+        color: rgba(255, 255, 255, 0.66);
+      }
+
+      .experience-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .experience-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 17px;
+        min-height: 151px;
+        padding: 23px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.055);
+        transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+      }
+
+      .experience-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(239, 188, 159, 0.42);
+        background: rgba(255, 255, 255, 0.085);
+      }
+
+      .experience-card.is-current {
+        border-color: rgba(239, 188, 159, 0.48);
+        background: rgba(255, 255, 255, 0.095);
+      }
+
+      .experience-index {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid rgba(239, 188, 159, 0.3);
+        border-radius: 13px;
+        color: #efbc9f;
+        direction: ltr;
+        font-family: var(--font-en);
+        font-size: 0.7rem;
+        font-weight: 800;
+      }
+
+      .experience-card h3 {
+        margin: -2px 0 4px;
+        color: var(--white);
+        font-size: 1rem;
+        font-weight: 800;
+        line-height: 1.6;
+      }
+
+      .experience-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.79rem;
+        line-height: 1.8;
+      }
+
+      .experience-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        margin-top: 12px;
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 0.68rem;
+      }
+
+      .experience-meta .current-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: #efbc9f;
+        font-weight: 800;
+      }
+
+      .experience-meta .current-label::before {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #a7c69e;
+        content: "";
+      }
+
+      .experience-note {
+        margin: 17px 0 0;
+        color: rgba(255, 255, 255, 0.47);
+        font-size: 0.75rem;
+      }
+
+      .education-section {
+        padding-bottom: clamp(78px, 10vw, 124px);
+      }
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+      }
+
+      .education-card,
+      .personal-card {
+        min-width: 0;
+        border-radius: var(--radius);
+      }
+
+      .education-card {
+        position: relative;
+        overflow: hidden;
+        padding: 32px;
+        background: #e6ece3;
+      }
+
+      .education-card::after {
+        position: absolute;
+        inset-inline-end: -35px;
+        inset-block-start: -75px;
+        width: 175px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(23, 52, 49, 0.11);
+        border-radius: 50%;
+        box-shadow: 0 0 0 22px rgba(23, 52, 49, 0.025), 0 0 0 45px rgba(23, 52, 49, 0.02);
+        content: "";
+      }
+
+      .education-label {
+        color: var(--muted);
+        font-family: var(--font-en);
+        font-size: 0.69rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      html[lang="ar"] .education-label {
+        font-family: var(--font-ar);
+        letter-spacing: 0.04em;
+      }
+
+      .degree-row {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
         gap: 16px;
         margin-top: 24px;
       }
 
-      .info-item {
-        background: #f7faff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px 16px;
+      .degree-icon {
+        display: grid;
+        width: 52px;
+        height: 52px;
+        flex: 0 0 52px;
+        place-items: center;
+        border-radius: 16px;
+        background: var(--ink);
+        color: #f1bd9e;
       }
 
-      .info-item i {
-        color: var(--primary-2);
-        margin-bottom: 8px;
-        font-size: 1.2rem;
+      .degree-icon svg {
+        width: 25px;
+        height: 25px;
       }
 
-      .info-item small {
-        display: block;
+      .degree-row h3 {
+        margin: 0 0 5px;
+        font-size: clamp(1.18rem, 2vw, 1.5rem);
+        font-weight: 900;
+        line-height: 1.5;
+      }
+
+      .degree-row p {
+        margin: 0;
         color: var(--muted);
+        font-size: 0.84rem;
       }
 
-      .info-item strong {
-        color: var(--text);
-        font-size: 0.98rem;
+      .language-block {
+        position: relative;
+        z-index: 1;
+        margin-top: 39px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(23, 52, 49, 0.14);
       }
 
-      .highlight-box {
-        background: linear-gradient(140deg, var(--primary), var(--primary-2));
-        color: white;
-        border-radius: 28px;
-        padding: 30px;
-        box-shadow: var(--shadow);
+      .language-block h4 {
+        margin: 0 0 12px;
+        font-size: 0.84rem;
       }
 
-      .highlight-box h3 {
-        font-size: 2rem;
-        margin-bottom: 18px;
-      }
-
-      .highlight-box p {
-        color: rgba(255, 255, 255, 0.82);
-        margin-bottom: 20px;
-      }
-
-      .mini-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .mini-box {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
-        padding: 20px 18px;
-      }
-
-      .mini-box strong {
-        display: block;
-        font-size: 1.8rem;
-        margin-bottom: 6px;
-      }
-
-      .skills-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-
-      .skills-panel,
-      .experience-panel {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 30px;
-        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
-      }
-
-      .skills-panel h3,
-      .experience-panel h3 {
-        margin-bottom: 18px;
-        font-size: 1.7rem;
-        color: var(--text);
-      }
-
-      .tag-list {
+      .language-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 9px;
       }
 
-      .tag {
+      .language-chip,
+      .hobby-chip {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 11px 14px;
-        border-radius: 12px;
-        background: #f3f8ff;
-        border: 1px solid rgba(24, 77, 142, 0.08);
-        color: var(--primary-2);
+        padding: 8px 13px;
+        border: 1px solid rgba(23, 52, 49, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 254, 250, 0.56);
+        font-size: 0.76rem;
         font-weight: 700;
       }
 
-      .timeline {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .timeline-item {
-        display: grid;
-        grid-template-columns: 18px 1fr;
-        gap: 14px;
-      }
-
-      .dot {
-        width: 18px;
-        height: 18px;
+      .language-chip::before {
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        box-shadow: 0 0 0 6px rgba(97, 183, 255, 0.12);
-        margin-top: 10px;
+        background: #66866b;
+        content: "";
       }
 
-      .timeline-box {
-        background: #f8fbff;
+      .personal-card {
+        padding: 31px;
         border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px 18px;
+        background: var(--surface);
       }
 
-      .timeline-box small {
-        color: var(--primary-2);
-        font-weight: 700;
+      .personal-card h3 {
+        margin: 0 0 19px;
+        font-size: 1.18rem;
+        font-weight: 900;
       }
 
-      .timeline-box h4 {
-        margin: 5px 0 6px;
-        font-size: 1.15rem;
-      }
-
-      .timeline-box p {
-        color: var(--muted);
-      }
-
-      .services-grid {
+      .personal-facts {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
       }
 
-      .service-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 28px 22px;
-        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
-        transition: 0.25s ease;
-      }
-
-      .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 28px 50px rgba(16, 37, 66, 0.09);
-      }
-
-      .service-icon {
-        width: 62px;
-        height: 62px;
-        display: grid;
-        place-items: center;
+      .personal-fact {
+        min-height: 94px;
+        padding: 15px 16px;
+        border: 1px solid rgba(23, 52, 49, 0.08);
         border-radius: 16px;
-        background: linear-gradient(135deg, rgba(11, 46, 77, 0.08), rgba(97, 183, 255, 0.16));
-        color: var(--primary-2);
-        font-size: 1.5rem;
-        margin-bottom: 18px;
+        background: #faf9f5;
       }
 
-      .service-card h3 {
-        color: var(--text);
-        margin-bottom: 10px;
-      }
-
-      .service-card p {
-        color: var(--muted);
-      }
-
-      .contact-wrap {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 32px;
-      }
-
-      .contact-box,
-      .form-box {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 30px;
-        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
-      }
-
-      .contact-box h3,
-      .form-box h3 {
-        margin-bottom: 22px;
-        font-size: 1.7rem;
-      }
-
-      .contact-list {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .contact-item:last-child {
-        border-bottom: none;
-      }
-
-      .contact-item i {
-        width: 42px;
-        height: 42px;
-        display: grid;
-        place-items: center;
-        border-radius: 12px;
-        background: linear-gradient(135deg, rgba(11, 46, 77, 0.06), rgba(97, 183, 255, 0.14));
-        color: var(--primary-2);
-      }
-
-      .contact-item strong {
+      .personal-fact span {
         display: block;
-        color: var(--text);
-        margin-bottom: 3px;
-      }
-
-      .contact-item a,
-      .contact-item span {
+        margin-bottom: 4px;
         color: var(--muted);
+        font-size: 0.71rem;
       }
 
-      .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
+      .personal-fact strong {
+        display: block;
+        font-size: 0.84rem;
+        font-weight: 800;
+        line-height: 1.6;
       }
 
-      .field {
+      .hobbies {
+        margin-top: 24px;
+      }
+
+      .hobbies h4 {
+        margin: 0 0 12px;
+        font-size: 0.84rem;
+      }
+
+      .hobby-list {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 8px;
       }
 
-      .field.full {
-        grid-column: 1 / -1;
+      .hobby-chip {
+        border-color: rgba(199, 127, 92, 0.2);
+        background: #fbf4ef;
+        color: #80553f;
       }
 
-      .field label {
-        font-weight: 700;
-        color: var(--text);
+      .contact-section {
+        padding-block: 0 clamp(74px, 9vw, 110px);
       }
 
-      .field input,
-      .field textarea {
-        padding: 14px 16px;
-        border: 1px solid var(--line);
+      .contact-panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 42px;
+        overflow: hidden;
+        padding: clamp(30px, 5.4vw, 64px);
+        border-radius: 34px;
+        background:
+          radial-gradient(ellipse at 3% 100%, rgba(199, 127, 92, 0.18), transparent 28%),
+          var(--ink);
+        color: var(--white);
+      }
+
+      .contact-panel::after {
+        position: absolute;
+        inset-inline-end: -130px;
+        inset-block-start: -200px;
+        width: 390px;
+        aspect-ratio: 1;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        box-shadow: 0 0 0 34px rgba(255, 255, 255, 0.025), 0 0 0 69px rgba(255, 255, 255, 0.018);
+        content: "";
+        pointer-events: none;
+      }
+
+      .contact-copy,
+      .contact-details {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-panel .section-kicker {
+        color: #e3a887;
+      }
+
+      .contact-copy h2 {
+        max-width: 600px;
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1.36;
+      }
+
+      .contact-copy p {
+        max-width: 480px;
+        margin: 16px 0 25px;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.91rem;
+        line-height: 1.9;
+      }
+
+      .contact-copy .button {
+        border-color: var(--accent-soft);
+        background: #f1c3a7;
+        color: var(--ink);
+      }
+
+      .contact-copy .button:hover {
+        transform: translateY(-2px);
+        background: #f6d1bb;
+      }
+
+      .contact-details {
+        align-self: center;
+        padding-inline-start: 30px;
+        border-inline-start: 1px solid rgba(255, 255, 255, 0.17);
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-block: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .contact-detail:last-child {
+        border-bottom: 0;
+      }
+
+      .contact-detail-icon {
+        display: grid;
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 14px;
-        font: inherit;
-        background: #f9fbff;
-        color: var(--text);
-        width: 100%;
-        resize: vertical;
+        color: #f1bd9e;
       }
 
-      .field input:focus,
-      .field textarea:focus {
-        outline: none;
-        border-color: rgba(24, 77, 142, 0.35);
-        box-shadow: 0 0 0 4px rgba(97, 183, 255, 0.12);
+      .contact-detail-icon svg {
+        width: 19px;
+        height: 19px;
       }
 
-      .submit-btn {
-        margin-top: 18px;
-        border: 0;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        color: white;
-        min-height: 54px;
-        padding: 0 22px;
-        font: inherit;
+      .contact-detail-copy {
+        display: grid;
+        min-width: 0;
+        gap: 3px;
+      }
+
+      .contact-detail-copy span {
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 0.72rem;
+      }
+
+      .contact-detail-copy strong,
+      .contact-detail-copy a {
+        overflow-wrap: anywhere;
+        color: var(--white);
+        font-size: 0.91rem;
         font-weight: 700;
-        cursor: pointer;
-        box-shadow: 0 16px 30px rgba(24, 77, 142, 0.25);
       }
 
-      .alert {
-        display: none;
-        margin-top: 16px;
-        background: rgba(40, 167, 69, 0.08);
-        color: #216b39;
-        border: 1px solid rgba(40, 167, 69, 0.18);
-        border-radius: 12px;
-        padding: 12px 14px;
-        font-weight: 600;
+      .contact-detail-copy a:hover {
+        color: #f1bd9e;
       }
 
-      .alert.show {
-        display: block;
+      .ltr-content {
+        direction: ltr;
+        text-align: start;
       }
 
-      footer {
-        background: #0c1726;
-        color: rgba(255, 255, 255, 0.8);
-        padding: 22px 0;
+      .site-footer {
+        padding-block: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.77rem;
       }
 
       .footer-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 18px;
       }
 
-      .socials {
-        display: flex;
+      .footer-inner p {
+        margin: 0;
+      }
+
+      .footer-mark {
+        display: inline-flex;
         align-items: center;
-        gap: 12px;
+        gap: 7px;
+        font-family: var(--font-en);
+        font-weight: 800;
       }
 
-      .socials a {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        color: white;
-        background: rgba(255, 255, 255, 0.06);
+      .footer-mark span {
+        color: var(--accent);
       }
 
-      @media (max-width: 980px) {
-        .hero-inner,
-        .about-grid,
-        .skills-layout,
-        .contact-wrap {
-          grid-template-columns: 1fr;
+      :focus-visible {
+        outline: 3px solid rgba(199, 127, 92, 0.75);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 1080px) {
+        .header-inner {
+          gap: 18px;
         }
 
-        .services-grid {
+        .nav-menu {
+          gap: 17px;
+        }
+
+        .brand-copy strong {
+          font-size: 0.88rem;
+        }
+
+        .hero-grid {
+          gap: 46px;
+        }
+
+        .hero-meta-item {
+          min-width: 125px;
+          padding-inline: 15px;
+        }
+
+        .skills-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 680px) {
-        .nav {
-          flex-direction: column;
-          justify-content: center;
-          padding: 18px 0;
+      @media (max-width: 850px) {
+        .header-inner {
+          min-height: 74px;
         }
 
         .nav-menu {
-          justify-content: center;
+          position: absolute;
+          inset-inline: 0;
+          inset-block-start: calc(100% + 8px);
+          display: none;
+          align-items: stretch;
+          gap: 0;
+          padding: 8px;
+          border: 1px solid var(--line);
+          border-radius: 18px;
+          background: var(--surface);
+          box-shadow: 0 16px 35px rgba(23, 52, 49, 0.12);
         }
 
-        .services-grid,
-        .info-list,
-        .form-grid,
-        .mini-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          min-height: 600px;
-        }
-
-        .hero h1 {
-          font-size: 2.7rem;
-        }
-
-        .hero-stats {
+        .nav-menu.is-open {
+          display: flex;
           flex-direction: column;
         }
 
+        .nav-menu a {
+          padding: 11px 13px;
+          border-radius: 10px;
+        }
+
+        .nav-menu a:hover {
+          background: #f5f2eb;
+        }
+
+        .nav-menu a::after {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .header-tools {
+          margin-inline-start: auto;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr 0.88fr;
+          gap: 32px;
+        }
+
+        .hero-visual {
+          min-height: 440px;
+          padding: 23px;
+        }
+
+        .visual-center {
+          min-height: 260px;
+        }
+
+        .monogram {
+          width: 170px;
+          height: 170px;
+          font-size: 4rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.9rem, 6.1vw, 4.6rem);
+        }
+
+        .hero-meta-item {
+          min-width: 0;
+          padding-inline: 12px;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-aside {
+          min-height: 240px;
+        }
+
+        .education-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        html {
+          scroll-padding-top: 74px;
+        }
+
+        .container {
+          width: min(100% - 36px, 540px);
+        }
+
+        .header-inner {
+          min-height: 70px;
+          gap: 10px;
+        }
+
+        .brand {
+          gap: 9px;
+        }
+
+        .brand-mark {
+          width: 41px;
+          height: 41px;
+          flex-basis: 41px;
+          border-radius: 13px;
+        }
+
+        .brand-copy strong {
+          max-width: 150px;
+          overflow: hidden;
+          font-size: 0.83rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .brand-copy small {
+          font-size: 0.67rem;
+        }
+
+        .header-tools {
+          gap: 7px;
+        }
+
+        .header-cta {
+          display: none;
+        }
+
+        .language-switch {
+          min-height: 40px;
+          padding-inline: 10px;
+        }
+
+        .hero {
+          padding-block: 48px 66px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 38px;
+        }
+
+        .hero-content {
+          padding: 0;
+        }
+
+        .eyebrow {
+          margin-bottom: 22px;
+          font-size: 0.74rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.8rem, 12.5vw, 4.15rem);
+        }
+
+        html[lang="ar"] .hero h1 {
+          font-size: clamp(2.65rem, 11.5vw, 3.75rem);
+        }
+
+        .hero-statement {
+          margin-top: 12px;
+          font-size: clamp(1.45rem, 7vw, 2rem);
+        }
+
+        .hero-summary {
+          margin-top: 16px;
+          font-size: 0.94rem;
+        }
+
+        .hero-actions {
+          margin-top: 23px;
+        }
+
+        .button {
+          min-height: 47px;
+          padding-inline: 16px;
+          font-size: 0.82rem;
+        }
+
+        .hero-meta {
+          gap: 12px 0;
+          margin-top: 27px;
+          padding-top: 18px;
+        }
+
+        .hero-meta-item {
+          width: 50%;
+          padding-inline: 12px;
+        }
+
+        .hero-meta-item:nth-child(odd) {
+          padding-inline-start: 0;
+          border-inline-start: 1px solid var(--line);
+        }
+
+        .hero-meta-item:nth-child(even) {
+          border-inline-start: 0;
+        }
+
+        .hero-meta-item strong {
+          font-size: 0.82rem;
+        }
+
+        .hero-visual {
+          min-height: 405px;
+          padding: 21px;
+          border-radius: 27px;
+        }
+
+        .visual-topline {
+          font-size: 0.58rem;
+        }
+
+        .visual-center {
+          min-height: 250px;
+        }
+
+        .orbit {
+          width: 65%;
+        }
+
+        .monogram {
+          width: 158px;
+          height: 158px;
+          font-size: 3.8rem;
+        }
+
+        .visual-side-note {
+          inset-block-end: 13%;
+        }
+
+        .scroll-cue {
+          margin-top: 28px;
+        }
+
         .section {
-          padding: 78px 0;
+          padding-block: 70px;
+        }
+
+        .section-heading {
+          display: block;
+          margin-bottom: 27px;
+        }
+
+        .section-heading h2 {
+          font-size: clamp(1.8rem, 8vw, 2.45rem);
+        }
+
+        .section-heading > p {
+          margin-top: 12px;
+          font-size: 0.87rem;
+        }
+
+        .about-grid {
+          gap: 14px;
+        }
+
+        .about-story,
+        .about-aside {
+          border-radius: 22px;
+        }
+
+        .about-story {
+          padding: 25px 22px;
+        }
+
+        .about-story p,
+        .about-story p:first-child {
+          font-size: 0.91rem;
+        }
+
+        .work-principle {
+          margin-top: 22px;
+          padding: 15px;
+        }
+
+        .about-aside {
+          min-height: 250px;
+          padding: 24px 22px;
+        }
+
+        .about-stats {
+          gap: 7px;
+        }
+
+        .about-stat strong {
+          font-size: 1.45rem;
+        }
+
+        .about-stat span {
+          font-size: 0.63rem;
+        }
+
+        .skills-section {
+          padding-top: 0;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+          gap: 11px;
+        }
+
+        .skill-card {
+          min-height: 0;
+          padding: 20px;
+        }
+
+        .skill-card-top {
+          margin-bottom: 18px;
+        }
+
+        .experience-band {
+          padding-block: 70px;
+        }
+
+        .experience-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .experience-card {
+          min-height: 0;
+          gap: 13px;
+          padding: 18px 16px;
+          border-radius: 17px;
+        }
+
+        .experience-card h3 {
+          font-size: 0.9rem;
+        }
+
+        .experience-card p {
+          font-size: 0.75rem;
+        }
+
+        .experience-index {
+          width: 37px;
+          height: 37px;
+          border-radius: 11px;
+        }
+
+        .experience-note {
+          font-size: 0.7rem;
+        }
+
+        .education-grid {
+          grid-template-columns: 1fr;
+          gap: 13px;
+        }
+
+        .education-card,
+        .personal-card {
+          padding: 24px 21px;
+          border-radius: 22px;
+        }
+
+        .personal-facts {
+          gap: 9px;
+        }
+
+        .personal-fact {
+          min-height: 85px;
+          padding: 12px;
+        }
+
+        .personal-fact strong {
+          font-size: 0.77rem;
+        }
+
+        .contact-section {
+          padding-bottom: 68px;
+        }
+
+        .contact-panel {
+          grid-template-columns: 1fr;
+          gap: 27px;
+          padding: 28px 22px;
+          border-radius: 25px;
+        }
+
+        .contact-copy h2 {
+          font-size: clamp(1.85rem, 8vw, 2.55rem);
+        }
+
+        .contact-copy p {
+          font-size: 0.85rem;
+        }
+
+        .contact-details {
+          padding-inline-start: 0;
+          border-inline-start: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.17);
+          padding-top: 8px;
+        }
+
+        .contact-detail {
+          gap: 12px;
+          padding-block: 12px;
+        }
+
+        .contact-detail-copy strong,
+        .contact-detail-copy a {
+          font-size: 0.83rem;
+        }
+
+        .footer-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
   <body>
-    <header class="topbar">
-      <div class="container nav">
-        <a href="#home" class="brand">
-          <span class="brand-mark"><i class="fa-solid fa-user-tie"></i></span>
-          <span>محمد أحمد محمد بحور</span>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">تجاوز إلى المحتوى</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="محمد أحمد بحور" data-i18n-aria="brandAria">
+          <span class="brand-mark" aria-hidden="true">MB</span>
+          <span class="brand-copy">
+            <strong data-i18n="brandName">محمد أحمد بحور</strong>
+            <small data-i18n="brandSubtitle">الملف المهني</small>
+          </span>
         </a>
 
-        <nav class="nav-menu" aria-label="القائمة الرئيسية">
-          <a href="#about">نبذة</a>
-          <a href="#skills">المهارات</a>
-          <a href="#services">الخدمات</a>
-          <a href="#experience">الخبرات</a>
-          <a href="#contact">تواصل</a>
+        <nav class="nav-menu" id="site-nav" aria-label="القائمة الرئيسية" data-i18n-aria="navLabel">
+          <a href="#about"><span data-i18n="navAbout">نبذة</span></a>
+          <a href="#skills"><span data-i18n="navSkills">المهارات</span></a>
+          <a href="#experience"><span data-i18n="navExperience">الخبرات</span></a>
+          <a href="#education"><span data-i18n="navEducation">التعليم</span></a>
+          <a href="#contact"><span data-i18n="navContact">التواصل</span></a>
         </nav>
 
-        <a href="#contact" class="nav-btn">تواصل معي</a>
+        <div class="header-tools">
+          <button class="language-switch" id="language-switch" type="button" aria-label="التبديل إلى الإنجليزية">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+            </svg>
+            <span data-i18n="languageSwitch">EN</span>
+          </button>
+          <a class="header-cta" href="#contact">
+            <span data-i18n="headerContact">تواصل معي</span>
+            <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="فتح القائمة" data-i18n-aria="menuToggleLabel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" id="home">
-        <div class="container">
-          <div class="hero-inner">
-            <div class="hero-content">
-              <div class="eyebrow">
-                <i class="fa-solid fa-circle-check"></i>
-                باحث تقني | Technical Researcher
-              </div>
-
-              <h1>
-                محمد أحمد محمد بحور
-                <span class="accent">في مجال البحث العلمي والطب السريري</span>
-              </h1>
-
-              <p>
-                أعمل في مكتب سجل السرطان - المعهد القومي لعلاج الأورام - صبراتة،
-                ليبيا، وبناءً على خبرتي في مجال البحث العلمي والتحليل الطبي، أركز
-                على دعم التوثيق، تحليل البيانات، ومتابعة المؤشرات الصحية بما يساهم
-                في تحسين جودة الرصد والقرار الصحي.
-              </p>
-
-              <div class="cta-row">
-                <a href="#contact" class="btn btn-primary">
-                  <i class="fa-regular fa-paper-plane"></i>
-                  إرسال رسالة
-                </a>
-                <a href="#about" class="btn btn-secondary">
-                  <i class="fa-solid fa-arrow-down"></i>
-                  اكتشف المزيد
-                </a>
-              </div>
-
-              <div class="hero-stats">
-                <div class="stat-box">
-                  <strong>10+</strong>
-                  <span>سنوات خبرة</span>
-                </div>
-                <div class="stat-box">
-                  <strong>Research</strong>
-                  <span>بحث وتقييم</span>
-                </div>
-                <div class="stat-box">
-                  <strong>Data</strong>
-                  <span>تحليل ومتابعة</span>
-                </div>
-              </div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span data-i18n="heroEyebrow">مشرف تقني · الإدارة والدعم التقني</span>
             </div>
-
-            <div class="portrait-card">
-              <div class="portrait-wrap">
-                <img
-                  class="portrait"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
-                  alt="محمد أحمد محمد بحور"
-                />
+            <p class="hero-pretitle" data-i18n="heroPretitle">الملف المهني · ليبيا</p>
+            <h1>
+              <span class="hero-name" data-i18n="heroName">محمد أحمد بحور</span>
+              <span class="hero-statement" data-i18n="heroStatement">إدارة دقيقة. دعم تقني موثوق.</span>
+            </h1>
+            <p class="hero-summary" data-i18n="heroSummary">
+              مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة. أمتلك خبرة إدارية وتقنية متعددة، مع اهتمام بإنجاز العمل بكفاءة ودقة.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">
+                <span data-i18n="heroContact">تواصل معي</span>
+                <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+              <a class="button button-secondary" href="#experience">
+                <span data-i18n="heroExperience">استعرض الخبرات</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 5v14M6 13l6 6 6-6"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="hero-meta" role="group" aria-label="ملخص مهني" data-i18n-aria="heroMetaAria">
+              <div class="hero-meta-item">
+                <span data-i18n="metaRoleLabel">العمل الحالي</span>
+                <strong data-i18n="metaRole">مشرف تقني</strong>
               </div>
-
-              <div class="mini-tag">
-                <div>
-                  <strong>Technical Researcher</strong>
-                  <span>مكتب سجل السرطان</span>
-                </div>
-                <i class="fa-solid fa-award" style="color: white; font-size: 1.4rem;"></i>
+              <div class="hero-meta-item">
+                <span data-i18n="metaEducationLabel">المؤهل</span>
+                <strong data-i18n="metaEducation">بكالوريوس محاسبة</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span data-i18n="metaLocationLabel">مقر الإقامة</span>
+                <strong data-i18n="metaLocation">صبراتة، ليبيا</strong>
               </div>
             </div>
           </div>
+
+          <div class="hero-visual" role="img" aria-label="بطاقة تعريف مهنية" data-i18n-aria="heroVisualAria">
+            <div class="visual-topline">
+              <span data-i18n="profileCard">الملف المهني</span>
+              <span class="visual-code">PROFILE / 01</span>
+            </div>
+            <div class="visual-center" aria-hidden="true">
+              <div class="orbit"><span class="orbit-point"></span></div>
+              <div class="monogram" data-i18n="monogram">م ب</div>
+              <div class="visual-side-note">
+                <span data-i18n="visualLocationLabel">الموقع</span>
+                <strong data-i18n="visualLocation">صبراتة · ليبيا</strong>
+              </div>
+            </div>
+            <div class="visual-bottomline">
+              <strong data-i18n="visualRole">مشرف تقني</strong>
+              <span class="visual-coordinate">SABRATHA · LY</span>
+            </div>
+          </div>
         </div>
+        <a class="scroll-cue" href="#about">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 5v14M6 13l6 6 6-6"></path>
+            </svg>
+          </span>
+          <span data-i18n="scrollCue">اكتشف الملف</span>
+        </a>
       </section>
 
       <section class="section" id="about">
         <div class="container">
-          <div class="title">
-            <span>About Me</span>
-            <h2>نبذة تعريفية</h2>
+          <div class="section-heading">
+            <div class="section-heading-copy">
+              <span class="section-kicker" data-i18n="aboutKicker">نبذة عني</span>
+              <h2 data-i18n="aboutTitle">خبرة متعددة، واهتمام بإنجاز العمل بإتقان.</h2>
+            </div>
+            <p data-i18n="aboutLead">
+              مسيرة مهنية تجمع بين الإدارة والخدمات الصحية والدعم التقني، مع حرص دائم على التنظيم والدقة وسرعة الإنجاز.
+            </p>
           </div>
 
           <div class="about-grid">
-            <div class="glass-card about-card">
-              <p>
-                أنا محمد أحمد محمد بحور، باحث تقني في مكتب سجل السرطان - المعهد
-                القومي لعلاج الأورام - صبراتة، ليبيا. أعمل على ربط البحث العلمي
-                بالواقع العملي في المجال الصحي، مع تركيز خاص على تحليل البيانات،
-                التوثيق، ومتابعة المؤشرات للرفع من جودة الرصد الطبي.
+            <article class="about-story">
+              <p data-i18n="aboutParagraphOne">
+                أنا محمد أحمد بحور، مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة. عملت في أدوار إدارية وتقنية متنوعة ضمن القطاع الصحي والخدمات العامة والضيافة وإدخال البيانات.
               </p>
-
-              <p>
-                أضع الخبرة التقنية في خدمة المرضى والبحث العلمي، بهدف توحيد
-                المعلومة وتطوير أساليب دقيقة وسريعة لدعم القرارات الطبية
-                والإدارية في المؤسسة.
+              <p data-i18n="aboutParagraphTwo">
+                أستفيد من هذا التنوع في تنظيم المهام، مساندة فرق العمل، والتعامل مع الحاسوب والأدوات التقنية بما يساعد على إنجاز الأعمال بكفاءة ودقة.
               </p>
-
-              <div class="info-list">
-                <div class="info-item">
-                  <i class="fa-solid fa-envelope"></i>
-                  <small>البريد الإلكتروني</small>
-                  <strong>mohamed.bahur@gmail.com</strong>
-                </div>
-
-                <div class="info-item">
-                  <i class="fa-solid fa-phone"></i>
-                  <small>رقم الهاتف</small>
-                  <strong>00218918199601</strong>
-                </div>
-
-                <div class="info-item">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <small>الموقع</small>
-                  <strong>ليبيا - صبراتة</strong>
-                </div>
-
-                <div class="info-item">
-                  <i class="fa-solid fa-briefcase"></i>
-                  <small>المسمى الوظيفي</small>
-                  <strong>Technical Researcher</strong>
+              <div class="work-principle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42"></path>
+                  <circle cx="12" cy="12" r="5"></circle>
+                </svg>
+                <div>
+                  <strong data-i18n="principleTitle">أسلوبي في العمل</strong>
+                  <span data-i18n="principleText">أبحث عن الفكرة العملية التي تختصر الوقت دون التفريط في الدقة.</span>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="highlight-box">
-              <h3>خبرات أساسية</h3>
-              <p>
-                استنادًا إلى الخبرة الطبية والبحثية، أُدير البيانات وتوثيقها،
-                وأعمل على تحويلها إلى معلومات قابلة للاستفادة في اتخاذ القرارات
-                العلمية والعملية.
-              </p>
-
-              <div class="mini-grid">
-                <div class="mini-box">
-                  <strong>8+</strong>
-                  <span>سنوات عمل</span>
+            <aside class="about-aside">
+              <div>
+                <span class="aside-label" data-i18n="profileSummaryLabel">ملخص مهني</span>
+                <p class="aside-quote" data-i18n="profileSummaryQuote">إدارة منظمة، دعم تقني، واهتمام بالتفاصيل.</p>
+              </div>
+              <div class="about-stats">
+                <div class="about-stat">
+                  <strong>08</strong>
+                  <span data-i18n="statRoles">أدوار مهنية</span>
                 </div>
-                <div class="mini-box">
-                  <strong>24/7</strong>
-                  <span>التزام</span>
+                <div class="about-stat">
+                  <strong>02</strong>
+                  <span data-i18n="statLanguages">لغتان</span>
                 </div>
-                <div class="mini-box">
-                  <strong>90%</strong>
-                  <span>دقة معلومات</span>
-                </div>
-                <div class="mini-box">
-                  <strong>100%</strong>
-                  <span>التفاني</span>
+                <div class="about-stat">
+                  <strong>01</strong>
+                  <span data-i18n="statDegree">مؤهل جامعي</span>
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section class="section" id="skills">
+      <section class="section skills-section" id="skills">
         <div class="container">
-          <div class="title">
-            <span>Skills</span>
-            <h2>المهارات والخبرات التقنية</h2>
+          <div class="section-heading">
+            <div class="section-heading-copy">
+              <span class="section-kicker" data-i18n="skillsKicker">مجالات التميز</span>
+              <h2 data-i18n="skillsTitle">مهارات تخدم العمل من الفكرة إلى التنفيذ.</h2>
+            </div>
+            <p data-i18n="skillsLead">
+              مزيج عملي من الخبرة الإدارية والمعرفة التقنية والاهتمام بتحسين طريقة إنجاز المهام.
+            </p>
           </div>
 
-          <div class="skills-layout">
-            <div class="skills-panel">
-              <h3>المهارات</h3>
-              <div class="tag-list">
-                <span class="tag"><i class="fa-solid fa-chart-column"></i> تحليل البيانات</span>
-                <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> البحث العلمي</span>
-                <span class="tag"><i class="fa-solid fa-database"></i> إدارة قواعد البيانات</span>
-                <span class="tag"><i class="fa-solid fa-file-lines"></i> إعداد التقارير</span>
-                <span class="tag"><i class="fa-solid fa-table"></i> Excel</span>
-                <span class="tag"><i class="fa-solid fa-user-doctor"></i> دعم القطاع الصحي</span>
-                <span class="tag"><i class="fa-solid fa-chart-pie"></i> المؤشرات الطبية</span>
-                <span class="tag"><i class="fa-solid fa-shield-heart"></i> الرصد الصحي</span>
-                <span class="tag"><i class="fa-solid fa-clipboard-list"></i> التوثيق</span>
-                <span class="tag"><i class="fa-solid fa-briefcase-medical"></i> متابعة الأورام</span>
+          <div class="skills-grid">
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="M8 9h8M8 13h5M8 17h8"></path>
+                  </svg>
+                </span>
+                <span class="skill-number">01</span>
               </div>
-            </div>
+              <h3 data-i18n="skillAdminTitle">الإدارة والتنظيم</h3>
+              <p data-i18n="skillAdminText">خبرة في الأعمال الإدارية وشؤون الموظفين وتنسيق المكاتب وإدارة المخازن.</p>
+            </article>
 
-            <div class="experience-panel" id="experience">
-              <h3>الخبرات المهنية</h3>
-
-              <div class="timeline">
-                <div class="timeline-item">
-                  <div class="dot"></div>
-                  <div class="timeline-box">
-                    <small>2023 - حتى الآن</small>
-                    <h4>باحث تقني</h4>
-                    <p>مكتب سجل السرطان – المعهد القومي لعلاج الأورام – صبراتة.</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="dot"></div>
-                  <div class="timeline-box">
-                    <small>2020 - 2023</small>
-                    <h4>دعم البحوث والتوثيق</h4>
-                    <p>تحليل البيانات، متابعة الملفات الطبية، إعداد تقارير البحث.</p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="dot"></div>
-                  <div class="timeline-box">
-                    <small>2017 - 2020</small>
-                    <h4>رصد ومتابعة المعلومات</h4>
-                    <p>تنظيم السجلات وتدقيق البيانات الصحية وتقديم تقييمات أولية.</p>
-                  </div>
-                </div>
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                    <path d="M8 21h8m-4-4v4m-5-9 3-3 2 2 3-4"></path>
+                  </svg>
+                </span>
+                <span class="skill-number">02</span>
               </div>
-            </div>
+              <h3 data-i18n="skillTechTitle">الدعم التقني</h3>
+              <p data-i18n="skillTechText">إجادة التعامل مع مكونات الحاسوب وبرمجياته، وبرمجيات هواتف أندرويد.</p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 5h16v14H4zM8 9h8M8 13h3m2 0h3M8 16h8"></path>
+                  </svg>
+                </span>
+                <span class="skill-number">03</span>
+              </div>
+              <h3 data-i18n="skillDataTitle">إدخال البيانات والسجلات</h3>
+              <p data-i18n="skillDataText">دقة في إدخال البيانات وتنظيم السجلات ومتابعة التفاصيل اليومية.</p>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-card-top">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3 14 9l6 3-6 2-2 7-2-7-6-2 6-3 2-6Z"></path>
+                    <path d="m19 3 .7 2.3L22 6l-2.3.7L19 9l-.7-2.3L16 6l2.3-.7L19 3Z"></path>
+                  </svg>
+                </span>
+                <span class="skill-number">04</span>
+              </div>
+              <h3 data-i18n="skillEfficiencyTitle">كفاءة الإنجاز</h3>
+              <p data-i18n="skillEfficiencyText">استخلاص الأفكار العملية لتسريع إنجاز المهام بكفاءة ودقة عالية.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="services">
+      <section class="experience-band" id="experience">
         <div class="container">
-          <div class="title">
-            <span>Services</span>
-            <h2>الخدمات</h2>
+          <div class="section-heading">
+            <div class="section-heading-copy">
+              <span class="section-kicker" data-i18n="experienceKicker">المسيرة المهنية</span>
+              <h2 data-i18n="experienceTitle">خبرات في الإدارة والصحة والتقنية.</h2>
+            </div>
+            <p data-i18n="experienceLead">
+              تنقلت بين مؤسسات صحية وخدمية وإدارية، واكتسبت خبرة عملية في بيئات عمل متنوعة.
+            </p>
           </div>
 
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-              <h3>التحليل البحثي</h3>
-              <p>تحليل البيانات وتقييم المعلومات الطبية لتحسين فهم الاتجاهات والأرقام.</p>
-            </div>
+          <div class="experience-grid">
+            <article class="experience-card is-current">
+              <span class="experience-index">01</span>
+              <div>
+                <h3 data-i18n="job1Title">مشرف تقني</h3>
+                <p data-i18n="job1Org">مكتب سجل السرطان · المعهد القومي لعلاج الأورام · صبراتة</p>
+                <div class="experience-meta"><span class="current-label" data-i18n="currentRole">العمل الحالي</span></div>
+              </div>
+            </article>
 
-            <div class="service-card">
-              <div class="service-icon"><i class="fa-solid fa-database"></i></div>
-              <h3>إدارة البيانات</h3>
-              <p>تنظيم السجلات الصحية وتجميعها بطريقة دقيقة وسهلة للمتابعة.</p>
-            </div>
+            <article class="experience-card">
+              <span class="experience-index">02</span>
+              <div>
+                <h3 data-i18n="job2Title">مدير إدارة المخازن (القرطاسية والصيانة)</h3>
+                <p data-i18n="job2Org">المعهد القومي لعلاج الأورام · صبراتة</p>
+              </div>
+            </article>
 
-            <div class="service-card">
-              <div class="service-icon"><i class="fa-solid fa-file-waveform"></i></div>
-              <h3>إعداد التقارير</h3>
-              <p>تحضير تقارير واضحة ومهنية تدعم القرارات والنتائج العلمية.</p>
-            </div>
+            <article class="experience-card">
+              <span class="experience-index">03</span>
+              <div>
+                <h3 data-i18n="job3Title">مدير مكتب شؤون المناطق المكلف</h3>
+                <p data-i18n="job3Org">وزارة أسر الشهداء والمفقودين · النوفليين · طرابلس</p>
+              </div>
+            </article>
 
-            <div class="service-card">
-              <div class="service-icon"><i class="fa-solid fa-user-md"></i></div>
-              <h3>دعم المجال ��لصحي</h3>
-              <p>مساندة الجهود الرصدية والإدارية في المؤسسة الصحية بما يرفع الجودة.</p>
+            <article class="experience-card">
+              <span class="experience-index">04</span>
+              <div>
+                <h3 data-i18n="job4Title">أمين سر مكتب شؤون المناطق</h3>
+                <p data-i18n="job4Org">وزارة أسر الشهداء والمفقودين · النوفليين · طرابلس</p>
+              </div>
+            </article>
+
+            <article class="experience-card">
+              <span class="experience-index">05</span>
+              <div>
+                <h3 data-i18n="job5Title">موظف إداري · مكتب شؤون الموظفين</h3>
+                <p data-i18n="job5Org">إدارة الخدمات الصحية · صبراتة</p>
+              </div>
+            </article>
+
+            <article class="experience-card">
+              <span class="experience-index">06</span>
+              <div>
+                <h3 data-i18n="job6Title">موظف إداري</h3>
+                <p data-i18n="job6Org">مستشفى الخمس التعليمي</p>
+              </div>
+            </article>
+
+            <article class="experience-card">
+              <span class="experience-index">07</span>
+              <div>
+                <h3 data-i18n="job7Title">مدخل بيانات</h3>
+                <p data-i18n="job7Org">شركة نورول التركية</p>
+                <div class="experience-meta"><span data-i18n="oneYear">لمدة سنة</span></div>
+              </div>
+            </article>
+
+            <article class="experience-card">
+              <span class="experience-index">08</span>
+              <div>
+                <h3 data-i18n="job8Title">مشرف الاستعلامات والاستقبال</h3>
+                <p data-i18n="job8Org">فندق الهروج · هون</p>
+                <div class="experience-meta"><span data-i18n="sixMonths">لمدة 6 أشهر</span></div>
+              </div>
+            </article>
+          </div>
+          <p class="experience-note" data-i18n="experienceNote">لم تُذكر سنوات العمل، لذلك لم تتم إضافتها.</p>
+        </div>
+      </section>
+
+      <section class="section education-section" id="education">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-heading-copy">
+              <span class="section-kicker" data-i18n="educationKicker">التعليم والحياة الشخصية</span>
+              <h2 data-i18n="educationTitle">المؤهل واللغات واهتماماتي.</h2>
             </div>
+            <p data-i18n="educationLead">تفاصيل مختصرة تكمل الصورة المهنية والإنسانية.</p>
+          </div>
+
+          <div class="education-grid">
+            <article class="education-card">
+              <span class="education-label" data-i18n="educationLabel">المؤهل العلمي</span>
+              <div class="degree-row">
+                <span class="degree-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m2 9 10-5 10 5-10 5L2 9Z"></path>
+                    <path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 data-i18n="degreeTitle">بكالوريوس في المحاسبة</h3>
+                  <p data-i18n="degreeDescription">درجة البكالوريوس</p>
+                </div>
+              </div>
+              <div class="language-block">
+                <h4 data-i18n="languagesTitle">اللغات</h4>
+                <div class="language-list">
+                  <span class="language-chip" data-i18n="arabicLanguage">العربية</span>
+                  <span class="language-chip" data-i18n="englishLanguage">الإنجليزية</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="personal-card">
+              <h3 data-i18n="personalTitle">نبذة شخصية</h3>
+              <div class="personal-facts">
+                <div class="personal-fact">
+                  <span data-i18n="birthplaceLabel">مكان الميلاد</span>
+                  <strong data-i18n="birthplaceValue">مدينة لبدة الأثرية · الخمس</strong>
+                </div>
+                <div class="personal-fact">
+                  <span data-i18n="residenceLabel">السكن الحالي</span>
+                  <strong data-i18n="residenceValue">صبراتة، ليبيا</strong>
+                </div>
+                <div class="personal-fact">
+                  <span data-i18n="familyLabel">الحالة الاجتماعية</span>
+                  <strong data-i18n="familyValue">متزوج وأب لأربعة أبناء</strong>
+                </div>
+                <div class="personal-fact">
+                  <span data-i18n="familyDetailsLabel">تفاصيل الأسرة</span>
+                  <strong data-i18n="familyDetailsValue">ولدان وبنتان</strong>
+                </div>
+              </div>
+              <div class="hobbies">
+                <h4 data-i18n="hobbiesTitle">الهوايات</h4>
+                <div class="hobby-list">
+                  <span class="hobby-chip" data-i18n="hobbyFootball">كرة القدم</span>
+                  <span class="hobby-chip" data-i18n="hobbyChess">الشطرنج</span>
+                  <span class="hobby-chip" data-i18n="hobbyReading">القراءة</span>
+                  <span class="hobby-chip" data-i18n="hobbyFishing">صيد السمك</span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="contact">
+      <section class="contact-section" id="contact">
         <div class="container">
-          <div class="title">
-            <span>Contact</span>
-            <h2>تواصل معي</h2>
-          </div>
-
-          <div class="contact-wrap">
-            <div class="contact-box">
-              <h3>معلومات التواصل</h3>
-
-              <div class="contact-list">
-                <div class="contact-item">
-                  <i class="fa-solid fa-envelope"></i>
-                  <div>
-                    <strong>البريد الإلكتروني</strong>
-                    <a href="mailto:mohamed.bahur@gmail.com">mohamed.bahur@gmail.com</a>
-                  </div>
-                </div>
-
-                <div class="contact-item">
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <strong>رقم الهاتف</strong>
-                    <a href="tel:00218918199601">00218918199601</a>
-                  </div>
-                </div>
-
-                <div class="contact-item">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <div>
-                    <strong>الموقع</strong>
-                    <span>ليبيا - صبراتة</span>
-                  </div>
-                </div>
-              </div>
+          <div class="contact-panel">
+            <div class="contact-copy">
+              <span class="section-kicker" data-i18n="contactKicker">لنبقَ على تواصل</span>
+              <h2 data-i18n="contactTitle">هل ترغب في التواصل؟ يسعدني أن أسمع منك.</h2>
+              <p data-i18n="contactText">للاستفسارات أو فرص التعاون، يمكن التواصل معي عبر البريد الإلكتروني أو الهاتف.</p>
+              <a class="button" href="mailto:mohamed.bahur@gmail.com">
+                <span data-i18n="emailCta">راسلني بالبريد</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 6h16v12H4z"></path>
+                  <path d="m4 7 8 6 8-6"></path>
+                </svg>
+              </a>
             </div>
 
-            <div class="form-box">
-              <h3>إرسال رسالة</h3>
-
-              <form id="contactForm">
-                <div class="form-grid">
-                  <div class="field">
-                    <label for="name">الاسم</label>
-                    <input id="name" type="text" placeholder="اكتب اسمك الكامل" required />
-                  </div>
-
-                  <div class="field">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input id="email" type="email" placeholder="example@email.com" required />
-                  </div>
-
-                  <div class="field full">
-                    <label for="subject">العنوان</label>
-                    <input id="subject" type="text" placeholder="موضوع الرسالة" required />
-                  </div>
-
-                  <div class="field full">
-                    <label for="message">الرسالة</label>
-                    <textarea id="message" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea>
-                  </div>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <span class="contact-detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="m3 7 9 6 9-6"></path>
+                  </svg>
+                </span>
+                <div class="contact-detail-copy">
+                  <span data-i18n="emailLabel">البريد الإلكتروني</span>
+                  <a class="ltr-content" href="mailto:mohamed.bahur@gmail.com">mohamed.bahur@gmail.com</a>
                 </div>
-
-                <button class="submit-btn" type="submit">
-                  <i class="fa-regular fa-paper-plane"></i>
-                  إرسال الرسالة
-                </button>
-
-                <div class="alert" id="successMessage">
-                  تم إرسال رسالتك بنجاح. سيتم التواصل معك في أقرب وقت.
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.8 2 2 0 0 1 3.1 1.6h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L7 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"></path>
+                  </svg>
+                </span>
+                <div class="contact-detail-copy">
+                  <span data-i18n="phoneLabel">الهاتف</span>
+                  <a class="ltr-content" href="tel:00218918199601">00218 91 819 9601</a>
                 </div>
-              </form>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="2.5"></circle>
+                  </svg>
+                </span>
+                <div class="contact-detail-copy">
+                  <span data-i18n="locationLabel">الموقع</span>
+                  <strong data-i18n="locationValue">صبراتة، ليبيا</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© 2025 محمد أحمد محمد بحور | Technical Researcher</p>
-
-        <div class="socials">
-          <a href="mailto:mohamed.bahur@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-          <a href="tel:00218918199601" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
-          <a href="#home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
-        </div>
+        <p>© <span id="current-year">2026</span> <span data-i18n="footerCopyright">محمد أحمد بحور. جميع الحقوق محفوظة.</span></p>
+        <a class="footer-mark" href="#home" aria-label="العودة إلى الأعلى" data-i18n-aria="backToTopAria">
+          <span>MB</span>
+          <span data-i18n="backToTop">العودة للأعلى ↑</span>
+        </a>
       </div>
     </footer>
 
     <script>
-      const form = document.getElementById("contactForm");
-      const successMessage = document.getElementById("successMessage");
+      const translations = {
+        ar: {
+          pageTitle: "محمد أحمد بحور | الملف المهني",
+          pageDescription: "الملف المهني لمحمد أحمد بحور، مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة.",
+          skipLink: "تجاوز إلى المحتوى",
+          brandName: "محمد أحمد بحور",
+          brandAria: "محمد أحمد بحور",
+          brandSubtitle: "الملف المهني",
+          navLabel: "القائمة الرئيسية",
+          navAbout: "نبذة",
+          navSkills: "المهارات",
+          navExperience: "الخبرات",
+          navEducation: "التعليم",
+          navContact: "التواصل",
+          languageSwitch: "EN",
+          languageButtonLabel: "Switch to English",
+          headerContact: "تواصل معي",
+          menuToggleLabel: "فتح القائمة",
+          heroEyebrow: "مشرف تقني · الإدارة والدعم التقني",
+          heroPretitle: "الملف المهني · ليبيا",
+          heroName: "محمد أحمد بحور",
+          heroStatement: "إدارة دقيقة. دعم تقني موثوق.",
+          heroSummary: "مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة. أمتلك خبرة إدارية وتقنية متعددة، مع اهتمام بإنجاز العمل بكفاءة ودقة.",
+          heroContact: "تواصل معي",
+          heroExperience: "استعرض الخبرات",
+          metaRoleLabel: "العمل الحالي",
+          metaRole: "مشرف تقني",
+          metaEducationLabel: "المؤهل",
+          metaEducation: "بكالوريوس محاسبة",
+          metaLocationLabel: "مقر الإقامة",
+          metaLocation: "صبراتة، ليبيا",
+          heroMetaAria: "ملخص مهني",
+          heroVisualAria: "بطاقة تعريف مهنية",
+          profileCard: "الملف المهني",
+          monogram: "م ب",
+          visualLocationLabel: "الموقع",
+          visualLocation: "صبراتة · ليبيا",
+          visualRole: "مشرف تقني",
+          scrollCue: "اكتشف الملف",
+          aboutKicker: "نبذة عني",
+          aboutTitle: "خبرة متعددة، واهتمام بإنجاز العمل بإتقان.",
+          aboutLead: "مسيرة مهنية تجمع بين الإدارة والخدمات الصحية والدعم التقني، مع حرص دائم على التنظيم والدقة وسرعة الإنجاز.",
+          aboutParagraphOne: "أنا محمد أحمد بحور، مشرف تقني في مكتب سجل السرطان بالمعهد القومي لعلاج الأورام في صبراتة. عملت في أدوار إدارية وتقنية متنوعة ضمن القطاع الصحي والخدمات العامة والضيافة وإدخال البيانات.",
+          aboutParagraphTwo: "أستفيد من هذا التنوع في تنظيم المهام، مساندة فرق العمل، والتعامل مع الحاسوب والأدوات التقنية بما يساعد على إنجاز الأعمال بكفاءة ودقة.",
+          principleTitle: "أسلوبي في العمل",
+          principleText: "أبحث عن الفكرة العملية التي تختصر الوقت دون التفريط في الدقة.",
+          profileSummaryLabel: "ملخص مهني",
+          profileSummaryQuote: "إدارة منظمة، دعم تقني، واهتمام بالتفاصيل.",
+          statRoles: "أدوار مهنية",
+          statLanguages: "لغتان",
+          statDegree: "مؤهل جامعي",
+          skillsKicker: "مجالات التميز",
+          skillsTitle: "مهارات تخدم العمل من الفكرة إلى التنفيذ.",
+          skillsLead: "مزيج عملي من الخبرة الإدارية والمعرفة التقنية والاهتمام بتحسين طريقة إنجاز المهام.",
+          skillAdminTitle: "الإدارة والتنظيم",
+          skillAdminText: "خبرة في الأعمال الإدارية وشؤون الموظفين وتنسيق المكاتب وإدارة المخازن.",
+          skillTechTitle: "الدعم التقني",
+          skillTechText: "إجادة التعامل مع مكونات الحاسوب وبرمجياته، وبرمجيات هواتف أندرويد.",
+          skillDataTitle: "إدخال البيانات والسجلات",
+          skillDataText: "دقة في إدخال البيانات وتنظيم السجلات ومتابعة التفاصيل اليومية.",
+          skillEfficiencyTitle: "كفاءة الإنجاز",
+          skillEfficiencyText: "استخلاص الأفكار العملية لتسريع إنجاز المهام بكفاءة ودقة عالية.",
+          experienceKicker: "المسيرة المهنية",
+          experienceTitle: "خبرات في الإدارة والصحة والتقنية.",
+          experienceLead: "تنقلت بين مؤسسات صحية وخدمية وإدارية، واكتسبت خبرة عملية في بيئات عمل متنوعة.",
+          job1Title: "مشرف تقني",
+          job1Org: "مكتب سجل السرطان · المعهد القومي لعلاج الأورام · صبراتة",
+          currentRole: "العمل الحالي",
+          job2Title: "مدير إدارة المخازن (القرطاسية والصيانة)",
+          job2Org: "المعهد القومي لعلاج الأورام · صبراتة",
+          job3Title: "مدير مكتب شؤون المناطق المكلف",
+          job3Org: "وزارة أسر الشهداء والمفقودين · النوفليين · طرابلس",
+          job4Title: "أمين سر مكتب شؤون المناطق",
+          job4Org: "وزارة أسر الشهداء والمفقودين · النوفليين · طرابلس",
+          job5Title: "موظف إداري · مكتب شؤون الموظفين",
+          job5Org: "إدارة الخدمات الصحية · صبراتة",
+          job6Title: "موظف إداري",
+          job6Org: "مستشفى الخمس التعليمي",
+          job7Title: "مدخل بيانات",
+          job7Org: "شركة نورول التركية · مع مهندس مدني",
+          oneYear: "لمدة سنة",
+          job8Title: "مشرف الاستعلامات والاستقبال",
+          job8Org: "فندق الهروج · هون",
+          sixMonths: "لمدة 6 أشهر",
+          experienceNote: "لم تُذكر سنوات العمل، لذلك لم تتم إضافتها.",
+          educationKicker: "التعليم والحياة الشخصية",
+          educationTitle: "المؤهل واللغات واهتماماتي.",
+          educationLead: "تفاصيل مختصرة تكمل الصورة المهنية والإنسانية.",
+          educationLabel: "المؤهل العلمي",
+          degreeTitle: "بكالوريوس في المحاسبة",
+          degreeDescription: "درجة البكالوريوس",
+          languagesTitle: "اللغات",
+          arabicLanguage: "العربية",
+          englishLanguage: "الإنجليزية",
+          personalTitle: "نبذة شخصية",
+          birthplaceLabel: "مكان الميلاد",
+          birthplaceValue: "مدينة لبدة الأثرية · الخمس",
+          residenceLabel: "السكن الحالي",
+          residenceValue: "صبراتة، ليبيا",
+          familyLabel: "الحالة الاجتماعية",
+          familyValue: "متزوج وأب لأربعة أبناء",
+          familyDetailsLabel: "تفاصيل الأسرة",
+          familyDetailsValue: "ولدان وبنتان",
+          hobbiesTitle: "الهوايات",
+          hobbyFootball: "كرة القدم",
+          hobbyChess: "الشطرنج",
+          hobbyReading: "القراءة",
+          hobbyFishing: "صيد السمك",
+          contactKicker: "لنبقَ على تواصل",
+          contactTitle: "هل ترغب في التواصل؟ يسعدني أن أسمع منك.",
+          contactText: "للاستفسارات أو فرص التعاون، يمكن التواصل معي عبر البريد الإلكتروني أو الهاتف.",
+          emailCta: "راسلني بالبريد",
+          emailLabel: "البريد الإلكتروني",
+          phoneLabel: "الهاتف",
+          locationLabel: "الموقع",
+          locationValue: "صبراتة، ليبيا",
+          footerCopyright: "محمد أحمد بحور. جميع الحقوق محفوظة.",
+          backToTop: "العودة للأعلى ↑",
+          backToTopAria: "العودة إلى الأعلى"
+        },
+        en: {
+          pageTitle: "Mohamed Ahmed Bahour | Professional Profile",
+          pageDescription: "Professional portfolio of Mohamed Ahmed Bahour, Technical Supervisor at the Cancer Registry Office, National Cancer Institute for Oncology Treatment, Sabratha.",
+          skipLink: "Skip to content",
+          brandName: "Mohamed Ahmed Bahour",
+          brandAria: "Mohamed Ahmed Bahour",
+          brandSubtitle: "Professional profile",
+          navLabel: "Main navigation",
+          navAbout: "About",
+          navSkills: "Skills",
+          navExperience: "Experience",
+          navEducation: "Education",
+          navContact: "Contact",
+          languageSwitch: "عربي",
+          languageButtonLabel: "التبديل إلى العربية",
+          headerContact: "Get in touch",
+          menuToggleLabel: "Open menu",
+          heroEyebrow: "Technical Supervisor · Administration & IT",
+          heroPretitle: "Professional profile · Libya",
+          heroName: "Mohamed Ahmed Bahour",
+          heroStatement: "Thoughtful administration. Reliable tech support.",
+          heroSummary: "Technical Supervisor at the Cancer Registry Office of the National Cancer Institute for Oncology Treatment in Sabratha. I bring broad administrative and technical experience, with a focus on efficient, accurate work.",
+          heroContact: "Get in touch",
+          heroExperience: "View experience",
+          metaRoleLabel: "Current role",
+          metaRole: "Technical Supervisor",
+          metaEducationLabel: "Education",
+          metaEducation: "BSc in Accounting",
+          metaLocationLabel: "Based in",
+          metaLocation: "Sabratha, Libya",
+          heroMetaAria: "Professional summary",
+          heroVisualAria: "Professional profile card",
+          profileCard: "PROFESSIONAL PROFILE",
+          monogram: "M B",
+          visualLocationLabel: "BASED IN",
+          visualLocation: "SABRATHA · LIBYA",
+          visualRole: "Technical Supervisor",
+          scrollCue: "Explore profile",
+          aboutKicker: "A little about me",
+          aboutTitle: "A varied career, with care in every detail.",
+          aboutLead: "A professional background spanning administration, healthcare, and technical support—with a consistent focus on organization, accuracy, and getting things done.",
+          aboutParagraphOne: "I’m Mohamed Ahmed Bahour, Technical Supervisor at the Cancer Registry Office of the National Cancer Institute for Oncology Treatment in Sabratha. My experience includes administrative and technical roles across healthcare, public services, hospitality, and data entry.",
+          aboutParagraphTwo: "I draw on this range of experience to organize tasks, support teams, and use computers and available technology to complete work efficiently and accurately.",
+          principleTitle: "How I work",
+          principleText: "I look for practical ideas that save time without compromising accuracy.",
+          profileSummaryLabel: "PROFESSIONAL SUMMARY",
+          profileSummaryQuote: "Organized administration, dependable tech support, and an eye for detail.",
+          statRoles: "career roles",
+          statLanguages: "languages",
+          statDegree: "degree",
+          skillsKicker: "Areas of strength",
+          skillsTitle: "Skills that carry work from idea to execution.",
+          skillsLead: "A practical mix of administrative experience, technical knowledge, and a drive to improve how work gets done.",
+          skillAdminTitle: "Administration & organization",
+          skillAdminText: "Experience in administrative work, personnel affairs, office coordination, and warehouse management.",
+          skillTechTitle: "Technical support",
+          skillTechText: "Confident with computer hardware and software, as well as Android phone software.",
+          skillDataTitle: "Data entry & records",
+          skillDataText: "Careful data entry, record organization, and attention to day-to-day details.",
+          skillEfficiencyTitle: "Efficient execution",
+          skillEfficiencyText: "Identifying practical ideas to complete tasks faster, efficiently, and accurately.",
+          experienceKicker: "Career journey",
+          experienceTitle: "Experience across administration, healthcare, and technology.",
+          experienceLead: "I have worked across healthcare, public service, and administrative organizations, building hands-on experience in varied environments.",
+          job1Title: "Technical Supervisor",
+          job1Org: "Cancer Registry Office · National Cancer Institute for Oncology Treatment · Sabratha",
+          currentRole: "Current role",
+          job2Title: "Warehouse Department Manager (Stationery & Maintenance)",
+          job2Org: "National Cancer Institute for Oncology Treatment · Sabratha",
+          job3Title: "Acting Director, Regional Affairs Office",
+          job3Org: "Ministry of Families of Martyrs and Missing Persons · Al-Nufliyyin · Tripoli",
+          job4Title: "Secretary, Regional Affairs Office",
+          job4Org: "Ministry of Families of Martyrs and Missing Persons · Al-Nufliyyin · Tripoli",
+          job5Title: "Administrative Officer · Personnel Affairs Office",
+          job5Org: "Health Services Administration · Sabratha",
+          job6Title: "Administrative Officer",
+          job6Org: "Al Khums Teaching Hospital",
+          job7Title: "Data Entry Clerk",
+          job7Org: "Turkish Nurol Company · supporting a civil engineer",
+          oneYear: "1 year",
+          job8Title: "Reception & Inquiries Supervisor",
+          job8Org: "Al-Hurooj Hotel · Hun",
+          sixMonths: "6 months",
+          experienceNote: "Employment dates are omitted because they were not provided.",
+          educationKicker: "Education & life",
+          educationTitle: "Education, languages, and interests.",
+          educationLead: "A few personal details that complete the professional picture.",
+          educationLabel: "EDUCATION",
+          degreeTitle: "Bachelor’s degree in Accounting",
+          degreeDescription: "Bachelor’s degree",
+          languagesTitle: "Languages",
+          arabicLanguage: "Arabic",
+          englishLanguage: "English",
+          personalTitle: "Personal details",
+          birthplaceLabel: "Born in",
+          birthplaceValue: "Ancient Leptis Magna · Al Khums",
+          residenceLabel: "Currently based",
+          residenceValue: "Sabratha, Libya",
+          familyLabel: "Family",
+          familyValue: "Married, father of four",
+          familyDetailsLabel: "Family details",
+          familyDetailsValue: "Two sons and two daughters",
+          hobbiesTitle: "Outside work",
+          hobbyFootball: "Football",
+          hobbyChess: "Chess",
+          hobbyReading: "Reading",
+          hobbyFishing: "Fishing",
+          contactKicker: "Let’s connect",
+          contactTitle: "Would you like to get in touch? I’d be glad to hear from you.",
+          contactText: "For inquiries or opportunities to collaborate, you can reach me by email or phone.",
+          emailCta: "Send me an email",
+          emailLabel: "Email",
+          phoneLabel: "Phone",
+          locationLabel: "Location",
+          locationValue: "Sabratha, Libya",
+          footerCopyright: "Mohamed Ahmed Bahour. All rights reserved.",
+          backToTop: "Back to top ↑",
+          backToTopAria: "Back to top"
+        }
+      };
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+      const languageButton = document.getElementById("language-switch");
+      const menuButton = document.getElementById("menu-toggle");
+      const navigation = document.getElementById("site-nav");
+      const pageDescription = document.querySelector('meta[name="description"]');
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
+      function setLanguage(language) {
+        const content = translations[language] || translations.ar;
+        const selectedLanguage = translations[language] ? language : "ar";
 
-        if (!name || !email || !subject || !message) return;
+        document.documentElement.lang = selectedLanguage;
+        document.documentElement.dir = selectedLanguage === "ar" ? "rtl" : "ltr";
+        document.title = content.pageTitle;
+        pageDescription.setAttribute("content", content.pageDescription);
+        languageButton.setAttribute("aria-label", content.languageButtonLabel);
 
-        const mailtoLink =
-          "mailto:mohamed.bahur@gmail.com" +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          encodeURIComponent(
-            "الاسم: " +
-              name +
-              "\n" +
-              "البريد الإلكتروني: " +
-              email +
-              "\n\n" +
-              "الرسالة:\n" +
-              message
-          );
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (content[key] !== undefined) element.textContent = content[key];
+        });
 
-        window.location.href = mailtoLink;
+        document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+          const key = element.getAttribute("data-i18n-aria");
+          if (content[key] !== undefined) element.setAttribute("aria-label", content[key]);
+        });
 
-        form.reset();
-        successMessage.classList.add("show");
+        try {
+          window.localStorage.setItem("portfolio-language", selectedLanguage);
+        } catch (error) {
+          // The language switch still works when storage is unavailable.
+        }
+      }
 
-        setTimeout(() => {
-          successMessage.classList.remove("show");
-        }, 4000);
+      languageButton.addEventListener("click", () => {
+        setLanguage(document.documentElement.lang === "ar" ? "en" : "ar");
       });
+
+      menuButton.addEventListener("click", () => {
+        const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isExpanded));
+        navigation.classList.toggle("is-open", !isExpanded);
+      });
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navigation.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          navigation.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      try {
+        const savedLanguage = window.localStorage.getItem("portfolio-language");
+        if (savedLanguage === "en" || savedLanguage === "ar") setLanguage(savedLanguage);
+      } catch (error) {
+        // Keep Arabic as the default when storage is unavailable.
+      }
     </script>
   </body>
 </html>
