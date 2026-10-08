@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محمد أحمد محمد بحور | Technical Researcher</title>
+    <meta
+      name="description"
+      content="Portfolio Website for Mohamed Ahmed Mohammed Bahour, Technical Researcher in Cancer Registry Office, National Cancer Institute, Sabratha, Libya"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #0b2e4d;
+        --primary-2: #184d8e;
+        --accent: #61b7ff;
+        --bg: #f5f8fc;
+        --card: #ffffff;
+        --text: #1a2433;
+        --muted: #5d6b7a;
+        --line: rgba(19, 42, 71, 0.08);
+        --shadow: 0 30px 70px rgba(11, 46, 77, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Cairo", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 95px 0;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .title span {
+        display: inline-block;
+        padding: 9px 18px;
+        border-radius: 999px;
+        background: rgba(97, 183, 255, 0.12);
+        color: var(--primary-2);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .title h2 {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(16px);
+        background: rgba(245, 248, 252, 0.8);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        color: var(--text);
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: white;
+        box-shadow: 0 14px 26px rgba(17, 52, 90, 0.2);
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+
+      .nav-menu a {
+        color: var(--text);
+        font-weight: 600;
+        transition: 0.2s ease;
+      }
+
+      .nav-menu a:hover {
+        color: var(--primary-2);
+      }
+
+      .nav-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 18px 35px rgba(24, 77, 142, 0.25);
+      }
+
+      .hero {
+        position: relative;
+        background:
+          linear-gradient(135deg, rgba(9, 24, 39, 0.82), rgba(18, 62, 104, 0.78)),
+          url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80")
+            center/cover no-repeat;
+        min-height: 680px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 50px;
+        padding: 60px 0 50px;
+      }
+
+      .hero-content {
+        color: white;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 10px 18px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+        font-weight: 700;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.7rem, 4vw, 5rem);
+        line-height: 1.12;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 .accent {
+        color: #cfe9ff;
+      }
+
+      .hero p {
+        max-width: 700px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.08rem;
+        margin-bottom: 28px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 0 24px;
+        border-radius: 14px;
+        font-weight: 700;
+        transition: 0.25s ease;
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--primary);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .stat-box {
+        min-width: 155px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 16px 18px;
+      }
+
+      .stat-box strong {
+        display: block;
+        font-size: 1.55rem;
+      }
+
+      .stat-box span {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .portrait-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
+      }
+
+      .portrait-wrap {
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .portrait {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .mini-tag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-top: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 12px 14px;
+        border-radius: 16px;
+      }
+
+      .mini-tag strong {
+        color: white;
+      }
+
+      .mini-tag span {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.8rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 38px;
+        align-items: center;
+      }
+
+      .glass-card {
+        background: white;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
+        padding: 30px;
+      }
+
+      .about-card p {
+        color: var(--muted);
+        font-size: 1.03rem;
+        margin-bottom: 14px;
+      }
+
+      .info-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .info-item {
+        background: #f7faff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px 16px;
+      }
+
+      .info-item i {
+        color: var(--primary-2);
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+      }
+
+      .info-item small {
+        display: block;
+        color: var(--muted);
+      }
+
+      .info-item strong {
+        color: var(--text);
+        font-size: 0.98rem;
+      }
+
+      .highlight-box {
+        background: linear-gradient(140deg, var(--primary), var(--primary-2));
+        color: white;
+        border-radius: 28px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+      }
+
+      .highlight-box h3 {
+        font-size: 2rem;
+        margin-bottom: 18px;
+      }
+
+      .highlight-box p {
+        color: rgba(255, 255, 255, 0.82);
+        margin-bottom: 20px;
+      }
+
+      .mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .mini-box {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 20px 18px;
+      }
+
+      .mini-box strong {
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+      }
+
+      .skills-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .skills-panel,
+      .experience-panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 30px;
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
+      }
+
+      .skills-panel h3,
+      .experience-panel h3 {
+        margin-bottom: 18px;
+        font-size: 1.7rem;
+        color: var(--text);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 14px;
+        border-radius: 12px;
+        background: #f3f8ff;
+        border: 1px solid rgba(24, 77, 142, 0.08);
+        color: var(--primary-2);
+        font-weight: 700;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 14px;
+      }
+
+      .dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 0 0 6px rgba(97, 183, 255, 0.12);
+        margin-top: 10px;
+      }
+
+      .timeline-box {
+        background: #f8fbff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px 18px;
+      }
+
+      .timeline-box small {
+        color: var(--primary-2);
+        font-weight: 700;
+      }
+
+      .timeline-box h4 {
+        margin: 5px 0 6px;
+        font-size: 1.15rem;
+      }
+
+      .timeline-box p {
+        color: var(--muted);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .service-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 28px 22px;
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
+        transition: 0.25s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 28px 50px rgba(16, 37, 66, 0.09);
+      }
+
+      .service-icon {
+        width: 62px;
+        height: 62px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(11, 46, 77, 0.08), rgba(97, 183, 255, 0.16));
+        color: var(--primary-2);
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+      }
+
+      .service-card h3 {
+        color: var(--text);
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        color: var(--muted);
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 32px;
+      }
+
+      .contact-box,
+      .form-box {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 30px;
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.04);
+      }
+
+      .contact-box h3,
+      .form-box h3 {
+        margin-bottom: 22px;
+        font-size: 1.7rem;
+      }
+
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .contact-item:last-child {
+        border-bottom: none;
+      }
+
+      .contact-item i {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(11, 46, 77, 0.06), rgba(97, 183, 255, 0.14));
+        color: var(--primary-2);
+      }
+
+      .contact-item strong {
+        display: block;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+
+      .contact-item a,
+      .contact-item span {
+        color: var(--muted);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .field input,
+      .field textarea {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        font: inherit;
+        background: #f9fbff;
+        color: var(--text);
+        width: 100%;
+        resize: vertical;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: rgba(24, 77, 142, 0.35);
+        box-shadow: 0 0 0 4px rgba(97, 183, 255, 0.12);
+      }
+
+      .submit-btn {
+        margin-top: 18px;
+        border: 0;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: white;
+        min-height: 54px;
+        padding: 0 22px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 16px 30px rgba(24, 77, 142, 0.25);
+      }
+
+      .alert {
+        display: none;
+        margin-top: 16px;
+        background: rgba(40, 167, 69, 0.08);
+        color: #216b39;
+        border: 1px solid rgba(40, 167, 69, 0.18);
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-weight: 600;
+      }
+
+      .alert.show {
+        display: block;
+      }
+
+      footer {
+        background: #0c1726;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 22px 0;
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .socials {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .socials a {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: white;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      @media (max-width: 980px) {
+        .hero-inner,
+        .about-grid,
+        .skills-layout,
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .nav {
+          flex-direction: column;
+          justify-content: center;
+          padding: 18px 0;
+        }
+
+        .nav-menu {
+          justify-content: center;
+        }
+
+        .services-grid,
+        .info-list,
+        .form-grid,
+        .mini-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: 600px;
+        }
+
+        .hero h1 {
+          font-size: 2.7rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+        }
+
+        .section {
+          padding: 78px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#home" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-user-tie"></i></span>
+          <span>محمد أحمد محمد بحور</span>
+        </a>
+
+        <nav class="nav-menu" aria-label="القائمة الرئيسية">
+          <a href="#about">نبذة</a>
+          <a href="#skills">المهارات</a>
+          <a href="#services">الخدمات</a>
+          <a href="#experience">الخبرات</a>
+          <a href="#contact">تواصل</a>
+        </nav>
+
+        <a href="#contact" class="nav-btn">تواصل معي</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="eyebrow">
+                <i class="fa-solid fa-circle-check"></i>
+                باحث تقني | Technical Researcher
+              </div>
+
+              <h1>
+                محمد أحمد محمد بحور
+                <span class="accent">في مجال البحث العلمي والطب السريري</span>
+              </h1>
+
+              <p>
+                أعمل في مكتب سجل السرطان - المعهد القومي لعلاج الأورام - صبراتة،
+                ليبيا، وبناءً على خبرتي في مجال البحث العلمي والتحليل الطبي، أركز
+                على دعم التوثيق، تحليل البيانات، ومتابعة المؤشرات الصحية بما يساهم
+                في تحسين جودة الرصد والقرار الصحي.
+              </p>
+
+              <div class="cta-row">
+                <a href="#contact" class="btn btn-primary">
+                  <i class="fa-regular fa-paper-plane"></i>
+                  إرسال رسالة
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                  <i class="fa-solid fa-arrow-down"></i>
+                  اكتشف المزيد
+                </a>
+              </div>
+
+              <div class="hero-stats">
+                <div class="stat-box">
+                  <strong>10+</strong>
+                  <span>سنوات خبرة</span>
+                </div>
+                <div class="stat-box">
+                  <strong>Research</strong>
+                  <span>بحث وتقييم</span>
+                </div>
+                <div class="stat-box">
+                  <strong>Data</strong>
+                  <span>تحليل ومتابعة</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portrait-card">
+              <div class="portrait-wrap">
+                <img
+                  class="portrait"
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+                  alt="محمد أحمد محمد بحور"
+                />
+              </div>
+
+              <div class="mini-tag">
+                <div>
+                  <strong>Technical Researcher</strong>
+                  <span>مكتب سجل السرطان</span>
+                </div>
+                <i class="fa-solid fa-award" style="color: white; font-size: 1.4rem;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="title">
+            <span>About Me</span>
+            <h2>نبذة تعريفية</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="glass-card about-card">
+              <p>
+                أنا محمد أحمد محمد بحور، باحث تقني في مكتب سجل السرطان - المعهد
+                القومي لعلاج الأورام - صبراتة، ليبيا. أعمل على ربط البحث العلمي
+                بالواقع العملي في المجال الصحي، مع تركيز خاص على تحليل البيانات،
+                التوثيق، ومتابعة المؤشرات للرفع من جودة الرصد الطبي.
+              </p>
+
+              <p>
+                أضع الخبرة التقنية في خدمة المرضى والبحث العلمي، بهدف توحيد
+                المعلومة وتطوير أساليب دقيقة وسريعة لدعم القرارات الطبية
+                والإدارية في المؤسسة.
+              </p>
+
+              <div class="info-list">
+                <div class="info-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <small>البريد الإلكتروني</small>
+                  <strong>mohamed.bahur@gmail.com</strong>
+                </div>
+
+                <div class="info-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <small>رقم الهاتف</small>
+                  <strong>00218918199601</strong>
+                </div>
+
+                <div class="info-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <small>الموقع</small>
+                  <strong>ليبيا - صبراتة</strong>
+                </div>
+
+                <div class="info-item">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <small>المسمى الوظيفي</small>
+                  <strong>Technical Researcher</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <h3>خبرات أساسية</h3>
+              <p>
+                استنادًا إلى الخبرة الطبية والبحثية، أُدير البيانات وتوثيقها،
+                وأعمل على تحويلها إلى معلومات قابلة للاستفادة في اتخاذ القرارات
+                العلمية والعملية.
+              </p>
+
+              <div class="mini-grid">
+                <div class="mini-box">
+                  <strong>8+</strong>
+                  <span>سنوات عمل</span>
+                </div>
+                <div class="mini-box">
+                  <strong>24/7</strong>
+                  <span>التزام</span>
+                </div>
+                <div class="mini-box">
+                  <strong>90%</strong>
+                  <span>دقة معلومات</span>
+                </div>
+                <div class="mini-box">
+                  <strong>100%</strong>
+                  <span>التفاني</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="title">
+            <span>Skills</span>
+            <h2>المهارات والخبرات التقنية</h2>
+          </div>
+
+          <div class="skills-layout">
+            <div class="skills-panel">
+              <h3>المهارات</h3>
+              <div class="tag-list">
+                <span class="tag"><i class="fa-solid fa-chart-column"></i> تحليل البيانات</span>
+                <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> البحث العلمي</span>
+                <span class="tag"><i class="fa-solid fa-database"></i> إدارة قواعد البيانات</span>
+                <span class="tag"><i class="fa-solid fa-file-lines"></i> إعداد التقارير</span>
+                <span class="tag"><i class="fa-solid fa-table"></i> Excel</span>
+                <span class="tag"><i class="fa-solid fa-user-doctor"></i> دعم القطاع الصحي</span>
+                <span class="tag"><i class="fa-solid fa-chart-pie"></i> المؤشرات الطبية</span>
+                <span class="tag"><i class="fa-solid fa-shield-heart"></i> الرصد الصحي</span>
+                <span class="tag"><i class="fa-solid fa-clipboard-list"></i> التوثيق</span>
+                <span class="tag"><i class="fa-solid fa-briefcase-medical"></i> متابعة الأورام</span>
+              </div>
+            </div>
+
+            <div class="experience-panel" id="experience">
+              <h3>الخبرات المهنية</h3>
+
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="timeline-box">
+                    <small>2023 - حتى الآن</small>
+                    <h4>باحث تقني</h4>
+                    <p>مكتب سجل السرطان – المعهد القومي لعلاج الأورام – صبراتة.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="timeline-box">
+                    <small>2020 - 2023</small>
+                    <h4>دعم البحوث والتوثيق</h4>
+                    <p>تحليل البيانات، متابعة الملفات الطبية، إعداد تقارير البحث.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot"></div>
+                  <div class="timeline-box">
+                    <small>2017 - 2020</small>
+                    <h4>رصد ومتابعة المعلومات</h4>
+                    <p>تنظيم السجلات وتدقيق البيانات الصحية وتقديم تقييمات أولية.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="title">
+            <span>Services</span>
+            <h2>الخدمات</h2>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <h3>التحليل البحثي</h3>
+              <p>تحليل البيانات وتقييم المعلومات الطبية لتحسين فهم الاتجاهات والأرقام.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+              <h3>إدارة البيانات</h3>
+              <p>تنظيم السجلات الصحية وتجميعها بطريقة دقيقة وسهلة للمتابعة.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-file-waveform"></i></div>
+              <h3>إعداد التقارير</h3>
+              <p>تحضير تقارير واضحة ومهنية تدعم القرارات والنتائج العلمية.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fa-solid fa-user-md"></i></div>
+              <h3>دعم المجال ��لصحي</h3>
+              <p>مساندة الجهود الرصدية والإدارية في المؤسسة الصحية بما يرفع الجودة.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="title">
+            <span>Contact</span>
+            <h2>تواصل معي</h2>
+          </div>
+
+          <div class="contact-wrap">
+            <div class="contact-box">
+              <h3>معلومات التواصل</h3>
+
+              <div class="contact-list">
+                <div class="contact-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div>
+                    <strong>البريد الإلكتروني</strong>
+                    <a href="mailto:mohamed.bahur@gmail.com">mohamed.bahur@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <div>
+                    <strong>رقم الهاتف</strong>
+                    <a href="tel:00218918199601">00218918199601</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <strong>الموقع</strong>
+                    <span>ليبيا - صبراتة</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <h3>إرسال رسالة</h3>
+
+              <form id="contactForm">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="name">الاسم</label>
+                    <input id="name" type="text" placeholder="اكتب اسمك الكامل" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input id="email" type="email" placeholder="example@email.com" required />
+                  </div>
+
+                  <div class="field full">
+                    <label for="subject">العنوان</label>
+                    <input id="subject" type="text" placeholder="موضوع الرسالة" required />
+                  </div>
+
+                  <div class="field full">
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea>
+                  </div>
+                </div>
+
+                <button class="submit-btn" type="submit">
+                  <i class="fa-regular fa-paper-plane"></i>
+                  إرسال الرسالة
+                </button>
+
+                <div class="alert" id="successMessage">
+                  تم إرسال رسالتك بنجاح. سيتم التواصل معك في أقرب وقت.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <p>© 2025 محمد أحمد محمد بحور | Technical Researcher</p>
+
+        <div class="socials">
+          <a href="mailto:mohamed.bahur@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="tel:00218918199601" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+          <a href="#home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !subject || !message) return;
+
+        const mailtoLink =
+          "mailto:mohamed.bahur@gmail.com" +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(
+            "الاسم: " +
+              name +
+              "\n" +
+              "البريد الإلكتروني: " +
+              email +
+              "\n\n" +
+              "الرسالة:\n" +
+              message
+          );
+
+        window.location.href = mailtoLink;
+
+        form.reset();
+        successMessage.classList.add("show");
+
+        setTimeout(() => {
+          successMessage.classList.remove("show");
+        }, 4000);
+      });
+    </script>
+  </body>
+</html>
