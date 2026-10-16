@@ -169,7 +169,7 @@ python3 cli.py process "D:\مسح_2026"
 
 ```bash
 python3 cli.py process المجلد/ -v                 # تفصيل كل حقل مستخرج ودليله
-python3 cli.py process المجلد/ --excel            # يصدر Excel فوراً بعد المعالجة
+python3 cli.py process المجلد/ --excel "storage/exports/سجل_2026.xlsx"  # حدّد مسار ملف Excel
 python3 cli.py process المجلد/ --engine tesseract # فرض محرك معين
 python3 cli.py process المجلد/ --facility "مستشفى صبراتة التعليمي"
 ```
