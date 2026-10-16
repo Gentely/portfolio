@@ -58,6 +58,24 @@ python3 -m http.server 8000
 # ثم افتح http://localhost:8000
 ```
 
+## صفحة الهبوط لمنتج «جوهرة»
+
+`landing/index.html` — صفحة هبوط ثابتة (بدون build وبدون قاعدة بيانات) لمنتج رقمي:
+حزمة تدقيق البيانات للباحثين.
+
+```bash
+python3 -m http.server 8000
+# ثم افتح http://localhost:8000/landing/
+```
+
+قبل النشر استبدل الروابط المؤقتة (ابحث في الملف عن `رابط-يُستبدل`):
+
+1. روابط الشراء في قسم الأسعار (خمسات / Payhip).
+2. رقم الواتساب والبريد الإلكتروني في الفوتر.
+3. (اختياري) كود Google Analytics أو Cloudflare Web Analytics لمتابعة الزيارات.
+
+الدومين المجاني بعد تفعيل Pages: `https://Gentely.github.io/portfolio/landing/`
+
 ## النشر على GitHub Pages
 
 الريبو ده **مش مفعّل** عليه Pages لحد الآن. لتفعيله:
