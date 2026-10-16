@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_extract_wizard_form" model="ir.ui.view">
+        <field name="name">cancer.registry.extract.wizard.form</field>
+        <field name="model">cancer.registry.extract.wizard</field>
+        <field name="arch" type="xml">
+            <form string="استخراج الحقول من نص">
+                <field name="step" invisible="1"/>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>استخراج الحقول من نص</h1>
+                        <h2 class="text-muted">
+                            <field name="case_id" readonly="1" nolabel="1"/>
+                            <span> • </span>
+                            <field name="registry_no" readonly="1" nolabel="1"/>
+                        </h2>
+                    </div>
+
+                    <group invisible="step != 'input'">
+                        <group string="خيارات القراءة">
+                            <field name="lang"/>
+                            <field name="engine_pref"/>
+                            <field name="overwrite" widget="boolean_toggle"/>
+                            <field name="attach_to_document" widget="boolean_toggle"/>
+                        </group>
+                        <group string="مصدر النص">
+                            <button name="action_load_document_text" type="object"
+                                    string="جلب نص آخر مستند مرفق" icon="fa-file-text-o"
+                                    class="btn-secondary"/>
+                            <div class="text-muted" style="font-size:12px">
+                                الصق نص التقرير كما هو — لا حاجة لتنسيقه. المحرك يتعرّف على
+                                التسميات بالعربية والإنجليزية: الاسم، الرقم الوطني، تاريخ
+                                التشخيص، الموقع الأولي (ICD-O-3)، الفحص النسيجي، TNM،
+                                المرحلة، العلاج، والحالة الحيوية.
+                            </div>
+                        </group>
+                    </group>
+
+                    <group invisible="step != 'input'">
+                        <field name="raw_text" nolabel="1" widget="text"
+                               placeholder="الصق نص التقرير هنا…"
+                               style="min-height:280px;font-family:Consolas,monospace;font-size:12.5px"/>
+                    </group>
+
+                    <group invisible="step != 'review'">
+                        <group>
+                            <field name="fields_count" readonly="1"/>
+                            <field name="confidence" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="overwrite" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <field name="result_html" nolabel="1" readonly="1"
+                           invisible="step != 'review'"/>
+                </sheet>
+                <footer>
+                    <button name="action_extract" type="object" string="استخراج الحقول"
+                            class="btn-primary" icon="fa-magic"
+                            invisible="step != 'input'"/>
+                    <button name="action_apply" type="object" string="تفريغ في السجل"
+                            class="oe_highlight" icon="fa-sign-in"
+                            invisible="step != 'review'"/>
+                    <button name="action_back" type="object" string="رجوع لتعديل النص"
+                            icon="fa-arrow-right" invisible="step != 'review'"/>
+                    <button string="إغلاق" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_extract_wizard" model="ir.actions.act_window">
+        <field name="name">استخراج من نص ملصوق</field>
+        <field name="res_model">cancer.registry.extract.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

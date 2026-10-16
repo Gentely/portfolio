@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         سطور العلاج التفصيلية
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_treatment_form" model="ir.ui.view">
+        <field name="name">cancer.registry.treatment.form</field>
+        <field name="model">cancer.registry.treatment</field>
+        <field name="arch" type="xml">
+            <form string="سطر علاج">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="modality" placeholder="نوع العلاج"/></h1>
+                        <h2 class="text-muted">
+                            <field name="case_id" options="{'no_create': True}"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="التوقيت والجهة">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="facility"
+                                   placeholder="المركز المنفّذ للعلاج"/>
+                            <field name="physician"/>
+                            <field name="first_course" widget="boolean_toggle"
+                                   help="معيار SEER/IARC: علاج ضمن 4 أشهر من التشخيص"/>
+                        </group>
+                        <group string="التفاصيل">
+                            <field name="protocol" placeholder="مثال: FOLFOX / CHOP / AC-T"/>
+                            <field name="cycles"/>
+                            <field name="dose" placeholder="مثال: 60 Gy / 30 جلسة"/>
+                            <field name="rt_type"
+                                   invisible="modality not in ('radiotherapy','chemorad')"/>
+                            <field name="response"/>
+                        </group>
+                    </group>
+                    <group string="ملاحظات">
+                        <field name="details" nolabel="1"
+                               placeholder="الأدوية، الجرعات، المضاعفات، سبب الإيقاف…"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cancer_treatment_tree" model="ir.ui.view">
+        <field name="name">cancer.registry.treatment.tree</field>
+        <field name="model">cancer.registry.treatment</field>
+        <field name="arch" type="xml">
+            <tree string="سطور العلاج" editable="bottom" multi_edit="1" sample="1">
+                <field name="case_id" optional="show" options="{'no_create': True}"/>
+                <field name="modality" required="1"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="facility" optional="show"/>
+                <field name="protocol" optional="show"/>
+                <field name="cycles" optional="show" sum="إجمالي الدورات"/>
+                <field name="dose" optional="show"/>
+                <field name="rt_type" optional="hide"/>
+                <field name="response" optional="hide"/>
+                <field name="first_course" widget="boolean_toggle"/>
+                <field name="physician" optional="hide"/>
+                <field name="details" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cancer_treatment_search" model="ir.ui.view">
+        <field name="name">cancer.registry.treatment.search</field>
+        <field name="model">cancer.registry.treatment</field>
+        <field name="arch" type="xml">
+            <search string="بحث في العلاج">
+                <field name="case_id"/>
+                <field name="protocol"/>
+                <field name="facility"/>
+                <field name="details"/>
+                <separator/>
+                <filter string="جراحة" name="surgery" domain="[('modality','=','surgery')]"/>
+                <filter string="علاج كيميائي" name="chemo" domain="[('modality','=','chemotherapy')]"/>
+                <filter string="علاج إشعاعي" name="radio"
+                        domain="[('modality','in',('radiotherapy','chemorad'))]"/>
+                <filter string="علاج هرموني" name="hormonal" domain="[('modality','=','hormonal')]"/>
+                <filter string="علاج مناعي/موجّه" name="immuno"
+                        domain="[('modality','in',('immunotherapy','targeted'))]"/>
+                <filter string="زرع نخاع/خلايا جذعية" name="bmt" domain="[('modality','=','bmt')]"/>
+                <filter string="تلطيفي فقط" name="palliative" domain="[('modality','=','palliative')]"/>
+                <filter string="خزعة تشخيصية بلا علاج" name="biopsy_only"
+                        domain="[('modality','=','biopsy_only')]"/>
+                <filter string="لم يعالج / رفض" name="no_treatment"
+                        domain="[('modality','in',('none','refused'))]"/>
+                <separator/>
+                <filter string="ضمن الدورة الأولى (≤ 4 أشهر)" name="first_course"
+                        domain="[('first_course','=',True)]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="نوع العلاج" name="group_modality" context="{'group_by':'modality'}"/>
+                    <filter string="الجهة المنفذة" name="group_facility" context="{'group_by':'facility'}"/>
+                    <filter string="الاستجابة" name="group_response" context="{'group_by':'response'}"/>
+                    <filter string="شهر البدء" name="group_start" context="{'group_by':'start_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cancer_treatment_pivot" model="ir.ui.view">
+        <field name="name">cancer.registry.treatment.pivot</field>
+        <field name="model">cancer.registry.treatment</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل العلاج" disable_linking="True">
+                <field name="modality" type="row"/>
+                <field name="facility" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_cancer_treatments" model="ir.actions.act_window">
+        <field name="name">سطور العلاج</field>
+        <field name="res_model">cancer.registry.treatment</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="search_view_id" ref="view_cancer_treatment_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">لا توجد سطور علاج</p>
+            <p>تُنشأ عادةً تلقائياً من الاستخراج الذكي، أو تُدخل يدوياً داخل كل سجل.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,83 @@
+MINISTRY OF HEALTH — LIBYA
+TRIPOLI MEDICAL CENTRE
+Department of Medical Oncology
+================================================================
+                        DISCHARGE SUMMARY
+================================================================
+
+Medical Record No. (MRN): TMC/ONC/2023/4471
+National ID: 119620119874
+Patient Name: Abdallah Salem Abdallah Al-Mabrouk
+Sex: Male
+Date of Birth: 15/03/1962
+Age at diagnosis: 61 years
+Phone: 0913 445 902
+Address: Souq Al-Jumaa, Tripoli
+District (Baladiya): طرابلس
+
+----------------------------------------------------------------
+Referral source: Tripoli Medical Centre
+Notified by: Dr. Nabil Al-Fitouri
+Date of notification: 2023-11-02
+----------------------------------------------------------------
+
+Date of first symptom: 2023-08-20  (rectal bleeding, weight loss 9 kg)
+Date of diagnosis: 2023-10-14
+Basis of diagnosis: 6 - Histology of primary tumour (colonoscopy biopsy)
+
+PRIMARY SITE (ICD-O-3 Topography): C20.9 — Rectum, NOS
+MORPHOLOGY   (ICD-O-3 Morphology): 8140/3
+             Adenocarcinoma, NOS — Moderately differentiated
+Grade: G2
+Laterality: 0 - Not a paired site
+
+----------------------------------------------------------------
+STAGING — AJCC 8th Edition
+----------------------------------------------------------------
+  Clinical:     cT3 cN1 cM0     Clinical Stage: IIIB
+  Pathological: pT3 pN1b pM0    Pathological Stage: IIIB
+  Summary stage: Regional
+  Staging date: 2023-10-25
+
+  Metastatic sites: None detected on CT chest/abdomen/pelvis
+  CEA baseline: 18.4 ng/mL
+  MSI status: MSS
+  KRAS: wild type
+
+----------------------------------------------------------------
+TREATMENT SUMMARY
+----------------------------------------------------------------
+1) Surgery: Low anterior resection with TME + diverting ileostomy
+   Date: 2023-11-08   Facility: Tripoli Medical Centre
+   Surgeon: Dr. Khaled Ben Romdhane
+   Margins: R0 — 14/22 lymph nodes positive in 3
+2) Chemotherapy: FOLFOX-4 protocol, 12 cycles
+   Start: 2023-12-01   End: 2024-05-14
+   Dose: Oxaliplatin 85 mg/m2, Leucovorin 400 mg/m2, 5-FU 2400 mg/m2 (46h infusion)
+   Response: Partial response (PR)
+3) Radiotherapy: NOT given
+4) Hormonal therapy: NOT applicable
+5) Immunotherapy / targeted: NOT given
+
+First course of treatment within 4 months of diagnosis: Yes
+
+----------------------------------------------------------------
+FOLLOW-UP
+----------------------------------------------------------------
+Vitality status: Deceased
+Date of death: 2025-02-27
+Cause of death: The malignancy itself (cancer-related, hepatic metastases)
+ICD-10 cause of death: C20
+Age at death: 62
+
+Last follow-up date: 2025-02-20
+Disease status at last contact: Metastatic
+Recurrence: Yes
+Date of recurrence: 2024-09-30  (liver metastases, 3 lesions)
+
+Risk factors: Smoking 30 pack-years, type 2 diabetes, low fibre diet
+Family history: Father died of gastric cancer in 2005
+
+================================================================
+Consultant: Dr. Nabil Al-Fitouri        Signature: ____________
+Report issued: 2025-03-02

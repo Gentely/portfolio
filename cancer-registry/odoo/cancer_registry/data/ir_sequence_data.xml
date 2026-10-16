@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             تسلسل رقم السجل — مطابق تماماً لصيغة الأداة المستقلة
+             CR2026/0001  •  CR2026/0002  •  …
+             الصيغة المعتمدة في القاموس:  ^CR\d{4,}(/\d{2,4})?$
+             ═══════════════════════════════════════════════════════════════ -->
+        <record id="seq_cancer_registry_case" model="ir.sequence">
+            <field name="name">رقم سجل السرطان</field>
+            <field name="code">cancer.registry.case</field>
+            <field name="prefix">CR%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="implementation">no_gap</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- تسلسل مستندات الأرشيف (للتتبع فقط) -->
+        <record id="seq_cancer_registry_document" model="ir.sequence">
+            <field name="name">رقم مستند الأرشيف</field>
+            <field name="code">cancer.registry.document</field>
+            <field name="prefix">DOC/%(year)s/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

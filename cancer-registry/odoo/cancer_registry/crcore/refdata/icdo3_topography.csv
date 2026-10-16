@@ -1,0 +1,349 @@
+code,label_en,label_ar,system
+C00.0,External upper lip,الشفة العليا الخارجية,Lip & Oral Cavity
+C00.1,External lower lip,الشفة السفلى الخارجية,Lip & Oral Cavity
+C00.2,"External lip, NOS","الشفة, غير محدد",Lip & Oral Cavity
+C00.3,"Upper lip, inner aspect","الشفة العليا, السطح الداخلي",Lip & Oral Cavity
+C00.4,"Lower lip, inner aspect","الشفة السفلى, السطح الداخلي",Lip & Oral Cavity
+C00.5,"Lip, inner aspect, NOS","الشفة, السطح الداخلي, غير محدد",Lip & Oral Cavity
+C00.6,"Commissure of lip, NOS","صوار الشفة, غير محدد",Lip & Oral Cavity
+C00.8,Overlapping lesion of lip,آفة متداخلة في الشفة,Lip & Oral Cavity
+C00.9,"Lip, NOS","الشفة, غير محدد",Lip & Oral Cavity
+C01.9,"Base of tongue, NOS","قاعدة اللسان, غير محدد",Lip & Oral Cavity
+C02.0,Dorsal surface of tongue,السطح الظهري للسان,Lip & Oral Cavity
+C02.1,Border of tongue,حافة اللسان,Lip & Oral Cavity
+C02.2,Ventral surface of tongue,السطح البطني للسان,Lip & Oral Cavity
+C02.3,"Anterior 2/3 of tongue, NOS","الثلثان الأماميان للسان, غير محدد",Lip & Oral Cavity
+C02.4,Lingual tonsil,اللوزة اللسانية,Lip & Oral Cavity
+C02.8,Overlapping lesion of tongue,آفة متداخلة في اللسان,Lip & Oral Cavity
+C02.9,"Tongue, NOS","اللسان, غير محدد",Lip & Oral Cavity
+C03.0,Upper gum,اللثة العليا,Lip & Oral Cavity
+C03.1,Lower gum,اللثة السفلى,Lip & Oral Cavity
+C03.9,"Gum, NOS","اللثة, غير محدد",Lip & Oral Cavity
+C04.0,Anterior floor of mouth,أرضية الفم الأمامية,Lip & Oral Cavity
+C04.1,Lateral floor of mouth,أرضية الفم الجانبية,Lip & Oral Cavity
+C04.8,Overlapping lesion of floor of mouth,آفة متداخلة في أرضية الفم,Lip & Oral Cavity
+C04.9,"Floor of mouth, NOS","أرضية الفم, غير محدد",Lip & Oral Cavity
+C05.0,Hard palate,الحنك الصلب,Lip & Oral Cavity
+C05.1,Soft palate,الحنك الرخو,Lip & Oral Cavity
+C05.2,Uvula,اللهاة,Lip & Oral Cavity
+C05.8,Overlapping lesion of palate,آفة متداخلة في الحنك,Lip & Oral Cavity
+C05.9,"Palate, NOS","الحنك, غير محدد",Lip & Oral Cavity
+C06.0,Cheek mucosa,غشاء الخد المخاطي,Lip & Oral Cavity
+C06.1,Vestibule of mouth,دهليز الفم,Lip & Oral Cavity
+C06.2,Retromolar area,المنطقة خلف الأضراس,Lip & Oral Cavity
+C06.8,Overlapping lesion of other parts of mouth,آفة متداخلة في أجزاء أخرى من الفم,Lip & Oral Cavity
+C06.9,"Mouth, NOS","الفم, غير محدد",Lip & Oral Cavity
+C07.9,"Parotid gland, NOS","الغدة النكفية, غير محدد",Lip & Oral Cavity
+C08.0,Submandibular gland,الغدة تحت الفك السفلي,Lip & Oral Cavity
+C08.1,Sublingual gland,الغدة تحت اللسان,Lip & Oral Cavity
+C08.8,Overlapping lesion of major salivary glands,آفة متداخلة في الغدد اللعابية الكبرى,Lip & Oral Cavity
+C08.9,"Major salivary gland, NOS","الغدة اللعابية الكبرى, غير محدد",Lip & Oral Cavity
+C09.0,Tonsillar fossa,الحفرة اللوزية,Lip & Oral Cavity
+C09.1,Tonsillar pillar,عمود اللوزة,Lip & Oral Cavity
+C09.8,Overlapping lesion of tonsil,آفة متداخلة في اللوزة,Lip & Oral Cavity
+C09.9,"Tonsil, NOS","اللوزة, غير محدد",Lip & Oral Cavity
+C10.0,Vallecula,اللهاة البلعومية,Oropharynx
+C10.1,Anterior surface of epiglottis,السطح الأمامي للسان المزمار,Oropharynx
+C10.2,Lateral wall of oropharynx,الجدار الجانبي للبلعوم الفموي,Oropharynx
+C10.3,Posterior wall of oropharynx,الجدار الخلفي للبلعوم الفموي,Oropharynx
+C10.4,Branchial cleft,الشق الخيشومي,Oropharynx
+C10.8,Overlapping lesion of oropharynx,آفة متداخلة في البلعوم الفموي,Oropharynx
+C10.9,"Oropharynx, NOS","البلعوم الفموي, غير محدد",Oropharynx
+C11.0,Superior wall of nasopharynx,الجدار العلوي للبلعوم الأنفي,Nasopharynx
+C11.1,Posterior wall of nasopharynx,الجدار الخلفي للبلعوم الأنفي,Nasopharynx
+C11.2,Lateral wall of nasopharynx,الجدار الجانبي للبلعوم الأنفي,Nasopharynx
+C11.3,Anterior wall of nasopharynx,الجدار الأمامي للبلعوم الأنفي,Nasopharynx
+C11.8,Overlapping lesion of nasopharynx,آفة متداخلة في البلعوم الأنفي,Nasopharynx
+C11.9,"Nasopharynx, NOS","البلعوم الأنفي, غير محدد",Nasopharynx
+C12.9,"Pyriform sinus, NOS","الجيب الكمثري, غير محدد",Hypopharynx
+C13.0,Postcricoid region,المنطقة خلف الغضروف الحلقي,Hypopharynx
+C13.1,Hypopharyngeal aspect of aryepiglottic fold,الوجه البلعومي لثنية اللسان المزمار,Hypopharynx
+C13.2,Posterior wall of hypopharynx,الجدار الخلفي للبلعوم السفلي,Hypopharynx
+C13.8,Overlapping lesion of hypopharynx,آفة متداخلة في البلعوم السفلي,Hypopharynx
+C13.9,"Hypopharynx, NOS","البلعوم السفلي, غير محدد",Hypopharynx
+C14.0,"Pharynx, NOS","البلعوم, غير محدد",Pharynx
+C14.2,Waldeyer ring,حلقة فالداير,Pharynx
+C14.8,Overlapping lesion of lip oral cavity and pharynx,آفة متداخلة في الشفة والفم والبلعوم,Pharynx
+C15.0,Cervical esophagus,المريء العنقي,Digestive
+C15.1,Thoracic esophagus,المريء الصدري,Digestive
+C15.2,Abdominal esophagus,المريء البطني,Digestive
+C15.3,"Upper third of esophagus",الثلث العلوي للمريء,Digestive
+C15.4,"Middle third of esophagus",الثلث الأوسط للمريء,Digestive
+C15.5,"Lower third of esophagus",الثلث السفلي للمريء,Digestive
+C15.8,Overlapping lesion of esophagus,آفة متداخلة في المريء,Digestive
+C15.9,"Esophagus, NOS","المريء, غير محدد",Digestive
+C16.0,Cardia,الفؤاد (مدخل المعدة),Digestive
+C16.1,Pylorus,البواب,Digestive
+C16.2,"Antrum, NOS","غار المعدة, غير محدد",Digestive
+C16.3,Body of stomach,جسم المعدة,Digestive
+C16.4,Pyloric canal,قناة البواب,Digestive
+C16.5,"Lesser curvature of stomach, NOS","الانحناء الأصغر للمعدة, غير محدد",Digestive
+C16.6,"Greater curvature of stomach, NOS","الانحناء الأكبر للمعدة, غير محدد",Digestive
+C16.8,Overlapping lesion of stomach,آفة متداخلة في المعدة,Digestive
+C16.9,"Stomach, NOS","المعدة, غير محدد",Digestive
+C17.0,Duodenum,الاثنا عشري,Digestive
+C17.1,Jejunum,الصائم,Digestive
+C17.2,Ileum,اللفائفي,Digestive
+C17.3,Meckel diverticulum,رتج ميكل,Digestive
+C17.8,Overlapping lesion of small intestine,آفة متداخلة في الأمعاء الدقيقة,Digestive
+C17.9,"Small intestine, NOS","الأمعاء الدقيقة, غير محدد",Digestive
+C18.0,Cecum,الأعور,Digestive
+C18.1,Appendix,الزائدة الدودية,Digestive
+C18.2,Ascending colon,القولون الصاعد,Digestive
+C18.3,Hepatic flexure of colon,انعطاف القولون الكبدي,Digestive
+C18.4,Transverse colon,القولون المستعرض,Digestive
+C18.5,Splenic flexure of colon,انعطاف القولون الطحالي,Digestive
+C18.6,Descending colon,القولون النازل,Digestive
+C18.7,Sigmoid colon,القولون السيني,Digestive
+C18.8,Overlapping lesion of colon,آفة متداخلة في القولون,Digestive
+C18.9,"Colon, NOS","القولون, غير محدد",Digestive
+C19.9,"Rectosigmoid junction, NOS","اتصال المستقيم والسيني, غير محدد",Digestive
+C20.9,"Rectum, NOS","المستقيم, غير محدد",Digestive
+C21.0,"Anus, NOS","الشرج, غير محدد",Digestive
+C21.1,Anal canal,القناة الشرجية,Digestive
+C21.2,Cloacogenic zone,المنطقة المذرقية,Digestive
+C21.8,Overlapping lesion of rectum anus and anal canal,آفة متداخلة في المستقيم والشرج,Digestive
+C22.0,Liver,الكبد,Digestive
+C22.1,Intrahepatic bile duct,القنوات الصفراوية داخل الكبد,Digestive
+C22.7,Other parts of liver,أجزاء أخرى من الكبد,Digestive
+C22.8,Overlapping lesion of liver,آفة متداخلة في الكبد,Digestive
+C22.9,"Liver, NOS","الكبد, غير محدد",Digestive
+C23.9,"Gallbladder, NOS","المرارة, غير محدد",Digestive
+C24.0,Extrahepatic bile duct,القناة الصفراوية خارج الكبد,Digestive
+C24.1,Ampulla of Vater,أمبولة فاتر,Digestive
+C24.8,Overlapping lesion of biliary tract,آفة متداخلة في السبيل الصفراوي,Digestive
+C24.9,"Biliary tract, NOS","السبيل الصفراوي, غير محدد",Digestive
+C25.0,Head of pancreas,رأس البنكرياس,Digestive
+C25.1,Body of pancreas,جسم البنكرياس,Digestive
+C25.2,Tail of pancreas,ذيل البنكرياس,Digestive
+C25.3,Pancreatic duct,قناة البنكرياس,Digestive
+C25.4,Islets of Langerhans,جزر لانغرهانس,Digestive
+C25.7,Other parts of pancreas,أجزاء أخرى من البنكرياس,Digestive
+C25.8,Overlapping lesion of pancreas,آفة متداخلة في البنكرياس,Digestive
+C25.9,"Pancreas, NOS","البنكرياس, غير محدد",Digestive
+C26.0,Intestinal tract NOS,السبيل المعوي غير محدد,Digestive
+C26.8,Overlapping lesion of digestive system,آفة متداخلة في الجهاز الهضمي,Digestive
+C26.9,Ill-defined sites within the digestive system,مواقع غير محددة داخل الجهاز الهضمي,Digestive
+C30.0,Nasal cavity,التجويف الأنفي,Respiratory
+C30.1,Middle ear,الأذن الوسطى,Respiratory
+C31.0,Maxillary sinus,الجيب الفكي العلوي,Respiratory
+C31.1,Ethmoid sinus,الجيب الغربالي,Respiratory
+C31.2,Frontal sinus,الجيب الجبهي,Respiratory
+C31.3,Sphenoid sinus,الجيب الوتدي,Respiratory
+C31.8,Overlapping lesion of accessory sinuses,آفة متداخلة في الجيوب الأنفية,Respiratory
+C31.9,"Accessory sinus, NOS","الجيب الأنفي, غير محدد",Respiratory
+C32.0,Glottis,الحنجرة (مزمار),Respiratory
+C32.1,Supraglottis,فوق المزمار,Respiratory
+C32.2,Subglottis,تحت المزمار,Respiratory
+C32.3,Laryngeal cartilage,غضروف الحنجرة,Respiratory
+C32.8,Overlapping lesion of larynx,آفة متداخلة في الحنجرة,Respiratory
+C32.9,"Larynx, NOS","الحنجرة, غير محدد",Respiratory
+C33.9,"Trachea, NOS","القصبة الهوائية, غير محدد",Respiratory
+C34.0,Main bronchus,القصبة الرئيسية,Respiratory
+C34.1,"Upper lobe, lung",الفص العلوي للرئة,Respiratory
+C34.2,"Middle lobe, lung",الفص الأوسط للرئة,Respiratory
+C34.3,"Lower lobe, lung",الفص السفلي للرئة,Respiratory
+C34.8,Overlapping lesion of lung,آفة متداخلة في الرئة,Respiratory
+C34.9,"Lung, NOS","الرئة, غير محدد",Respiratory
+C37.9,"Thymus, NOS","الغدة الزعترية, غير محدد",Respiratory
+C38.0,Heart,القلب,Respiratory
+C38.1,Mediastinum NOS,المنصف غير محدد,Respiratory
+C38.2,Pleura NOS,الغشاء البلوري غير محدد,Respiratory
+C38.3,Respiratory system NOS,الجهاز التنفسي غير محدد,Respiratory
+C38.4,Topography unknown,موقع تشريحي غير معروف,Respiratory
+C38.8,Overlapping lesion of respiratory system,آفة متداخلة في الجهاز التنفسي,Respiratory
+C39.0,Ill-defined sites respiratory system,مواقع غير محددة في الجهاز التنفسي,Respiratory
+C39.8,Overlapping lesion of respiratory and intrathoracic,آفة متداخلة تنفسية وصدرية,Respiratory
+C39.9,Ill-defined sites within resp system,مواقع غير محددة داخل الجهاز التنفسي,Respiratory
+C40.0,Long bones of upper limb,العظام الطويلة للطرف العلوي,Bone & Cartilage
+C40.1,Short bones of upper limb,العظام القصيرة للطرف العلوي,Bone & Cartilage
+C40.2,Long bones of lower limb,العظام الطويلة للطرف السفلي,Bone & Cartilage
+C40.3,Short bones of lower limb,العظام القصيرة للطرف السفلي,Bone & Cartilage
+C40.8,Overlapping lesion of bones and articular cartilage,آفة متداخلة في العظام والغضاريف,Bone & Cartilage
+C40.9,"Bones of limb, NOS","عظام الأطراف, غير محدد",Bone & Cartilage
+C41.0,Bones of skull and face,عظام الجمجمة والوجه,Bone & Cartilage
+C41.1,Mandible,الفك السفلي,Bone & Cartilage
+C41.2,Vertebral column,العمود الفقري,Bone & Cartilage
+C41.3,"Ribs, sternum, clavicle",الأضلاع والقص والترقوة,Bone & Cartilage
+C41.4,Pelvic bones,عظام الحوض,Bone & Cartilage
+C41.8,Overlapping lesion of bone and articular cartilage,آفة متداخلة في العظام والغضاريف المفصلية,Bone & Cartilage
+C41.9,"Bone, NOS","العظم, غير محدد",Bone & Cartilage
+C42.0,Blood,الدم,Hematologic
+C42.1,Bone marrow,نقي العظم,Hematologic
+C42.2,Spleen,الطحال,Hematologic
+C42.3,Reticuloendothelial system NOS,الجملة الشبكية البطانية غير محدد,Hematologic
+C42.4,Hematopoietic system NOS,الجهاز المكون للدم غير محدد,Hematologic
+C44.0,"Skin of lip, NOS","جلد الشفة, غير محدد",Skin
+C44.1,Eyelid,الجفن,Skin
+C44.2,External ear,الأذن الخارجية,Skin
+C44.3,"Skin of other parts of face",جلد أجزاء أخرى من الوجه,Skin
+C44.4,Scalp and neck,فروة الرأس والرقبة,Skin
+C44.5,Trunk,الجذع,Skin
+C44.6,Upper limb and shoulder,الطرف العلوي والكتف,Skin
+C44.7,Lower limb and hip,الطرف السفلي والورك,Skin
+C44.8,Overlapping lesion of skin,آفة متداخلة في الجلد,Skin
+C44.9,"Skin, NOS","الجلد, غير محدد",Skin
+C45.0,Mesothelium of pleura,المتوسطة الجنبيّة,Mesothelial & Soft Tissue
+C45.1,Mesothelium of peritoneum,المتوسطة الصفاقية,Mesothelial & Soft Tissue
+C45.2,Mesothelium of pericardium,متوسطة التامور,Mesothelial & Soft Tissue
+C45.7,Mesothelium of other sites,متوسطة مواقع أخرى,Mesothelial & Soft Tissue
+C45.9,"Mesothelium, NOS","المتوسطة, غير محدد",Mesothelial & Soft Tissue
+C46.0,Kaposi sarcoma skin,ساركوما كابوسي الجلد,Mesothelial & Soft Tissue
+C46.1,Kaposi sarcoma soft tissue,ساركوما كابوسي الأنسجة الرخوة,Mesothelial & Soft Tissue
+C46.2,Kaposi sarcoma palate,ساركوما كابوسي الحنك,Mesothelial & Soft Tissue
+C46.3,Kaposi sarcoma lymph nodes,ساركوما كابوسي العقد اللمفية,Mesothelial & Soft Tissue
+C46.7,Kaposi sarcoma other sites,ساركوما كابوسي مواقع أخرى,Mesothelial & Soft Tissue
+C46.8,Kaposi sarcoma multiple organs,ساركوما كابوسي أعضاء متعددة,Mesothelial & Soft Tissue
+C46.9,"Kaposi sarcoma, NOS","ساركوما كابوسي, غير محدد",Mesothelial & Soft Tissue
+C47.0,"Peripheral nerves, head",الأعصاب الطرفية - الرأس,Mesothelial & Soft Tissue
+C47.1,"Peripheral nerves, upper limb",الأعصاب الطرفية - الطرف العلوي,Mesothelial & Soft Tissue
+C47.2,"Peripheral nerves, lower limb",الأعصاب الطرفية - الطرف السفلي,Mesothelial & Soft Tissue
+C47.3,"Peripheral nerves, thorax",الأعصاب الطرفية - الصدر,Mesothelial & Soft Tissue
+C47.4,"Peripheral nerves, abdomen",الأعصاب الطرفية - البطن,Mesothelial & Soft Tissue
+C47.5,"Peripheral nerves, pelvis",الأعصاب الطرفية - الحوض,Mesothelial & Soft Tissue
+C47.6,"Peripheral nerves, trunk",الأعصاب الطرفية - الجذع,Mesothelial & Soft Tissue
+C47.8,Overlapping lesion of peripheral nerves,آفة متداخلة في الأعصاب الطرفية,Mesothelial & Soft Tissue
+C47.9,"Autonomic nervous system, NOS","الجهاز العصبي الذاتي, غير محدد",Mesothelial & Soft Tissue
+C48.0,Retroperitoneum,خلف الصفاق,Mesothelial & Soft Tissue
+C48.1,Peritoneum NOS,الصفاق غير محدد,Mesothelial & Soft Tissue
+C48.2,"Peritoneum, other specified parts",الصفاق أجزاء محددة أخرى,Mesothelial & Soft Tissue
+C48.8,Overlapping lesion of retroperitoneum and peritoneum,آفة متداخلة في خلف الصفاق والصفاق,Mesothelial & Soft Tissue
+C49.0,"Connective tissue, head",النسيج الضام - الرأس,Mesothelial & Soft Tissue
+C49.1,"Connective tissue, upper limb",النسيج الضام - الطرف العلوي,Mesothelial & Soft Tissue
+C49.2,"Connective tissue, lower limb",النسيج الضام - الطرف السفلي,Mesothelial & Soft Tissue
+C49.3,"Connective tissue, thorax",النسيج الضام - الصدر,Mesothelial & Soft Tissue
+C49.4,"Connective tissue, abdomen",النسيج الضام - البطن,Mesothelial & Soft Tissue
+C49.5,"Connective tissue, pelvis",النسيج الضام - الحوض,Mesothelial & Soft Tissue
+C49.6,"Connective tissue, trunk",النسيج الضام - الجذع,Mesothelial & Soft Tissue
+C49.8,Overlapping lesion of connective tissue,آفة متداخلة في النسيج الضام,Mesothelial & Soft Tissue
+C49.9,"Connective tissue, NOS","النسيج الضام, غير محدد",Mesothelial & Soft Tissue
+C50.0,Nipple,الحلمة,Breast
+C50.1,Central portion of breast,الجزء المركزي من الثدي,Breast
+C50.2,Upper inner quadrant of breast,الربع العلوي الإنسي للثدي,Breast
+C50.3,Lower inner quadrant of breast,الربع السفلي الإنسي للثدي,Breast
+C50.4,Upper outer quadrant of breast,الربع العلوي الوحشي للثدي,Breast
+C50.5,Lower outer quadrant of breast,الربع السفلي الوحشي للثدي,Breast
+C50.6,Axillary tail of breast,الذيل الإبطي للثدي,Breast
+C50.8,Overlapping lesion of breast,آفة متداخلة في الثدي,Breast
+C50.9,"Breast, NOS","الثدي, غير محدد",Breast
+C51.0,Labium majus,الشفر الأكبر,Female Genital
+C51.1,Labium minus,الشفر الأصغر,Female Genital
+C51.2,Clitoris,البظر,Female Genital
+C51.8,Overlapping lesion of vulva,آفة متداخلة في الفرج,Female Genital
+C51.9,"Vulva, NOS","الفرج, غير محدد",Female Genital
+C52.9,"Vagina, NOS","المهبل, غير محدد",Female Genital
+C53.0,Endocervix,باطن عنق الرحم,Female Genital
+C53.1,Exocervix,ظاهر عنق الرحم,Female Genital
+C53.8,Overlapping lesion of cervix uteri,آفة متداخلة في عنق الرحم,Female Genital
+C53.9,"Cervix uteri, NOS","عنق الرحم, غير محدد",Female Genital
+C54.0,Isthmus uteri,بربخ الرحم,Female Genital
+C54.1,Endometrium,بطانة الرحم,Female Genital
+C54.2,Myometrium,عضل الرحم,Female Genital
+C54.3,Fundus uteri,قاع الرحم,Female Genital
+C54.8,Overlapping lesion of corpus uteri,آفة متداخلة في جسم الرحم,Female Genital
+C54.9,"Corpus uteri, NOS","جسم الرحم, غير محدد",Female Genital
+C55.9,"Uterus, NOS","الرحم, غير محدد",Female Genital
+C56.9,"Ovary, NOS","المبيض, غير محدد",Female Genital
+C57.0,Fallopian tube,قناة فالوب,Female Genital
+C57.1,Broad ligament,الرباط العريض,Female Genital
+C57.2,Round ligament,الرباط المدور,Female Genital
+C57.3,Parametrium,النسيج حول الرحم,Female Genital
+C57.4,"Uterine adnexa, NOS","زوائد الرحم, غير محدد",Female Genital
+C57.7,Other parts of female genital tract,أجزاء أخرى من السبيل التناسلي الأنثوي,Female Genital
+C57.8,Overlapping lesion of female genital organs,آفة متداخلة في الأعضاء التناسلية الأنثوية,Female Genital
+C57.9,"Female genital tract, NOS","السبيل التناسلي الأنثوي, غير محدد",Female Genital
+C58.9,"Placenta, NOS","المشيمة, غير محدد",Female Genital
+C60.0,Prepuce,القلفة,Male Genital
+C60.1,Glans penis,حشفة القضيب,Male Genital
+C60.2,Body of penis,جسم القضيب,Male Genital
+C60.8,Overlapping lesion of penis,آفة متداخلة في القضيب,Male Genital
+C60.9,"Penis, NOS","القضيب, غير محدد",Male Genital
+C61.9,"Prostate gland, NOS","الغدة البروستاتية, غير محدد",Male Genital
+C62.0,Undescended testis,الخصية المعلقة,Male Genital
+C62.1,Scrotum,كيس الصفن,Male Genital
+C62.9,"Testis, NOS","الخصية, غير محدد",Male Genital
+C63.0,Epididymis,البربخ,Male Genital
+C63.1,Spermatic cord,الحبل المنوي,Male Genital
+C63.2,Other parts of male genital organs,أجزاء أخرى من الأعضاء التناسلية الذكرية,Male Genital
+C63.7,Other specified male genital organs,أعضاء تناسلية ذكرية محددة أخرى,Male Genital
+C63.8,Overlapping lesion of male genital organs,آفة متداخلة في الأعضاء التناسلية الذكرية,Male Genital
+C63.9,"Male genital organs, NOS","الأعضاء التناسلية الذكرية, غير محدد",Male Genital
+C64.9,"Kidney, NOS","الكلية, غير محدد",Urinary
+C65.9,Renal pelvis,حوض الكلية,Urinary
+C66.9,Ureter,الحالب,Urinary
+C67.0,Trigone of bladder,مثلث المثانة,Urinary
+C67.1,Dome of bladder,قبة المثانة,Urinary
+C67.2,Lateral wall of bladder,الجدار الجانبي للمثانة,Urinary
+C67.3,Anterior wall of bladder,الجدار الأمامي للمثانة,Urinary
+C67.4,Posterior wall of bladder,الجدار الخلفي للمثانة,Urinary
+C67.5,Bladder neck,عنق المثانة,Urinary
+C67.6,Ureteric orifice,فتحة الحالب,Urinary
+C67.7,Urachus,المحاش,Urinary
+C67.8,Overlapping lesion of bladder,آفة متداخلة في المثانة,Urinary
+C67.9,"Bladder, NOS","المثانة, غير محدد",Urinary
+C68.0,Urethra,الإحليل,Urinary
+C68.1,Paraurethral gland,الغدة المجاورة للإحليل,Urinary
+C68.8,Overlapping lesion of urinary organs,آفة متداخلة في الأعضاء البولية,Urinary
+C68.9,"Urinary system, NOS","الجهاز البولي, غير محدد",Urinary
+C69.0,Conjunctiva,الملتحمة,Eye & CNS
+C69.1,Cornea,القرنية,Eye & CNS
+C69.2,Retina,الشبكية,Eye & CNS
+C69.3,Choroid,المشيمية,Eye & CNS
+C69.4,Ciliary body,الجسم الهدبي,Eye & CNS
+C69.5,Lacrimal gland,الغدة الدمعية,Eye & CNS
+C69.6,Orbit,الحجاج,Eye & CNS
+C69.8,Overlapping lesion of eye and adnexa,آفة متداخلة في العين وملحقاتها,Eye & CNS
+C69.9,"Eye, NOS","العين, غير محدد",Eye & CNS
+C70.0,Cerebral meninges,السحايا الدماغية,Eye & CNS
+C70.1,Spinal meninges,السحايا الشوكية,Eye & CNS
+C70.9,"Meninges, NOS","السحايا, غير محدد",Eye & CNS
+C71.0,Cerebrum,المخ,Eye & CNS
+C71.1,Frontal lobe,الفص الجبهي,Eye & CNS
+C71.2,Temporal lobe,الفص الصدغي,Eye & CNS
+C71.3,Parietal lobe,الفص الجداري,Eye & CNS
+C71.4,Occipital lobe,الفص القفوي,Eye & CNS
+C71.5,Ventricle NOS,البطين غير محدد,Eye & CNS
+C71.6,Cerebellum,المخيخ,Eye & CNS
+C71.7,Brain stem,جذع الدماغ,Eye & CNS
+C71.8,Overlapping lesion of brain,آفة متداخلة في الدماغ,Eye & CNS
+C71.9,"Brain, NOS","الدماغ, غير محدد",Eye & CNS
+C72.0,Spinal cord,النخاع الشوكي,Eye & CNS
+C72.1,Cauda equina,ذيل الفرس,Eye & CNS
+C72.2,Olfactory nerve,العصب الشمي,Eye & CNS
+C72.3,Optic nerve,العصب البصري,Eye & CNS
+C72.4,Acoustic nerve,العصب السمعي,Eye & CNS
+C72.5,Cranial nerves NOS,الأعصاب القحفية غير محدد,Eye & CNS
+C72.8,Overlapping lesion of brain and CNS,آفة متداخلة في الدماغ والجهاز العصبي المركزي,Eye & CNS
+C72.9,"Nervous system, NOS","الجهاز العصبي, غير محدد",Eye & CNS
+C73.9,"Thyroid gland, NOS","الغدة الدرقية, غير محدد",Endocrine
+C74.0,Cortex of adrenal gland,قشرة الغدة الكظرية,Endocrine
+C74.1,Medulla of adrenal gland,لب الغدة الكظرية,Endocrine
+C74.9,"Adrenal gland, NOS","الغدة الكظرية, غير محدد",Endocrine
+C75.0,Parathyroid gland,الغدة جارات الدرقية,Endocrine
+C75.1,Pituitary gland,الغدة النخامية,Endocrine
+C75.2,Craniopharyngeal duct,القناة القحفية البلعومية,Endocrine
+C75.3,Pineal gland,الغدة الصنوبرية,Endocrine
+C75.4,Carotid body,الجسم السباتي,Endocrine
+C75.5,Aortic body and other paraganglia,الجسم الأبهري والعقد الأخرى,Endocrine
+C75.8,Overlapping lesion of endocrine glands,آفة متداخلة في الغدد الصم,Endocrine
+C75.9,"Endocrine gland, NOS","الغدة الصماء, غير محدد",Endocrine
+C76.0,"Head, face, neck NOS","الرأس والوجه والرقبة, غير محدد",Ill-defined
+C76.1,Thorax NOS,الصدر غير محدد,Ill-defined
+C76.2,Abdomen NOS,البطن غير محدد,Ill-defined
+C76.3,Pelvis NOS,الحوض غير محدد,Ill-defined
+C76.4,Upper limb NOS,الطرف العلوي غير محدد,Ill-defined
+C76.5,Lower limb NOS,الطرف السفلي غير محدد,Ill-defined
+C76.7,Other ill-defined sites,مواقع أخرى غير محددة,Ill-defined
+C76.8,Overlapping lesion of ill-defined sites,آفة متداخلة في مواقع غير محددة,Ill-defined
+C77.0,"Lymph nodes, head, face, neck",العقد اللمفية - الرأس والوجه والرقبة,Lymph Nodes
+C77.1,Intrathoracic lymph nodes,العقد اللمفية داخل الصدر,Lymph Nodes
+C77.2,Intra-abdominal lymph nodes,العقد اللمفية داخل البطن,Lymph Nodes
+C77.3,Axillary and upper limb lymph nodes,العقد اللمفية الإبطية والطرف العلوي,Lymph Nodes
+C77.4,Inguinal and lower limb lymph nodes,العقد اللمفية الأربية والطرف السفلي,Lymph Nodes
+C77.5,Intrapelvic lymph nodes,العقد اللمفية داخل الحوض,Lymph Nodes
+C77.6,Splenius lymph nodes,العقد اللمفية الطحالية,Lymph Nodes
+C77.8,Lymph nodes of multiple regions,العقد اللمفية متعددة المناطق,Lymph Nodes
+C77.9,"Lymph node, NOS","العقدة اللمفية, غير محدد",Lymph Nodes
+C80.0,"Unknown primary site",موقع أولي غير معروف,Unknown
+C80.9,"Unknown primary site / malignant neoplasm NOS",موقع أولي غير معروف / ورم خبيث غير محدد,Unknown
+C81.0,"Lymph nodes, NOS",العقد اللمفية غير محدد,Lymph Nodes

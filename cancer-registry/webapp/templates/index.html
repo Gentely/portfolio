@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سجل السرطان | Cancer Registry — المعهد القومي للأورام صبراتة</title>
+<style>
+:root{
+  --navy:#0b2e4d; --navy2:#184d8e; --accent:#61b7ff; --bg:#f4f7fb; --card:#fff;
+  --text:#1a2433; --muted:#5d6b7a; --line:#dce6f1;
+  --ok:#1f9d55; --okbg:#e6f6ec; --warn:#b7791f; --warnbg:#fff8e1;
+  --err:#c53030; --errbg:#fdecec; --info:#2b6cb0; --infobg:#eaf2fb;
+  --shadow:0 10px 30px rgba(11,46,77,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:14px}
+button,input,select,textarea{font-family:inherit;font-size:inherit}
+a{color:var(--navy2);text-decoration:none}
+.hidden{display:none!important}
+
+/* ---------- الشريط العلوى ---------- */
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:12px 20px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+header h1{font-size:18px;font-weight:700}
+header .sub{font-size:11.5px;opacity:.82}
+.badges{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:20px;
+  padding:3px 11px;font-size:11px;white-space:nowrap}
+.badge.ok{background:#1f9d5533;border-color:#1f9d55}
+.badge.bad{background:#c5303033;border-color:#e88}
+
+/* ---------- التنقل ---------- */
+nav{background:#fff;border-bottom:1px solid var(--line);padding:0 16px;display:flex;gap:2px;
+  overflow-x:auto;position:sticky;top:57px;z-index:40}
+nav button{background:none;border:none;padding:13px 16px;cursor:pointer;font-size:13.5px;font-weight:600;
+  color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+nav button:hover{color:var(--navy)}
+nav button.active{color:var(--navy);border-bottom-color:var(--accent);background:var(--infobg)}
+
+main{padding:18px;max-width:1800px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
+.card h2{font-size:15.5px;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card h3{font-size:13.5px;color:var(--navy);margin:14px 0 8px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grow{flex:1;min-width:200px}
+
+/* ---------- الأزرار ---------- */
+.btn{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 16px;cursor:pointer;
+  font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:7px;transition:.15s;white-space:nowrap}
+.btn:hover{background:var(--navy2);transform:translateY(-1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.sec{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.sec:hover{background:var(--infobg)}
+.btn.ok{background:var(--ok)} .btn.ok:hover{background:#177a41}
+.btn.warn{background:var(--warn)} .btn.warn:hover{background:#96631a}
+.btn.err{background:var(--err)} .btn.err:hover{background:#9b2424}
+.btn.sm{padding:5px 11px;font-size:12px;border-radius:6px}
+.btn.ghost{background:transparent;color:var(--navy2);border:1px dashed var(--navy2)}
+
+/* ---------- شريط إجراءات الحالة ---------- */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px;margin-bottom:14px;position:sticky;top:104px;z-index:30;box-shadow:var(--shadow)}
+.toolbar .sep{width:1px;height:26px;background:var(--line)}
+.toolbar .info{margin-inline-start:auto;font-size:12px;color:var(--muted);text-align:left}
+
+/* ---------- الجدول ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600;position:sticky;top:0;font-size:12px;white-space:nowrap}
+tbody tr:hover{background:var(--infobg);cursor:pointer}
+tbody tr:nth-child(even){background:#fafcff}
+tbody tr:nth-child(even):hover{background:var(--infobg)}
+.tbl-wrap{max-height:62vh;overflow:auto;border:1px solid var(--line);border-radius:10px}
+
+/* ---------- النماذج ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:1250px){.split{grid-template-columns:1fr}}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:12px;background:#fcfdff}
+legend{font-weight:700;color:var(--navy);font-size:13.5px;padding:0 8px;background:#fff;border-radius:6px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.f{display:flex;flex-direction:column;gap:3px;position:relative}
+.f.wide{grid-column:1/-1}
+.f label{font-size:11.5px;font-weight:600;color:var(--navy)}
+.f label .req{color:var(--err);font-size:13px}
+.f label .tech{color:#9fb0c2;font-weight:400;font-size:10px;font-family:monospace}
+.f input,.f select,.f textarea{padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:#fff;
+  font-size:12.5px;width:100%;transition:.15s}
+.f textarea{min-height:56px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px #61b7ff26}
+.f .hint{font-size:10.5px;color:var(--muted);display:none}
+.f:hover .hint{display:block}
+.f .ev{font-size:10px;color:var(--info);cursor:pointer;background:var(--infobg);border-radius:4px;
+  padding:2px 6px;margin-top:2px;display:none;border:1px dashed #b8d4f0}
+.f.has-ev .ev{display:block}
+.f .ev:hover{background:#d5e7fa}
+.f.extracted input,.f.extracted select,.f.extracted textarea{background:#f0f9f2;border-color:#a7dcb6}
+.f.err input,.f.err select{background:var(--errbg);border-color:#e88}
+.f.warn input,.f.warn select{background:var(--warnbg);border-color:#e8c98a}
+.f .dot{position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%}
+.f.extracted .dot{background:var(--ok)}
+.f.err .dot{background:var(--err)} .f.warn .dot{background:var(--warn)}
+
+/* ---------- المعاينة ---------- */
+.preview{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 190px);min-height:420px}
+.preview .phead{background:var(--navy);color:#fff;padding:8px 12px;font-size:12.5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.preview .pbody{flex:1;overflow:auto;background:#e9edf2}
+.preview iframe,.preview embed{width:100%;height:100%;border:0;background:#fff}
+.preview pre{padding:14px;font-family:"Segoe UI",Tahoma,monospace;font-size:12.5px;white-space:pre-wrap;
+  background:#fff;min-height:100%;line-height:1.9}
+.preview mark{background:#ffe27a;padding:1px 3px;border-radius:3px;box-shadow:0 0 0 2px #ffe27a}
+.preview img{max-width:100%;display:block;margin:0 auto}
+.pempty{padding:40px 20px;text-align:center;color:var(--muted);background:#fff;height:100%}
+
+/* ---------- الجودة ---------- */
+.qc-summary{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.qc-box{flex:1;min-width:130px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.qc-box .n{font-size:26px;font-weight:800;line-height:1.1}
+.qc-box .l{font-size:11.5px;color:var(--muted)}
+.qc-box.err .n{color:var(--err)} .qc-box.warn .n{color:var(--warn)} .qc-box.ok .n{color:var(--ok)}
+.score-ring{width:88px;height:88px;margin:0 auto 6px}
+.issue{border-inline-start:4px solid var(--line);background:#fff;border-radius:8px;padding:10px 12px;margin-bottom:8px;
+  border:1px solid var(--line);border-inline-start-width:4px}
+.issue.error{border-inline-start-color:var(--err);background:var(--errbg)}
+.issue.warning{border-inline-start-color:var(--warn);background:var(--warnbg)}
+.issue.info{border-inline-start-color:var(--info);background:var(--infobg)}
+.issue .t{font-weight:700;font-size:12.5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.issue .code{font-family:monospace;font-size:11px;background:rgba(0,0,0,.07);padding:1px 6px;border-radius:4px}
+.issue .fld{font-size:11px;color:var(--muted)}
+.issue .fix{font-size:11.5px;margin-top:4px;color:#2c4a68}
+.issue .fix::before{content:"→ الإصلاح: ";font-weight:700}
+
+/* ---------- الرسائل ---------- */
+.toast{position:fixed;bottom:20px;inset-inline-start:20px;background:var(--navy);color:#fff;padding:12px 18px;
+  border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:999;font-size:13px;max-width:420px;
+  animation:slide .25s ease}
+.toast.ok{background:var(--ok)} .toast.err{background:var(--err)} .toast.warn{background:var(--warn)}
+@keyframes slide{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.banner{padding:10px 14px;border-radius:9px;margin-bottom:12px;font-size:12.5px;border:1px solid}
+.banner.warn{background:var(--warnbg);border-color:#e8c98a;color:#7a5310}
+.banner.err{background:var(--errbg);border-color:#e88;color:#8b1f1f}
+.banner.ok{background:var(--okbg);border-color:#a7dcb6;color:#155f36}
+.banner.info{background:var(--infobg);border-color:#b8d4f0;color:#1f4a75}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);
+  border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- متفرقات ---------- */
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:700}
+.pill.pass,.pill.validated{background:var(--okbg);color:var(--ok)}
+.pill.warning,.pill.review{background:var(--warnbg);color:var(--warn)}
+.pill.error,.pill.qc_failed{background:var(--errbg);color:var(--err)}
+.pill.draft,.pill.scanned,.pill.extracted,.pill.not_run{background:#eef1f5;color:var(--muted)}
+.pill.exported{background:var(--infobg);color:var(--info)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:12.5px}
+.kv dt{font-weight:700;color:var(--navy)}
+.kv dd{color:var(--text);font-family:monospace;font-size:11.5px;word-break:break-all}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;text-align:center}
+.stat .n{font-size:22px;font-weight:800;color:var(--navy)}
+.stat .l{font-size:11px;color:var(--muted)}
+.drop{border:2.5px dashed var(--accent);border-radius:12px;padding:26px;text-align:center;background:#f7fbff;
+  cursor:pointer;transition:.2s}
+.drop:hover,.drop.over{background:#e8f4ff;border-color:var(--navy2)}
+.bar{height:7px;background:#e6ecf3;border-radius:4px;overflow:hidden;margin-top:4px}
+.bar>i{display:block;height:100%;background:var(--navy2);transition:width .3s}
+details{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin-bottom:8px}
+summary{cursor:pointer;font-weight:700;font-size:12.5px;color:var(--navy)}
+code.mono{font-family:monospace;font-size:11.5px;background:#eef1f5;padding:1px 5px;border-radius:4px}
+.timeline{list-style:none;padding-inline-start:0}
+.timeline li{padding:7px 0 7px 12px;border-bottom:1px dashed var(--line);font-size:12px;display:flex;gap:10px}
+.timeline .ts{color:var(--muted);font-family:monospace;font-size:11px;white-space:nowrap}
+.timeline .act{font-weight:700;color:var(--navy);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🏥 سجل السرطان — Cancer Registry</h1>
+    <div class="sub">المعهد القومي للأورام، صبراتة · مكتب سجل السرطان · ICD-O-3 / ICD-10 / AJCC 8th</div>
+  </div>
+  <div class="badges" id="badges"></div>
+</header>
+
+<nav id="nav">
+  <button data-view="cases" class="active">📋 السجلات</button>
+  <button data-view="editor">📝 سجل جديد / تعديل</button>
+  <button data-view="qc">✅ جودة البيانات</button>
+  <button data-view="export">📤 التصدير</button>
+  <button data-view="dictionary">📖 قاموس الحقول</button>
+  <button data-view="refdata">🧬 مرجع ICD-O-3</button>
+  <button data-view="audit">🕘 سجل التدقيق</button>
+  <button data-view="system">⚙️ النظام والتخزين</button>
+</nav>
+
+<main>
+
+<!-- ================= السجلات ================= -->
+<section id="view-cases">
+  <div class="card">
+    <h2>📋 قائمة السجلات
+      <span class="grow"></span>
+      <input id="q" placeholder="بحث: اسم، رقم وطني، رقم سجل…" style="padding:7px 11px;border:1px solid var(--line);border-radius:8px;min-width:260px">
+      <select id="f-status" style="padding:7px;border:1px solid var(--line);border-radius:8px">
+        <option value="">كل الحالات</option>
+        <option value="pass">جودة: ناجح</option>
+        <option value="warning">جودة: تحذير</option>
+        <option value="error">جودة: خطأ</option>
+      </select>
+      <select id="f-year" style="padding:7px;border:1px solid var(--line);border-radius:8px">
+        <option value="">كل السنوات</option>
+      </select>
+      <button class="btn sm sec" onclick="loadCases()">تحديث</button>
+      <button class="btn sm ok" onclick="newCase()">+ سجل جديد</button>
+    </h2>
+    <div class="stat-grid" id="case-stats" style="margin-bottom:12px"></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>رقم السجل</th><th>الاسم</th><th>الرقم الوطني</th><th>الجنس</th><th>العمر</th>
+          <th>الموقع (ICD-O-3)</th><th>النسيج</th><th>المرحلة</th><th>تاريخ التشخيص</th>
+          <th>الحالة</th><th>الجودة</th><th>الحالة</th><th></th>
+        </tr></thead>
+        <tbody id="cases-body"></tbody>
+      </table>
+    </div>
+    <p id="cases-empty" class="hidden" style="text-align:center;padding:30px;color:var(--muted)">
+      لا توجد سجلات بعد. ابدأ برفع مستند ممسوح ضوئياً أو أنشئ سجلاً جديداً.</p>
+  </div>
+</section>
+
+<!-- ================= المحرر ================= -->
+<section id="view-editor" class="hidden">
+  <div class="toolbar">
+    <span style="font-weight:800;color:var(--navy);font-size:14px" id="ed-title">سجل جديد</span>
+    <span class="pill" id="ed-status">مسودة</span>
+    <div class="sep"></div>
+    <label class="btn" for="file-input" id="btn-upload">📤 رفع مستند ممسوح / PDF</label>
+    <input type="file" id="file-input" multiple accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.txt" class="hidden">
+    <button class="btn ok" id="btn-extract" onclick="runExtract()">🧠 استخراج وتلخيص ذكي</button>
+    <button class="btn warn" id="btn-qc" onclick="runQC()">✅ فحص جودة البيانات</button>
+    <div class="sep"></div>
+    <button class="btn sec" id="btn-preview" onclick="togglePreview()">👁 معاينة المستند</button>
+    <button class="btn sec" id="btn-storage" onclick="showStorage()">📁 مكان الملف المخزَّن</button>
+    <div class="sep"></div>
+    <button class="btn" id="btn-save" onclick="saveCase()">💾 حفظ السجل</button>
+    <button class="btn sec" id="btn-export1" onclick="exportOne()">📥 تصدير Excel</button>
+    <span class="info" id="ed-info"></span>
+  </div>
+
+  <div id="ed-banners"></div>
+
+  <div class="split" id="editor-split">
+    <div>
+      <div class="card" style="padding:12px">
+        <div class="row" style="margin-bottom:10px">
+          <strong style="color:var(--navy)">بيانات الحالة</strong>
+          <span class="grow"></span>
+          <button class="btn sm ghost" onclick="collapseAll(false)">توسيع الكل</button>
+          <button class="btn sm ghost" onclick="collapseAll(true)">طيّ الكل</button>
+          <button class="btn sm ghost" onclick="showOnlyMissing()">إظهار الناقص فقط</button>
+        </div>
+        <form id="case-form" onsubmit="return false"></form>
+      </div>
+      <div class="card">
+        <h2>🧾 المستندات المرفقة</h2>
+        <div id="docs-list"></div>
+        <div class="drop" id="drop" onclick="document.getElementById('file-input').click()">
+          <div style="font-size:30px">📄</div>
+          <strong>اسحب الملف هنا أو انقر للاختيار</strong>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:5px">
+            PDF · PNG · JPG · TIFF · TXT &nbsp;|&nbsp; حتى 200 ميجابايت
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="preview-pane">
+      <div class="preview">
+        <div class="phead">
+          <span>👁 معاينة المستند الأصلي</span>
+          <span class="grow"></span>
+          <select id="doc-select" style="padding:4px 8px;border-radius:6px;border:none;font-size:11.5px"></select>
+          <label style="font-size:11px;display:flex;gap:4px;align-items:center">
+            <input type="checkbox" id="show-text" onchange="renderPreview()"> عرض النص المستخرج
+          </label>
+          <button class="btn sm sec" onclick="openDocNewTab()">↗ فتح في تبويب</button>
+        </div>
+        <div class="pbody" id="preview-body">
+          <div class="pempty">
+            <div style="font-size:44px">📂</div>
+            <p style="margin-top:10px"><strong>لم يُرفع مستند بعد</strong></p>
+            <p style="font-size:12px;margin-top:6px">ارفع التقرير الممسوح ضوئياً لتظهر معاينته هنا<br>
+               بجانب النموذج للمطابقة البصرية</p>
+            <p style="font-size:11.5px;margin-top:14px;color:var(--info)">
+              💡 انقر على أي «دليل» أخضر تحت الحقول لتمييز مصدره في المستند</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h3>📋 لصق النص يدوياً (عند تعذّر OCR)</h3>
+        <textarea id="manual-text" rows="6" style="width:100%;padding:9px;border:1px solid var(--line);
+          border-radius:8px;font-family:monospace;font-size:12px" placeholder="الصق هنا نص التقرير كما قرأته من الملف الممسوح…"></textarea>
+        <div class="row" style="margin-top:8px">
+          <button class="btn sm ok" onclick="extractManual()">🧠 استخراج من هذا النص</button>
+          <label style="font-size:11.5px;display:flex;gap:5px;align-items:center">
+            <input type="checkbox" id="overwrite"> استبدال القيم المدخلة يدوياً
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الجودة ================= -->
+<section id="view-qc" class="hidden">
+  <div class="card">
+    <h2>✅ فحص جودة البيانات — الدفعة كاملة
+      <span class="grow"></span>
+      <button class="btn sm" onclick="runBatchQC()">▶ تشغيل الفحص</button>
+      <button class="btn sm sec" onclick="location.href='/api/export/qc-report'">📥 تحميل تقرير الجودة (Excel)</button>
+    </h2>
+    <div id="qc-batch"></div>
+  </div>
+  <div class="card">
+    <h2>📚 كتالوج قواعد الجودة <span style="font-weight:400;font-size:11.5px;color:var(--muted)" id="rules-count"></span></h2>
+    <div class="tbl-wrap" style="max-height:44vh">
+      <table><thead><tr><th>الرمز</th><th>العائلة</th><th>القاعدة</th><th>الخطورة</th><th>المرجع المعياري</th></tr></thead>
+      <tbody id="rules-body"></tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= التصدير ================= -->
+<section id="view-export" class="hidden">
+  <div class="card">
+    <h2>📤 التصدير والحفظ</h2>
+    <div class="banner info">
+      ملف Excel الناتج يحتوي 6 أوراق: <b>السجل</b> · <b>العلاج</b> · <b>جودة البيانات</b> ·
+      <b>ملخص الفحص</b> · <b>قاموس الحقول</b> · <b>مرجع ICD-O-3</b>.<br>
+      كل أوراق السجل بها <b>قوائم منسدلة</b> و<b>تحقق من الصيغة</b> و<b>تلوين شرطي</b> — تصلح للإدخال اليدوي المباشر.
+    </div>
+    <div class="row">
+      <button class="btn" onclick="location.href='/api/export'">📥 تصدير كل السجلات (Excel)</button>
+      <button class="btn sec" onclick="location.href='/api/export?only_validated=1'">📥 المعتمدة فقط</button>
+      <button class="btn sec" onclick="location.href='/api/export/qc-report'">📥 تقرير الجودة فقط</button>
+    </div>
+    <h3 style="margin-top:20px">بيانات ترويسة التصدير</h3>
+    <div class="row">
+      <input id="meta-facility" class="grow" placeholder="الجهة" value="مكتب سجل السرطان — المعهد القومي للأورام، صبراتة"
+             style="padding:8px;border:1px solid var(--line);border-radius:8px">
+      <input id="meta-author" class="grow" placeholder="اسم المُعِدّ" value="Mohamed A. Bahur"
+             style="padding:8px;border:1px solid var(--line);border-radius:8px">
+      <button class="btn sec" onclick="exportWithMeta()">تصدير بهذه البيانات</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2>🗂 الأرشيف الوطني / مجلد التصديرات</h2>
+    <div id="exports-info"></div>
+  </div>
+</section>
+
+<!-- ================= القاموس ================= -->
+<section id="view-dictionary" class="hidden">
+  <div class="card">
+    <h2>📖 قاموس الحقول الطبية المعتمدة (Data Dictionary)
+      <span class="grow"></span>
+      <input id="dict-q" placeholder="بحث في القاموس…" oninput="renderDictionary()"
+             style="padding:7px 11px;border:1px solid var(--line);border-radius:8px;min-width:220px">
+      <button class="btn sm sec" onclick="downloadDictionary()">📥 تنزيل CSV</button>
+    </h2>
+    <div class="banner info" id="dict-info"></div>
+    <div id="dict-body"></div>
+  </div>
+</section>
+
+<!-- ================= المرجع ================= -->
+<section id="view-refdata" class="hidden">
+  <div class="card">
+    <h2>🧬 مرجع ICD-O-3</h2>
+    <div class="row" style="margin-bottom:12px">
+      <button class="btn sm sec" id="tab-site" onclick="switchRef('site')">الموقع الأولي — Topography</button>
+      <button class="btn sm sec" id="tab-morph" onclick="switchRef('morphology')">النسيج — Morphology</button>
+      <input id="ref-q" class="grow" placeholder="بحث بالرمز أو بالاسم العربي أو الإنجليزي…"
+             oninput="debounceRef()" style="padding:8px;border:1px solid var(--line);border-radius:8px">
+      <span id="ref-count" style="font-size:12px;color:var(--muted)"></span>
+    </div>
+    <div class="tbl-wrap" style="max-height:66vh">
+      <table><thead id="ref-head"></thead><tbody id="ref-body"></tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= التدقيق ================= -->
+<section id="view-audit" class="hidden">
+  <div class="card">
+    <h2>🕘 سجل التدقيق الزمني (Audit Trail)
+      <span class="grow"></span>
+      <input id="audit-q" placeholder="رقم السجل (اتركه فارغاً للكل)"
+             style="padding:7px 11px;border:1px solid var(--line);border-radius:8px;min-width:220px">
+      <button class="btn sm" onclick="loadAudit()">تحديث</button>
+    </h2>
+    <div class="banner info">سجل <b>للإضافة فقط</b> — كل إجراء (رفع، استخراج، فحص جودة، حفظ، تصدير، حذف)
+      يُوثَّق بالطابع الزمني والمستخدم والتفاصيل. لا يمكن تعديله أو حذفه.</div>
+    <ul class="timeline" id="audit-body"></ul>
+  </div>
+</section>
+
+<!-- ================= النظام ================= -->
+<section id="view-system" class="hidden">
+  <div class="card">
+    <h2>⚙️ حالة النظام ومحركات OCR</h2>
+    <div id="sys-engines"></div>
+  </div>
+  <div class="card">
+    <h2>📁 التخزين ومكان الملفات</h2>
+    <div id="sys-storage"></div>
+    <div class="banner warn" style="margin-top:12px">
+      <b>ملاحظة:</b> هذه المسارات على الجهاز الذي يعمل عليه الخادم. لنسخ الأرشيف إلى قرص خارجي
+      انسخ المجلدات كاملة — البنية محفوظة بالرقم والسنة ولا تحتاج قاعدة بيانات.
+    </div>
+  </div>
+  <div class="card">
+    <h2>🔧 تثبيت Tesseract (لتحسين قراءة الصور الممسوحة)</h2>
+    <div id="sys-tess"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+const DICT = {{ dict_json|safe }};
+const RULES = {{ rules_json|safe }};
+const ENGINE = {{ engine_json|safe }};
+let CASES=[], CURRENT=null, CURRENT_HITS={}, CURRENT_DOCS=[], OCR_TEXT="", REF_KIND="site", REF_ROWS=[];
+
+/* ---------------- أدوات ---------------- */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(msg,kind="ok",ms=3800){
+  const d=document.createElement("div"); d.className="toast "+kind; d.innerHTML=msg;
+  document.body.appendChild(d); setTimeout(()=>d.remove(),ms);
+}
+async function api(url,opt={}){
+  const r=await fetch(url,opt);
+  if(!r.ok){ let m=r.statusText; try{ m=(await r.json()).error||m; }catch(e){} throw new Error(m); }
+  const ct=r.headers.get("content-type")||"";
+  return ct.includes("json")?r.json():r.text();
+}
+function busy(btn,on,label){
+  if(!btn) return;
+  if(on){ btn.dataset.old=btn.innerHTML; btn.disabled=true;
+    btn.innerHTML='<span class="spinner"></span> '+(label||"جارٍ المعالجة…"); }
+  else { btn.innerHTML=btn.dataset.old||btn.innerHTML; btn.disabled=false; }
+}
+
+/* ---------------- التنقل ---------------- */
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>show(b.dataset.view));
+function show(v){
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===v));
+  ["cases","editor","qc","export","dictionary","refdata","audit","system"]
+    .forEach(x=>$("view-"+x).classList.toggle("hidden",x!==v));
+  if(v==="cases") loadCases();
+  if(v==="qc") renderRules();
+  if(v==="dictionary") renderDictionary();
+  if(v==="refdata") loadRef(REF_KIND);
+  if(v==="audit") loadAudit();
+  if(v==="system") loadSystem();
+  if(v==="export") loadExports();
+}
+
+/* ---------------- الشارات ---------------- */
+function renderBadges(){
+  const e=ENGINE;
+  const b=[
+    ["📚 ICD-O-3: "+(DICT.ref.topography_codes)+" موقع · "+(DICT.ref.morphology_codes)+" نسيج","ok"],
+    [e.tesseract?("🔤 Tesseract: مثبّت"+(e.arabic_supported?" (يدعم العربية ✓)":" (بدون عربية!)")):"🔤 Tesseract: غير مثبّت", e.tesseract?(e.arabic_supported?"ok":"bad"):"bad"],
+    ["🧾 PDF: "+(e.pypdf||e.pdfminer?"قراءة النص المدمج ✓":"غير متاح"), (e.pypdf||e.pdfminer)?"ok":"bad"],
+  ];
+  $("badges").innerHTML=b.map(([t,k])=>`<span class="badge ${k}">${esc(t)}</span>`).join("");
+}
+
+/* ---------------- قائمة السجلات ---------------- */
+async function loadCases(){
+  try{
+    const d=await api("/api/cases?"+new URLSearchParams({
+      q:$("q").value, status:$("f-status").value, year:$("f-year").value}));
+    CASES=d.cases||[];
+    const dash=await api("/api/dashboard");
+    renderCaseStats(dash);
+    renderCases();
+    // ملء قائمة السنوات
+    const yrs=Object.keys(dash.by_year||{}).filter(y=>/^\d{4}$/.test(y)).sort().reverse();
+    const cur=$("f-year").value;
+    $("f-year").innerHTML='<option value="">كل السنوات</option>'+yrs.map(y=>`<option ${y===cur?"selected":""}>${y}</option>`).join("");
+  }catch(e){ toast("تعذّر تحميل السجلات: "+e.message,"err"); }
+}
+function renderCaseStats(d){
+  const s=d.by_qc_status||{};
+  $("case-stats").innerHTML=[
+    ["إجمالي السجلات",d.total_cases],["المستندات المؤرشفة",d.total_documents],
+    ["متوسط نقاط الجودة",(d.avg_qc_score||0)+" / 100"],
+    ["ناجح",s.pass||0],["تحذير",s.warning||0],["خطأ",s.error||0],
+  ].map(([l,n])=>`<div class="stat"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join("");
+}
+function renderCases(){
+  const tb=$("cases-body");
+  $("cases-empty").classList.toggle("hidden",CASES.length>0);
+  tb.innerHTML=CASES.map(c=>{
+    const sex={male:"ذكر",female:"أنثى"}[c.sex]||"—";
+    const vs={alive:"على قيد الحياة",dead:"متوفى",dead_cancer:"متوفى (الورم)",dead_other:"متوفى (سبب آخر)",
+              lost:"مفقود المتابعة",unknown:"غير معروف"}[c.vitality_status]||"—";
+    return `<tr onclick="openCase('${esc(c.registry_no)}')">
+      <td><code class="mono">${esc(c.registry_no)}</code></td>
+      <td><b>${esc(c.full_name||"—")}</b></td>
+      <td class="mono" style="font-size:11px">${esc(c.national_id||"—")}</td>
+      <td>${sex}</td><td>${esc(c.age||"")}</td>
+      <td>${esc(c.primary_site||"—")}<br><span style="font-size:11px;color:var(--muted)">${esc(c.site_label||"")}</span></td>
+      <td class="mono">${esc(c.morphology||"—")}</td>
+      <td>${esc(c.summary_stage||"")}</td>
+      <td>${esc(c.date_of_diagnosis||"—")}</td>
+      <td>${vs}</td>
+      <td><span class="pill ${esc(c.qc_status||"not_run")}">${esc(c.qc_score||"—")}</span></td>
+      <td><span class="pill ${esc(c.data_entry_status||"draft")}">${esc(c.data_entry_status||"draft")}</span></td>
+      <td onclick="event.stopPropagation()"><button class="btn sm err" onclick="delCase('${esc(c.registry_no)}')">حذف</button></td>
+    </tr>`;}).join("");
+}
+$("q").oninput=()=>{clearTimeout(window._qt);window._qt=setTimeout(loadCases,320)};
+$("f-status").onchange=loadCases; $("f-year").onchange=loadCases;
+
+async function delCase(no){
+  if(!confirm("حذف السجل "+no+" نهائياً؟\n(الملفات المؤرشفة وسجل التدقيق يبقى)")) return;
+  try{ await api("/api/delete/"+encodeURIComponent(no),{method:"POST"}); toast("تم حذف "+no,"warn"); loadCases(); }
+  catch(e){ toast(e.message,"err"); }
+}
+
+/* ---------------- المحرر ---------------- */
+async function newCase(){
+  const d=await api("/api/new");
+  CURRENT={registry_no:d.registry_no,record:{},treatments:[],documents:[],qc:{},extraction:{},archive_path:d.archive_path};
+  CURRENT_HITS={}; OCR_TEXT="";
+  show("editor"); renderEditor();
+  toast("سجل جديد بالرقم "+d.registry_no,"ok");
+}
+async function openCase(no){
+  try{
+    const d=await api("/api/case/"+encodeURIComponent(no));
+    CURRENT=d; CURRENT_HITS=(d.extraction&&d.extraction.hits)||{}; OCR_TEXT=(d.extraction&&d.extraction.text)||"";
+    show("editor"); renderEditor();
+  }catch(e){ toast("تعذّر فتح السجل: "+e.message,"err"); }
+}
+
+function renderEditor(){
+  const c=CURRENT;
+  $("ed-title").textContent="السجل "+c.registry_no+" — "+(c.record.full_name||"بدون اسم");
+  const st=c.record.data_entry_status||"draft";
+  const stLabel=(DICT.options.data_entry_status.find(o=>o.key===st)||{}).ar||st;
+  $("ed-status").className="pill "+st; $("ed-status").textContent=stLabel;
+  const conf=c.extraction&&c.extraction.confidence;
+  $("ed-info").innerHTML=conf!=null
+    ? `ثقة الاستخراج: <b>${conf}%</b> · المحرك: <b>${esc(c.extraction.engine||"—")}</b> · الحقول: <b>${Object.keys(c.record).filter(k=>c.record[k]!=="").length}</b>`
+    : `الحقول المعبأة: <b>${Object.keys(c.record).filter(k=>c.record[k]!=="").length}</b>`;
+
+  // اللافتات
+  const banners=[];
+  if(ENGINE.tesseract===false) banners.push(["warn","🔤 <b>Tesseract غير مثبّت</b> على هذا الجهاز — يمكن قراءة ملفات PDF التي تحتوي نصاً مدمجاً فقط. الصور الممسوحة ضوئياً تحتاج Tesseract (راجع تبويب «النظام والتخزين») أو خيار «لصق النص يدوياً»."]);
+  if(c.qc&&c.qc.status==="error") banners.push(["err",`❌ <b>${c.qc.errors}</b> أخطاء جودة تمنع الاعتماد — النقاط ${c.qc.score}/100. راجع تبويب النتائج بالأسفل.`]);
+  else if(c.qc&&c.qc.status==="warning") banners.push(["warn",`⚠ <b>${c.qc.warnings}</b> تحذيرات جودة — النقاط ${c.qc.score}/100.`]);
+  else if(c.qc&&c.qc.status==="pass") banners.push(["ok",`✅ السجل مطابق للمعايير — النقاط ${c.qc.score}/100.`]);
+  $("ed-banners").innerHTML=banners.map(([k,t])=>`<div class="banner ${k}">${t}</div>`).join("");
+
+  renderForm(); renderDocs(); renderPreview(); renderQCPanel();
+}
+
+function renderForm(){
+  const rec=CURRENT.record||{}, hits=CURRENT_HITS||{};
+  const qcIssues={};
+  ((CURRENT.qc||{}).issues||[]).forEach(i=>{
+    if(!qcIssues[i.field]||i.severity==="error") qcIssues[i.field]=i.severity;
+  });
+  let html="";
+  for(const [g,fields] of Object.entries(DICT.groups_fields)){
+    const visible=fields.filter(f=>f.type!=="one2many"&&f.type!=="datetime");
+    if(!visible.length) continue;
+    html+=`<details open data-group="${esc(g)}"><summary>${esc(g)} <span style="color:var(--muted);font-weight:400">(${visible.length})</span></summary><div class="fgrid">`;
+    for(const f of visible){
+      const v=rec[f.name]??"";
+      const wide=(f.type==="text")?"wide":"";
+      const hit=hits[f.name];
+      const sev=qcIssues[f.name];
+      const cls=[wide, hit?"extracted":"", sev==="error"?"err":"", sev==="warning"?"warn":""].filter(Boolean).join(" ");
+      let input;
+      if(f.type==="selection"&&f.options){
+        const opts=DICT.options[f.name]||[];
+        input=`<select name="${f.name}"><option value="">— اختر —</option>`+
+          opts.map(o=>`<option value="${esc(o.key)}" ${String(v)===o.key?"selected":""}>${esc(o.ar)}</option>`).join("")+`</select>`;
+      } else if(f.type==="boolean"){
+        input=`<select name="${f.name}"><option value="">—</option>
+          <option value="True" ${String(v).toLowerCase()==="true"||v===1?"selected":""}>نعم</option>
+          <option value="False" ${String(v).toLowerCase()==="false"||v===0?"selected":""}>لا</option></select>`;
+      } else if(f.type==="text"){
+        input=`<textarea name="${f.name}">${esc(v)}</textarea>`;
+      } else if(f.type==="date"){
+        input=`<input type="date" name="${f.name}" value="${esc(v)}">`;
+      } else if(f.type==="integer"||f.type==="float"){
+        input=`<input type="number" step="${f.type==="float"?"0.01":"1"}" name="${f.name}" value="${esc(v)}">`;
+      } else {
+        const ph=(f.name==="primary_site")?"C50.9":(f.name==="morphology")?"8500/3":(f.name==="national_id")?"12 رقماً":"";
+        input=`<input type="text" name="${f.name}" value="${esc(v)}" placeholder="${esc(ph)}"
+                  ${f.name==="primary_site"||f.name==="morphology"?`list="dl-${f.name}"`:""}>`;
+      }
+      html+=`<div class="f ${cls}" data-field="${f.name}">
+        <span class="dot"></span>
+        <label>${f.required?'<span class="req">*</span> ':''}${esc(f.label_ar)}
+          <span class="tech">${esc(f.name)}</span></label>
+        ${input}
+        <div class="hint">${esc(f.help||f.label_en)}</div>
+        ${hit?`<div class="ev" onclick="highlightEvidence('${f.name}')"
+             title="${esc(hit.evidence||"")}">🔎 دليل: ${esc((hit.evidence||"").slice(0,58))}… [${Math.round(hit.confidence*100)}%]</div>`:""}
+      </div>`;
+    }
+    html+=`</div></details>`;
+  }
+  $("case-form").innerHTML=html+
+    `<datalist id="dl-primary_site"></datalist><datalist id="dl-morphology"></datalist>`;
+  $("case-form").addEventListener("input",onFormInput);
+  $("case-form").addEventListener("change",onFormInput);
+}
+function onFormInput(){
+  const f=new FormData($("case-form"));
+  const rec={};
+  for(const [k,v] of f.entries()) rec[k]=v;
+  CURRENT.record=Object.assign({},CURRENT.record,rec);
+}
+function collectForm(){
+  const out={};
+  document.querySelectorAll("#case-form [name]").forEach(el=>{ out[el.name]=el.value; });
+  return out;
+}
+function collapseAll(c){ document.querySelectorAll("#case-form details").forEach(d=>d.open=!c); }
+function showOnlyMissing(){
+  document.querySelectorAll("#case-form .f").forEach(f=>{
+    const el=f.querySelector("input,select,textarea");
+    f.style.display=(el&&el.value)?"none":"";
+  });
+  collapseAll(false);
+  toast("تُعرض الآن الحقول الفارغة فقط","info");
+}
+
+/* ---------------- الرفع والاستخراج ---------------- */
+$("file-input").addEventListener("change",e=>uploadFiles(e.target.files));
+const drop=$("drop");
+["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over")}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over")}));
+drop.addEventListener("drop",e=>uploadFiles(e.dataTransfer.files));
+
+async function uploadFiles(files){
+  if(!files||!files.length) return;
+  const fd=new FormData();
+  for(const f of files) fd.append("file",f);
+  if(CURRENT&&CURRENT.record&&CURRENT.record.registry_no) fd.append("registry_no",CURRENT.record.registry_no);
+  fd.append("lang","ara+eng"); fd.append("prefer","auto");
+  busy($("btn-upload"),true,"جارٍ القراءة والاستخراج…"); busy($("btn-extract"),true);
+  try{
+    const d=await api("/api/upload",{method:"POST",body:fd});
+    CURRENT={registry_no:d.registry_no,record:d.record,fields:d.fields,qc:d.qc,
+             extraction:d.extraction,documents:d.documents,archive_path:d.archive_path,treatments:[]};
+    CURRENT_HITS=d.hits||{}; OCR_TEXT=(d.ocr&&d.ocr.text)||"";
+    renderEditor();
+    const n=Object.keys(d.record||{}).length;
+    toast(`✅ تم استخراج <b>${n}</b> حقل من ${files.length} ملف — الثقة ${d.extraction.confidence}%`,"ok",5200);
+    if(d.errors&&d.errors.length) toast("⚠ "+d.errors.map(e=>e.file+": "+e.error).join("<br>"),"warn",7000);
+    if(d.ocr&&d.ocr.warnings&&d.ocr.warnings.length) console.warn("OCR:",d.ocr.warnings);
+  }catch(e){ toast("فشل الرفع: "+e.message,"err",6000); }
+  finally{ busy($("btn-upload"),false); busy($("btn-extract"),false); $("file-input").value=""; }
+}
+
+async function runExtract(){
+  if(!OCR_TEXT){ toast("لا يوجد نص مستخرج — ارفع مستنداً أولاً أو الصق النص يدوياً","warn"); return; }
+  busy($("btn-extract"),true);
+  try{
+    const d=await api("/api/extract-text",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({text:OCR_TEXT,record:collectForm(),overwrite:false})});
+    CURRENT.record=d.record; CURRENT_HITS=d.hits||{}; CURRENT.qc=d.qc;
+    renderEditor();
+    toast(`🧠 أُعيد الاستخراج — ${Object.keys(d.record).length} حقل`,"ok");
+  }catch(e){ toast(e.message,"err"); } finally{ busy($("btn-extract"),false); }
+}
+
+async function extractManual(){
+  const t=$("manual-text").value;
+  if(t.trim().length<10){ toast("الصق نص التقرير أولاً","warn"); return; }
+  busy($("btn-extract"),true);
+  try{
+    const d=await api("/api/extract-text",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({text:t,record:collectForm(),overwrite:$("overwrite").checked})});
+    OCR_TEXT=t; CURRENT.record=d.record; CURRENT_HITS=d.hits||{}; CURRENT.qc=d.qc;
+    $("show-text").checked=true;
+    renderEditor();
+    toast(`🧠 تم استخراج ${Object.keys(d.record).length} حقل من النص الملصوق`,"ok");
+  }catch(e){ toast(e.message,"err"); } finally{ busy($("btn-extract"),false); }
+}
+
+/* ---------------- الجودة ---------------- */
+async function runQC(){
+  busy($("btn-qc"),true);
+  try{
+    const d=await api("/api/qc",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({record:collectForm(),registry_no:CURRENT.registry_no})});
+    CURRENT.qc=d.qc; CURRENT.record=Object.assign(collectForm(),CURRENT.record);
+    renderEditor();
+    const k=d.qc.status;
+    toast(k==="pass"?`✅ ناجح ${d.qc.score}/100`:k==="warning"?
+      `⚠ ${d.qc.warnings} تحذير — ${d.qc.score}/100`:`❌ ${d.qc.errors} خطأ — ${d.qc.score}/100`,
+      k==="pass"?"ok":k==="warning"?"warn":"err",5200);
+  }catch(e){ toast(e.message,"err"); } finally{ busy($("btn-qc"),false); }
+}
+function renderQCPanel(){
+  const qc=CURRENT.qc||{};
+  const iss=qc.issues||[];
+  if(!iss.length){ $("ed-banners").insertAdjacentHTML("beforeend",""); return; }
+  let html=`<div class="card"><h2>🔍 نتيجة فحص الجودة
+     <span class="grow"></span>
+     <span style="font-size:22px;font-weight:800;color:${qc.score>=85?"var(--ok)":qc.score>=60?"var(--warn)":"var(--err)"}">${qc.score}/100</span>
+   </h2>
+   <div class="qc-summary">
+     <div class="qc-box err"><div class="n">${qc.errors||0}</div><div class="l">أخطاء</div></div>
+     <div class="qc-box warn"><div class="n">${qc.warnings||0}</div><div class="l">تحذيرات</div></div>
+     <div class="qc-box ok"><div class="n">${qc.infos||0}</div><div class="l">ملاحظات</div></div>
+   </div>`;
+  const order={error:0,warning:1,info:2};
+  iss.sort((a,b)=>order[a.severity]-order[b.severity]).forEach(i=>{
+    html+=`<div class="issue ${i.severity}" onclick="focusField('${esc(i.field)}')" style="cursor:pointer">
+      <div class="t"><span class="code">${esc(i.code)}</span>
+        <span>${i.severity==="error"?"✗":i.severity==="warning"?"⚠":"ℹ"} ${esc(i.message)}</span>
+        ${i.field?`<span class="fld">· ${esc(i.field_label||i.field)}</span>`:""}</div>
+      ${i.fix?`<div class="fix">${esc(i.fix)}</div>`:""}
+    </div>`;});
+  html+=`</div>`;
+  const old=$("qc-panel"); if(old) old.remove();
+  const div=document.createElement("div"); div.id="qc-panel"; div.innerHTML=html;
+  $("editor-split").after(div.firstElementChild);
+}
+function focusField(name){
+  if(!name) return;
+  const el=document.querySelector(`#case-form .f[data-field="${name}"]`);
+  if(!el) return;
+  const det=el.closest("details"); if(det) det.open=true;
+  el.scrollIntoView({behavior:"smooth",block:"center"});
+  el.style.transition="box-shadow .3s"; el.style.boxShadow="0 0 0 3px var(--accent)";
+  setTimeout(()=>el.style.boxShadow="",1800);
+  const inp=el.querySelector("input,select,textarea"); if(inp) inp.focus();
+}
+
+/* ---------------- المعاينة ---------------- */
+function togglePreview(){
+  const p=$("preview-pane");
+  p.classList.toggle("hidden");
+  $("editor-split").style.gridTemplateColumns=p.classList.contains("hidden")?"1fr":"1fr 1fr";
+  $("btn-preview").textContent=p.classList.contains("hidden")?"👁 إظهار المعاينة":"👁 إخفاء المعاينة";
+}
+function renderDocs(){
+  const docs=CURRENT.documents||[];
+  $("docs-list").innerHTML=docs.length?`<div class="tbl-wrap" style="max-height:190px;margin-bottom:10px">
+    <table><thead><tr><th>الملف</th><th>الحجم</th><th>تاريخ الرفع</th><th>SHA-256</th><th></th></tr></thead><tbody>
+    ${docs.map(d=>`<tr><td>${esc(d.filename)}</td><td>${(d.size/1024).toFixed(0)} ك.ب</td>
+      <td style="font-size:11px">${esc((d.uploaded_on||"").replace("T"," "))}</td>
+      <td class="mono" style="font-size:10px" title="${esc(d.stored_path||"")}">${esc((d.sha256||"").slice(0,14))}…</td>
+      <td><a class="btn sm sec" href="${esc(d.url||"#")}" target="_blank">فتح</a></td></tr>`).join("")}
+    </tbody></table></div>`:"<p style='color:var(--muted);font-size:12.5px;margin-bottom:10px'>لا توجد مستندات مرفقة.</p>";
+  $("doc-select").innerHTML=docs.map((d,i)=>`<option value="${i}">${esc(d.filename)}</option>`).join("")
+    ||'<option value="">لا يوجد</option>';
+}
+function currentDocUrl(){
+  const docs=CURRENT.documents||[]; const i=+$("doc-select").value||0;
+  const d=docs[i]; if(!d) return null;
+  return d.url||`/doc/${encodeURIComponent(CURRENT.registry_no)}/${encodeURIComponent(d.filename.replace(/^[0-9a-f]{12}_/,""))}`;
+}
+function renderPreview(){
+  const body=$("preview-body"); const docs=CURRENT.documents||[];
+  if($("show-text").checked||!docs.length){
+    const t=OCR_TEXT||"(لا يوجد نص مستخرج — ارفع مستنداً أو الصق النص يدوياً)";
+    body.innerHTML=`<pre id="doc-pre">${esc(t)}</pre>`;
+    return;
+  }
+  const url=currentDocUrl();
+  if(!url){ body.innerHTML=`<div class="pempty"><div style="font-size:44px">📂</div><p style="margin-top:10px"><strong>لم يُرفع مستند بعد</strong></p></div>`; return; }
+  const isPdf=/\.pdf$/i.test(url), isImg=/\.(png|jpe?g|gif|webp|bmp)$/i.test(url);
+  body.innerHTML = isPdf?`<iframe src="${url}#toolbar=1&view=FitH"></iframe>`
+    : isImg?`<div style="padding:8px;background:#fff"><img src="${url}" alt="المستند"></div>`
+    : `<iframe src="${url}"></iframe>`;
+}
+$("doc-select").onchange=renderPreview;
+function openDocNewTab(){ const u=currentDocUrl(); if(u) window.open(u,"_blank"); else toast("لا يوجد مستند","warn"); }
+function highlightEvidence(name){
+  const hit=CURRENT_HITS[name]; if(!hit||!hit.evidence) return;
+  $("show-text").checked=true; renderPreview();
+  const pre=$("doc-pre"); if(!pre) return;
+  const ev=hit.evidence.trim().split("\n")[0];
+  if(!ev) return;
+  const idx=pre.textContent.indexOf(ev);
+  if(idx<0){ toast("لم يُعثر على الدليل في النص المستخرج","warn"); return; }
+  const t=pre.textContent;
+  pre.innerHTML=esc(t.slice(0,idx))+"<mark>"+esc(t.slice(idx,idx+ev.length))+"</mark>"+esc(t.slice(idx+ev.length));
+  const mk=pre.querySelector("mark"); if(mk) mk.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+/* ---------------- مكان التخزين ---------------- */
+function showStorage(){
+  const d=CURRENT||{};
+  const html=`
+   <div class="card" style="border-color:var(--accent)">
+     <h2>📁 مكان الملف المخزَّن — السجل ${esc(d.registry_no||"")}</h2>
+     <dl class="kv">
+       <dt>مجلد الأرشيف لهذا السجل</dt><dd>${esc(d.archive_path||"—")}</dd>
+       <dt>عدد المستندات</dt><dd>${(d.documents||[]).length}</dd>
+       ${(d.documents||[]).map(x=>`<dt>ملف</dt><dd>${esc(x.stored_path||x.filename)}</dd>`).join("")}
+       <dt>سجل الحالة (JSON)</dt><dd>${esc(d.path||"—")}</dd>
+     </dl>
+     <div class="banner info" style="margin-top:10px">
+       البنية: <code class="mono">storage/documents/&lt;السنة&gt;/&lt;رقم السجل&gt;/&lt;بصمة SHA-256&gt;_&lt;الاسم&gt;</code><br>
+       الاسم يبدأ بأول 12 حرفاً من بصمة SHA-256 لمنع التكرار وضمان سلامة الملف.
+     </div>
+     <div class="row" style="margin-top:10px">
+       <button class="btn sm sec" onclick="show('system')">⚙️ عرض كل مسارات التخزين</button>
+       <button class="btn sm sec" onclick="show('audit')">🕘 سجل تدقيق هذا السجل</button>
+     </div>
+   </div>`;
+  const w=window.open("","_blank","width=760,height=620");
+  if(!w){ $("ed-banners").insertAdjacentHTML("afterbegin",html); return; }
+  w.document.write(`<html dir="rtl" lang="ar"><head><meta charset="utf-8"><title>مكان التخزين</title>
+    <style>body{font-family:"Segoe UI",Tahoma,sans-serif;background:#f4f7fb;padding:16px;direction:rtl;line-height:1.7}
+    .card{background:#fff;border:1px solid #dce6f1;border-radius:12px;padding:16px}
+    h2{color:#0b2e4d;font-size:16px;margin:0 0 12px}
+    .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13px}
+    .kv dt{font-weight:700;color:#0b2e4d}.kv dd{font-family:monospace;font-size:11.5px;margin:0;word-break:break-all}
+    .banner{background:#eaf2fb;border:1px solid #b8d4f0;padding:10px;border-radius:8px;font-size:12.5px;margin-top:12px}
+    code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:11px}</style></head><body>${html}</body></html>`);
+  w.document.close();
+}
+
+/* ---------------- الحفظ والتصدير ---------------- */
+async function saveCase(){
+  busy($("btn-save"),true);
+  try{
+    const d=await api("/api/save",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({record:collectForm(),registry_no:CURRENT.registry_no,treatments:CURRENT.treatments||[]})});
+    CURRENT=Object.assign({},CURRENT,{registry_no:d.registry_no,record:d.record,qc:d.qc,documents:d.documents,archive_path:d.archive_path});
+    renderEditor(); loadCases();
+    toast(`💾 حُفظ السجل ${d.registry_no} — الجودة ${d.qc.score}/100`,d.qc.status==="error"?"warn":"ok");
+  }catch(e){ toast("فشل الحفظ: "+e.message,"err"); } finally{ busy($("btn-save"),false); }
+}
+function exportOne(){
+  if(!CURRENT||!CURRENT.registry_no){ toast("لا يوجد سجل محفوظ","warn"); return; }
+  location.href="/api/export/"+encodeURIComponent(CURRENT.registry_no);
+  toast("📥 جارٍ تنزيل ملف Excel للسجل…","ok");
+}
+function exportWithMeta(){
+  location.href="/api/export?facility="+encodeURIComponent($("meta-facility").value)
+    +"&author="+encodeURIComponent($("meta-author").value);
+  toast("📥 جارٍ تجهيز ملف التصدير…","ok");
+}
+async function loadExports(){
+  try{
+    const d=await api("/api/storage-info");
+    $("exports-info").innerHTML=`<dl class="kv">
+      <dt>مجلد التصديرات</dt><dd>${esc(d.exports_dir)}</dd>
+      <dt>المساحة المتاحة</dt><dd>${d.disk_free_gb} جيجابايت</dd>
+      <dt>مجلد الأرشيف</dt><dd>${esc(d.documents_dir)}</dd></dl>`;
+  }catch(e){}
+}
+
+/* ---------------- الجودة الدفعى ---------------- */
+async function runBatchQC(){
+  const el=$("qc-batch"); el.innerHTML='<p style="color:var(--muted)">جارٍ فحص كل السجلات…</p>';
+  try{
+    const d=await api("/api/cases");
+    const recs=[];
+    for(const c of (d.cases||[])){
+      const full=await api("/api/case/"+encodeURIComponent(c.registry_no));
+      recs.push({no:c.registry_no,name:c.full_name,qc:full.qc||{}});
+    }
+    const tot=recs.length;
+    const by={pass:0,warning:0,error:0,not_run:0};
+    recs.forEach(r=>by[r.qc.status||"not_run"]=(by[r.qc.status||"not_run"]||0)+1);
+    const avg=tot?Math.round(recs.reduce((s,r)=>s+(r.qc.score||0),0)/tot):0;
+    const freq={};
+    recs.forEach(r=>(r.qc.issues||[]).forEach(i=>{ if(i.severity!=="info") freq[i.code]=(freq[i.code]||0)+1; }));
+    const top=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,12);
+    el.innerHTML=`
+      <div class="qc-summary">
+        <div class="qc-box"><div class="n">${tot}</div><div class="l">إجمالي السجلات</div></div>
+        <div class="qc-box ok"><div class="n">${by.pass||0}</div><div class="l">مطابقة</div></div>
+        <div class="qc-box warn"><div class="n">${by.warning||0}</div><div class="l">بها تحذير</div></div>
+        <div class="qc-box err"><div class="n">${by.error||0}</div><div class="l">بها أخطاء</div></div>
+        <div class="qc-box"><div class="n">${avg}</div><div class="l">متوسط النقاط</div></div>
+      </div>
+      <div class="bar"><i style="width:${avg}%"></i></div>
+      <h3>أكثر المشاكل تكراراً</h3>
+      ${top.length?top.map(([c,n])=>`<div class="issue ${n>tot/3?"warning":"info"}">
+          <div class="t"><span class="code">${esc(c)}</span>
+          <span>${esc((RULES[c]||["","—"])[1])}</span>
+          <span class="fld">· ${n} سجل (${Math.round(n*100/Math.max(1,tot))}%)</span></div>
+          <div class="fix">${esc((RULES[c]||["","","","—"])[3])}</div></div>`).join("")
+        :'<p style="color:var(--ok)">✓ لا توجد مشاكل</p>'}
+      <h3>تفصيل السجلات</h3>
+      <div class="tbl-wrap" style="max-height:36vh"><table>
+        <thead><tr><th>السجل</th><th>الاسم</th><th>النقاط</th><th>الحالة</th><th>أخطاء</th><th>تحذيرات</th><th>أهم مشكلة</th></tr></thead>
+        <tbody>${recs.map(r=>{const i=(r.qc.issues||[]).filter(x=>x.severity!=="info")[0];
+          return `<tr onclick="openCase('${esc(r.no)}')">
+            <td><code class="mono">${esc(r.no)}</code></td><td>${esc(r.name||"—")}</td>
+            <td><b>${r.qc.score??"—"}</b></td>
+            <td><span class="pill ${esc(r.qc.status||"not_run")}">${esc(r.qc.status||"not_run")}</span></td>
+            <td>${r.qc.errors||0}</td><td>${r.qc.warnings||0}</td>
+            <td style="font-size:11.5px">${i?esc(i.code+" "+i.message.slice(0,70)):"—"}</td></tr>`}).join("")}
+        </tbody></table></div>`;
+  }catch(e){ el.innerHTML=`<div class="banner err">${esc(e.message)}</div>`; }
+}
+function renderRules(){
+  const rows=Object.entries(RULES).map(([c,v])=>`<tr>
+    <td><code class="mono">${esc(c)}</code></td><td>${esc(v[0])}</td><td>${esc(v[1])}</td>
+    <td><span class="pill ${v[2]==="error"?"error":v[2]==="warning"?"warning":"draft"}">${esc(v[2])}</span></td>
+    <td style="font-size:11.5px;color:var(--muted)">${esc(v[3])}</td></tr>`).join("");
+  $("rules-body").innerHTML=rows; $("rules-count").textContent="("+Object.keys(RULES).length+" قاعدة)";
+}
+
+/* ---------------- القاموس ---------------- */
+function renderDictionary(){
+  const q=($("dict-q").value||"").toLowerCase().trim();
+  const all=Object.values(DICT.groups_fields).flat();
+  const rows=all.filter(f=>!q||[f.name,f.label_ar,f.label_en,f.ref,f.help].join(" ").toLowerCase().includes(q));
+  $("dict-info").innerHTML=`<b>${all.length}</b> حقل معتمد · <b>${all.filter(f=>f.required).length}</b> إلزامي ·
+    <b>${Object.keys(DICT.options).length}</b> حقل بقوائم اختيار ·
+    المعايير: ICD-O-3 · ICD-10 · AJCC 8th · ENCR/IARC · CI5 Vol. XI`;
+  let html="";
+  for(const [g,fields] of Object.entries(DICT.groups_fields)){
+    const vis=fields.filter(f=>rows.includes(f));
+    if(!vis.length) continue;
+    html+=`<h3 style="color:var(--navy);margin:16px 0 6px">${esc(g)}</h3>
+      <div class="tbl-wrap" style="max-height:none"><table>
+      <thead><tr><th>الاسم التقني</th><th>التسمية العربية</th><th>Label (EN)</th><th>النوع</th>
+        <th>إلزامي</th><th>الخيارات / الصيغة</th><th>المرجع</th><th>ملاحظة</th></tr></thead><tbody>
+      ${vis.map(f=>`<tr><td><code class="mono">${esc(f.name)}</code></td>
+        <td><b>${esc(f.label_ar)}</b></td><td style="font-size:11.5px">${esc(f.label_en)}</td>
+        <td>${esc(f.type)}</td><td>${f.required?"<b style='color:var(--err)'>نعم</b>":""}</td>
+        <td style="font-size:11px">${f.options?(DICT.options[f.name]||[]).slice(0,6).map(o=>esc(o.key+"="+o.ar)).join(" · ")
+          +((DICT.options[f.name]||[]).length>6?" …":""):(f.pattern?`<code class="mono">${esc(f.pattern)}</code>`:"")}</td>
+        <td style="font-size:11px;color:var(--info)">${esc(f.ref||"")}</td>
+        <td style="font-size:11px;color:var(--muted)">${esc(f.help||"")}</td></tr>`).join("")}
+      </tbody></table></div>`;
+  }
+  $("dict-body").innerHTML=html||"<p>لا نتائج</p>";
+}
+function downloadDictionary(){
+  const all=Object.values(DICT.groups_fields).flat();
+  const head=["group","name","label_ar","label_en","type","required","options","reference","help"];
+  const csv=[head.join(",")].concat(all.map(f=>[
+    f.group,f.name,'"'+(f.label_ar||"").replace(/"/g,'""')+'"',
+    '"'+(f.label_en||"").replace(/"/g,'""')+'"',f.type,f.required?"yes":"no",
+    '"'+((DICT.options[f.name]||[]).map(o=>o.key+"="+o.ar).join(" | "))+'"',
+    '"'+(f.ref||"")+'"','"'+(f.help||"").replace(/"/g,'""')+'"'].join(","))).join("\n");
+  const b=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(b);
+  a.download="cancer_registry_data_dictionary.csv"; a.click();
+}
+
+/* ---------------- المرجع ---------------- */
+let refTimer=null;
+function debounceRef(){ clearTimeout(refTimer); refTimer=setTimeout(()=>loadRef(REF_KIND),260); }
+function switchRef(k){ REF_KIND=k; loadRef(k); }
+async function loadRef(kind){
+  REF_KIND=kind;
+  $("tab-site").className="btn sm "+(kind==="site"?"":"sec");
+  $("tab-morph").className="btn sm "+(kind==="morphology"?"":"sec");
+  try{
+    const d=await api(`/api/lookup/${kind}?q=`+encodeURIComponent($("ref-q").value||""));
+    REF_ROWS=d.rows; $("ref-count").textContent=`${d.count} نتيجة (يُعرض ${d.rows.length})`;
+    $("ref-head").innerHTML=kind==="site"
+      ? "<tr><th>الرمز</th><th>الاسم بالعربية</th><th>الاسم بالإنجليزية</th><th>الجهاز</th></tr>"
+      : "<tr><th>الرمز</th><th>الاسم بالعربية</th><th>الاسم بالإنجليزية</th><th>السلوك</th></tr>";
+    $("ref-body").innerHTML=d.rows.map(r=>`<tr>
+      <td><code class="mono"><b>${esc(r.code)}</b></code></td>
+      <td>${esc(r.ar||"")}</td><td style="font-size:11.5px">${esc(r.en||"")}</td>
+      <td style="font-size:11px;color:var(--muted)">${esc(r.system||("سلوك /"+r.behaviour))}</td></tr>`).join("");
+  }catch(e){ toast(e.message,"err"); }
+}
+
+/* ---------------- التدقيق ---------------- */
+async function loadAudit(){
+  try{
+    const no=$("audit-q").value||"";
+    const d=await api("/api/audit?registry_no="+encodeURIComponent(no));
+    const names={"document.upload":"رفع مستند","document.process":"معالجة مستند","case.save":"حفظ سجل",
+      "case.delete":"حذف سجل","case.status":"تغيير الحالة","qc.run":"فحص جودة","export.excel":"تصدير Excel",
+      "extraction.manual_text":"استخراج من نص"};
+    $("audit-body").innerHTML=(d.entries||[]).map(e=>`<li>
+      <span class="ts">${esc(e.ts.replace("T"," "))}</span>
+      <span class="act">${esc(names[e.action]||e.action)}</span>
+      <span>${e.registry_no?`<code class="mono">${esc(e.registry_no)}</code>`:""}</span>
+      <span style="color:var(--muted);font-size:11px">${esc(JSON.stringify(e.details||{}).slice(0,120))}</span>
+      <span style="margin-inline-start:auto;font-size:11px;color:var(--muted)">${esc(e.user||"")}</span></li>`).join("")
+      ||"<li style='color:var(--muted)'>لا توجد إدخالات بعد</li>";
+  }catch(e){ toast(e.message,"err"); }
+}
+
+/* ---------------- النظام ---------------- */
+async function loadSystem(){
+  try{
+    const d=await api("/api/storage-info"); const e=d.engines;
+    $("sys-engines").innerHTML=`<div class="tbl-wrap" style="max-height:none"><table>
+      <thead><tr><th>المحرك</th><th>الحالة</th><th>ملاحظات</th></tr></thead><tbody>
+      <tr><td><b>Tesseract OCR</b></td>
+        <td>${e.tesseract?'<span class="pill pass">مثبّت ✓</span>':'<span class="pill error">غير مثبّت</span>'}</td>
+        <td style="font-size:12px">اللغات: ${esc((e.tesseract_languages||[]).join(", ")||"—")}
+        ${e.tesseract&&!e.arabic_supported?"<br><b style='color:var(--warn)'>⚠ العربية غير مثبّتة — ثبّت حزمة tesseract-ocr-ara</b>":""}</td></tr>
+      <tr><td><b>pdftoppm (poppler)</b></td>
+        <td>${e.pdftoppm?'<span class="pill pass">متاح ✓</span>':'<span class="pill warning">غير متاح</span>'}</td>
+        <td style="font-size:12px">مطلوب لتحويل صفحات PDF إلى صور قبل OCR</td></tr>
+      <tr><td><b>قراءة نص PDF المدمج</b></td>
+        <td>${(e.pypdf||e.pdfminer)?'<span class="pill pass">متاح ✓</span>':'<span class="pill error">غير متاح</span>'}</td>
+        <td style="font-size:12px">pypdf: ${e.pypdf?"✓":"✗"} · pdfminer: ${e.pdfminer?"✓":"✗"}</td></tr>
+      <tr><td><b>Azure Document Intelligence</b></td>
+        <td>${e.azure_di?'<span class="pill pass">مُهيّأ ✓</span>':'<span class="pill draft">غير مُهيّأ</span>'}</td>
+        <td style="font-size:12px">فعّله بمتغيّرات AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT و _KEY</td></tr>
+      <tr><td><b>OpenAI (استخراج ذكي)</b></td>
+        <td>${e.openai?'<span class="pill pass">مُهيّأ ✓</span>':'<span class="pill draft">غير مُهيّأ</span>'}</td>
+        <td style="font-size:12px">فعّله بمتغيّر OPENAI_API_KEY</td></tr>
+      </tbody></table></div>
+      ${e.note?`<div class="banner warn" style="margin-top:10px">${esc(e.note)}</div>`:""}`;
+    $("sys-storage").innerHTML=`<dl class="kv">
+      <dt>المجلد الجذر</dt><dd>${esc(d.base_dir)}</dd>
+      <dt>السجلات (JSON)</dt><dd>${esc(d.cases_dir)}</dd>
+      <dt>الأرشيف (المستندات)</dt><dd>${esc(d.documents_dir)}</dd>
+      <dt>التصديرات (Excel)</dt><dd>${esc(d.exports_dir)}</dd>
+      <dt>سجل التدقيق</dt><dd>${esc(d.audit_log)}</dd>
+      <dt>المساحة المتاحة</dt><dd>${d.disk_free_gb} جيجابايت</dd></dl>`;
+    $("sys-tess").innerHTML=`
+      <p style="font-size:12.5px;margin-bottom:10px">Tesseract هو المحرك المجاني الذي يقرأ الصور الممسوحة ضوئياً. بدونه
+      تستطيع قراءة ملفات PDF التي تحتوي نصاً مدمجاً فقط.</p>
+      <h3>ويندوز</h3>
+      <ol style="padding-inline-start:22px;font-size:12.5px;line-height:2">
+        <li>حمّل المثبّت من <code class="mono">https://github.com/UB-Mannheim/tesseract/wiki</code></li>
+        <li>أثناء التثبيت فعّل <b>Additional language data → Arabic</b></li>
+        <li>أضف مجلد التثبيت إلى PATH: <code class="mono">C:\\Program Files\\Tesseract-OCR</code></li>
+        <li>ثبّت Poppler لتحويل صفحات PDF: <code class="mono">https://github.com/oschwartz10612/poppler-windows/releases</code>
+            ثم أضف <code class="mono">bin</code> إلى PATH</li>
+        <li>أعد تشغيل الطرفية وتحقق: <code class="mono">tesseract --version</code></li>
+      </ol>
+      <h3>لينكس / macOS</h3>
+      <pre style="background:#0b2e4d;color:#dff0ff;padding:12px;border-radius:8px;font-size:12px;overflow:auto;direction:ltr;text-align:left"># Debian / Ubuntu
+sudo apt install tesseract-ocr tesseract-ocr-ara poppler-utils
+
+# macOS
+brew install tesseract tesseract-lang poppler</pre>`;
+  }catch(e){ toast(e.message,"err"); }
+}
+
+/* ---------------- إقلاع ---------------- */
+renderBadges(); loadCases();
+</script>
+</body>
+</html>

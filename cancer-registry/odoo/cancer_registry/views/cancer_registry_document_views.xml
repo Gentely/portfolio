@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         المستندات الممسوحة ضوئياً
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_document_form" model="ir.ui.view">
+        <field name="name">cancer.registry.document.form</field>
+        <field name="model">cancer.registry.document</field>
+        <field name="arch" type="xml">
+            <form string="مستند ممسوح ضوئياً">
+                <header>
+                    <button name="action_reextract" type="object" string="إعادة الاستخراج"
+                            icon="fa-refresh" class="btn-primary"
+                            help="يعيد تشغيل OCR والاستخراج على هذا المستند فقط."/>
+                    <button name="action_apply_to_case" type="object"
+                            string="تفريغ الحقول في السجل" icon="fa-sign-in"
+                            class="oe_highlight" invisible="not extraction_done"
+                            help="يملأ الحقول الفارغة في السجل — لا يكتب فوق ما أُدخل يدوياً."/>
+                    <button name="action_storage_location" type="object"
+                            string="مكان الملف المخزن" icon="fa-folder-open-o"/>
+                    <field name="extraction_done" widget="statusbar"
+                           statusbar_visible="False,True" invisible="1"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="تم الاستخراج ✓" bg_color="text-bg-success"
+                            invisible="not extraction_done"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="اسم الملف — يُستحسن تضمين الرقم الوطني"/></h1>
+                        <h2 class="text-muted">
+                            <field name="case_id" options="{'no_create': True}"
+                                   placeholder="السجل المرتبط"/>
+                            <span> • </span><field name="registry_no" nolabel="1"/>
+                        </h2>
+                    </div>
+
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-download" type="object"
+                                name="action_open_download" string="تنزيل الملف"/>
+                        <button class="oe_stat_button" icon="fa-database" type="object"
+                                name="action_storage_location" string="الأرشيف"/>
+                    </div>
+
+                    <group>
+                        <group string="الملف">
+                            <field name="file_content" filename="name" widget="binary"
+                                   options="{'accepted_file_extensions': '.pdf,.png,.jpg,.jpeg,.tif,.tiff,.txt,.doc,.docx'}"/>
+                            <field name="mime_type" readonly="1"/>
+                            <field name="file_size" readonly="1"/>
+                            <field name="pages_count" readonly="1"/>
+                            <field name="sha256" readonly="1" widget="CopyClipboardChar"/>
+                        </group>
+                        <group string="التصنيف والأرشفة">
+                            <field name="doc_type" widget="selection"/>
+                            <field name="uploaded_on" readonly="1"/>
+                            <field name="uploaded_by" readonly="1"/>
+                            <field name="storage_path" readonly="1"/>
+                            <field name="archive_note" readonly="1"
+                                   invisible="not archive_note"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="المعاينة جنباً إلى جنب" name="side_by_side">
+                            <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
+                                <div style="flex:2 1 520px;min-width:340px">
+                                    <h3 style="margin:0 0 8px;font-size:14px">المستند الأصلي</h3>
+                                    <field name="preview_html" nolabel="1" readonly="1"/>
+                                </div>
+                                <div style="flex:1 1 380px;min-width:300px">
+                                    <h3 style="margin:0 0 8px;font-size:14px">النص المستخرج (OCR)</h3>
+                                    <field name="text_preview_html" nolabel="1" readonly="1"/>
+                                </div>
+                            </div>
+                        </page>
+
+                        <page string="نتيجة القراءة الآلية" name="ocr">
+                            <group>
+                                <group string="المحرك">
+                                    <field name="ocr_engine" readonly="1"/>
+                                    <field name="ocr_confidence" widget="progressbar" readonly="1"/>
+                                    <field name="extraction_done" widget="boolean_toggle" readonly="1"/>
+                                </group>
+                                <group string="الحقول المستخرجة">
+                                    <field name="extracted_fields_count" readonly="1"/>
+                                    <field name="extracted_fields_summary" readonly="1"/>
+                                </group>
+                            </group>
+                            <separator string="النص الخام الكامل"/>
+                            <field name="extracted_text" nolabel="1" readonly="1"
+                                   placeholder="يُملأ تلقائياً بعد تشغيل القراءة الآلية"/>
+                            <separator string="النتيجة التقنية (JSON)"/>
+                            <field name="extraction_json" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cancer_document_tree" model="ir.ui.view">
+        <field name="name">cancer.registry.document.tree</field>
+        <field name="model">cancer.registry.document</field>
+        <field name="arch" type="xml">
+            <tree string="مستندات الأرشيف" decoration-muted="not extraction_done"
+                  sample="1">
+                <field name="registry_no" optional="show"/>
+                <field name="name"/>
+                <field name="doc_type" optional="show"/>
+                <field name="file_size" optional="hide" sum="الحجم الكلي"/>
+                <field name="pages_count" optional="hide"/>
+                <field name="ocr_engine" optional="show"/>
+                <field name="ocr_confidence" widget="progressbar" optional="show"/>
+                <field name="extraction_done" optional="show" widget="boolean_toggle"/>
+                <field name="uploaded_on" optional="show"/>
+                <field name="uploaded_by" optional="hide"/>
+                <field name="storage_path" optional="hide"/>
+                <field name="archive_note" optional="hide"/>
+                <button name="action_reextract" type="object" icon="fa-refresh"
+                        string="إعادة الاستخراج" title="إعادة الاستخراج"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cancer_document_search" model="ir.ui.view">
+        <field name="name">cancer.registry.document.search</field>
+        <field name="model">cancer.registry.document</field>
+        <field name="arch" type="xml">
+            <search string="بحث في الأرشيف">
+                <field name="name"/>
+                <field name="registry_no"/>
+                <field name="sha256"/>
+                <field name="storage_path"/>
+                <field name="extracted_text"/>
+                <separator/>
+                <filter string="لم يُستخرج بعد" name="pending"
+                        domain="[('extraction_done','=',False)]"/>
+                <filter string="قراءة ضعيفة (&lt; 60%)" name="low_conf"
+                        domain="[('ocr_confidence','&lt;',60)]"/>
+                <filter string="ملفات مكررة" name="duplicated"
+                        domain="[('archive_note','!=',False)]"/>
+                <separator/>
+                <filter string="تقارير تشريح مرضي" name="pathology"
+                        domain="[('doc_type','=','pathology')]"/>
+                <filter string="تقارير أشعة" name="imaging"
+                        domain="[('doc_type','=','imaging')]"/>
+                <filter string="ملخصات خروج" name="discharge"
+                        domain="[('doc_type','=','discharge')]"/>
+                <filter string="شهادات وفاة" name="death"
+                        domain="[('doc_type','=','death')]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="السجل" name="group_case" context="{'group_by':'case_id'}"/>
+                    <filter string="نوع المستند" name="group_type" context="{'group_by':'doc_type'}"/>
+                    <filter string="المحرك" name="group_engine" context="{'group_by':'ocr_engine'}"/>
+                    <filter string="من رفعه" name="group_user" context="{'group_by':'uploaded_by'}"/>
+                    <filter string="شهر الرفع" name="group_month" context="{'group_by':'uploaded_on:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cancer_documents" model="ir.actions.act_window">
+        <field name="name">أرشيف المستندات</field>
+        <field name="res_model">cancer.registry.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_cancer_document_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">لا توجد مستندات مؤرشفة</p>
+            <p>ارفع التقارير الممسوحة ضوئياً من داخل كل سجل، أو من زر «رفع مستند».</p>
+        </field>
+    </record>
+
+    <record id="action_cancer_documents_pending" model="ir.actions.act_window">
+        <field name="name">بانتظار الاستخراج</field>
+        <field name="res_model">cancer.registry.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_cancer_document_search"/>
+        <field name="context">{'search_default_pending': 1}</field>
+    </record>
+
+</odoo>

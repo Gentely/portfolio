@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         نموذج الحالة — الشاشة الرئيسية
+         الأزرار الستة في الترويسة مطابقة لمواصفة مكتب السجل:
+         رفع • استخراج ذكي • جودة • معاينة • مكان التخزين • تصدير
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_form" model="ir.ui.view">
+        <field name="name">cancer.registry.case.form</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <form string="حالة سجل السرطان">
+
+                <header>
+                    <!-- ① رفع مستند ممسوح ضوئياً / PDF -->
+                    <button name="action_upload_document" type="object"
+                            string="رفع مستند ممسوح ضوئياً / PDF"
+                            class="btn-primary" icon="fa-upload"
+                            help="أرفق التقرير الورقي بعد مسحه ضوئياً. يُؤرشف تلقائياً ببصمة SHA-256 مع منع التكرار."/>
+
+                    <!-- ② التلخيص والاستخراج الذكي -->
+                    <button name="action_auto_extract" type="object"
+                            string="التلخيص والاستخراج الذكي"
+                            class="btn-primary" icon="fa-magic"
+                            help="OCR (Tesseract عربي+إنجليزي) أو نص PDF، ثم استخراج آلي للحقول مع دليل لكل حقل ونسبة ثقة. لا يكتب فوق ما أُدخل يدوياً."/>
+
+                    <button name="action_extract_from_text" type="object"
+                            string="لصق النص يدوياً" icon="fa-keyboard-o"
+                            help="عند تعذّر القراءة الآلية: الصق نص التقرير وراجع الحقول المستخرجة قبل التفريغ."/>
+
+                    <!-- ③ فحص جودة البيانات -->
+                    <button name="action_data_quality_check" type="object"
+                            string="فحص جودة البيانات" icon="fa-check-square-o"
+                            class="btn-secondary"
+                            help="~40 قاعدة: الاكتمال، صيغة ICD-O-3، ترميز TNM، تناقض التواريخ والجرعات، توافق الجنس مع الموقع، كشف التكرار."/>
+
+                    <!-- ④ معاينة المستند -->
+                    <button name="action_preview_document" type="object"
+                            string="معاينة المستند" icon="fa-file-image-o"
+                            help="يفتح المستند الأصلي لمقارنته بالحقول جنباً إلى جنب."/>
+
+                    <!-- ⑤ مكان الملف المخزن -->
+                    <button name="action_storage_location" type="object"
+                            string="مكان الملف المخزن" icon="fa-folder-open-o"
+                            help="يعرض مسارات الأرشيف الفعلية على القرص وفي نظام إدارة المستندات (DMS)."/>
+
+                    <!-- ⑥ حفظ كـ / تصدير -->
+                    <button name="action_export_excel" type="object"
+                            string="حفظ كـ / تصدير Excel" icon="fa-file-excel-o"
+                            class="btn-secondary"
+                            help="ملف Excel مطابق لقالب السجل الوطني — 6 أوراق."/>
+
+                    <button name="action_print_summary" type="object"
+                            string="ملخص للطباعة" icon="fa-print"/>
+
+                    <button name="action_validate" type="object"
+                            string="اعتماد السجل" icon="fa-lock"
+                            class="oe_highlight"
+                            groups="cancer_registry.group_registry_manager"
+                            invisible="data_entry_status == 'validated'"
+                            help="لا يمكن الاعتماد ما دام فحص الجودة يُظهر أخطاء."/>
+
+                    <field name="data_entry_status" widget="statusbar"
+                           statusbar_visible="draft,scanned,extracted,review,validated"/>
+                </header>
+
+                <sheet>
+                    <widget name="web_ribbon" title="معتمد ✓" bg_color="text-bg-success"
+                            invisible="data_entry_status != 'validated'"/>
+                    <widget name="web_ribbon" title="به أخطاء جودة" bg_color="text-bg-danger"
+                            invisible="qc_status != 'error'"/>
+
+                    <field name="active" invisible="1"/>
+                    <field name="qc_status" invisible="1"/>
+                    <field name="qc_score" invisible="1"/>
+                    <field name="document_count" invisible="1"/>
+
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not duplicate_warning" style="margin-bottom:8px">
+                        <field name="duplicate_warning" nolabel="1"/>
+                    </div>
+
+                    <!-- الأزرار الذكية -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_storage_location" type="object"
+                                class="oe_stat_button" icon="fa-folder-open">
+                            <field name="nb_documents" widget="statinfo" string="مستند"/>
+                        </button>
+                        <button name="action_data_quality_check" type="object"
+                                class="oe_stat_button" icon="fa-exclamation-triangle"
+                                invisible="nb_issues_open == 0">
+                            <field name="nb_issues_open" widget="statinfo" string="مشكلة جودة"/>
+                        </button>
+                        <button name="action_open_treatments" type="object"
+                                class="oe_stat_button" icon="fa-medkit"
+                                invisible="nb_treatments == 0">
+                            <field name="nb_treatments" widget="statinfo" string="سطر علاج"/>
+                        </button>
+                        <button name="action_lookup_icdo3" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                string="ICD-O-3"/>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1><field name="registry_no" readonly="1" nolabel="1"
+                                   placeholder="CR2026/0001"/></h1>
+                        <h2 class="text-muted">
+                            <field name="full_name" nolabel="1" placeholder="الاسم الكامل"
+                                   class="oe_inline"/>
+                        </h2>
+                        <div>
+                            <field name="qc_badge" widget="badge" nolabel="1"
+                                   class="oe_inline" decoration-success="qc_status == 'pass'"
+                                   decoration-warning="qc_status == 'warning'"
+                                   decoration-danger="qc_status == 'error'"/>
+                            <span class="text-muted"> • </span>
+                            <field name="data_entry_badge" widget="badge" nolabel="1"
+                                   class="oe_inline"/>
+                            <span class="text-muted" invisible="not extraction_confidence"> • ثقة الاستخراج </span>
+                            <field name="extraction_confidence" nolabel="1" class="oe_inline"
+                                   invisible="not extraction_confidence"/>
+                        </div>
+                    </div>
+
+                    <notebook>
+
+                        <!-- ══════════ المعاينة جنباً إلى جنب ══════════ -->
+                        <page string="المعاينة والملخص" name="preview">
+                            <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
+                                <div style="flex:1 1 360px;min-width:300px">
+                                    <h3 style="margin:0 0 8px;font-size:14px">ملخص الحالة</h3>
+                                    <field name="summary_html" nolabel="1" readonly="1"/>
+                                    <div style="margin-top:12px">
+                                        <h3 style="margin:0 0 8px;font-size:14px">النص المستخرج</h3>
+                                        <field name="extracted_text_preview" nolabel="1" readonly="1"/>
+                                    </div>
+                                </div>
+                                <div style="flex:2 1 520px;min-width:360px">
+                                    <div style="display:flex;align-items:center;gap:10px;margin:0 0 8px">
+                                        <h3 style="margin:0;font-size:14px;white-space:nowrap">المستند الأصلي</h3>
+                                        <field name="first_document_id" nolabel="1"
+                                               class="oe_inline" options="{'no_create': True}"
+                                               placeholder="اختر مستنداً للمعاينة…"/>
+                                    </div>
+                                    <field name="preview_html" nolabel="1" readonly="1"/>
+                                </div>
+                            </div>
+                        </page>
+
+                        <!-- ══════════ A. المعرّفات ══════════ -->
+                        <page string="A. المعرّفات والتبليغ" name="group_a">
+                            <group>
+                                <group string="معرّفات الحالة">
+                                    <field name="registry_no" readonly="1"/>
+                                    <field name="national_id" placeholder="12 رقماً — يُستخدم لمنع التكرار"/>
+                                    <field name="medical_file_no"/>
+                                </group>
+                                <group string="مصدر التبليغ">
+                                    <field name="reporting_facility"
+                                           placeholder="المستشفى / المركز المبلِّغ"/>
+                                    <field name="reporter_name"/>
+                                    <field name="notification_date"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- ══════════ B. البيانات الديموغرافية ══════════ -->
+                        <page string="B. البيانات الديموغرافية" name="group_b">
+                            <group>
+                                <group string="الاسم الرباعي">
+                                    <field name="first_name"/>
+                                    <field name="father_name"/>
+                                    <field name="grandfather_name"/>
+                                    <field name="family_name"/>
+                                    <field name="full_name" placeholder="يُحسب تلقائياً — قابل للتعديل"/>
+                                </group>
+                                <group string="الخصائص">
+                                    <field name="sex" widget="radio"/>
+                                    <field name="birth_date"/>
+                                    <field name="birth_date_known" widget="boolean_toggle"/>
+                                    <field name="age_at_diagnosis" readonly="1"/>
+                                    <field name="phone"/>
+                                </group>
+                            </group>
+                            <group string="محل الإقامة">
+                                <group>
+                                    <field name="district"/>
+                                    <field name="city"/>
+                                </group>
+                                <group>
+                                    <field name="address" nolabel="1"
+                                           placeholder="المحلة / الشارع / أقرب علامة"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- ══════════ C. التشخيص والورم ══════════ -->
+                        <page string="C. التشخيص والورم" name="group_c">
+                            <group>
+                                <group string="التشخيص">
+                                    <field name="date_of_diagnosis"/>
+                                    <field name="date_of_first_symptom"/>
+                                    <field name="diagnosis_year" readonly="1"/>
+                                    <field name="basis_of_diagnosis"/>
+                                </group>
+                                <group string="الترميز">
+                                    <field name="primary_site" placeholder="C50.4"/>
+                                    <field name="primary_site_label" readonly="1"/>
+                                    <field name="icd10_code" readonly="1"/>
+                                    <field name="laterality"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="الفحص النسيجي">
+                                    <field name="morphology" placeholder="8070/3"/>
+                                    <field name="morphology_label" readonly="1"/>
+                                    <field name="behaviour"/>
+                                    <field name="grade"/>
+                                </group>
+                                <group string="أورام متعددة وعوامل">
+                                    <field name="multiple_primaries" widget="boolean_toggle"/>
+                                    <field name="primary_count"
+                                           invisible="not multiple_primaries"/>
+                                    <field name="family_history" nolabel="1"
+                                           placeholder="التاريخ العائلي للأورام…"/>
+                                    <field name="risk_factors" nolabel="1"
+                                           placeholder="عوامل الخطورة (تدخين، مهني، فيروسات)…"/>
+                                </group>
+                            </group>
+                            <group string="نص التشخيص النسيجي (حرفي من التقرير)">
+                                <field name="histology_text" nolabel="1"
+                                       placeholder="انسخ نص التشخيص كما ورد في تقرير التشريح المرضي — يُستخدم للمراجعة البشرية"/>
+                            </group>
+                        </page>
+
+                        <!-- ══════════ D. المرحلة TNM ══════════ -->
+                        <page string="D. المرحلة (TNM)" name="group_d">
+                            <group>
+                                <group string="النظام المستخدم">
+                                    <field name="staging_system"/>
+                                    <field name="stage_date"/>
+                                </group>
+                                <group string="المرحلة الموجزة (SEER)">
+                                    <field name="summary_stage" widget="radio"/>
+                                </group>
+                            </group>
+                            <group string="الترميز السريري / المرضي">
+                                <group>
+                                    <label for="ct" string="السريري (cTNM)"/>
+                                    <div class="o_row">
+                                        <field name="ct" placeholder="cT" class="oe_inline"/>
+                                        <field name="cn" placeholder="cN" class="oe_inline"/>
+                                        <field name="cm" placeholder="cM" class="oe_inline"/>
+                                    </div>
+                                    <field name="clinical_stage"/>
+                                </group>
+                                <group>
+                                    <label for="pt" string="المرضي (pTNM)"/>
+                                    <div class="o_row">
+                                        <field name="pt" placeholder="pT" class="oe_inline"/>
+                                        <field name="pn" placeholder="pN" class="oe_inline"/>
+                                        <field name="pm" placeholder="pM" class="oe_inline"/>
+                                    </div>
+                                    <field name="pathological_stage"/>
+                                </group>
+                            </group>
+                            <group string="الانتشار والمؤشرات الحيوية">
+                                <group>
+                                    <field name="metastasis_sites" nolabel="1"
+                                           placeholder="مواقع النقائل: كبد، عظم، رئة…"/>
+                                </group>
+                                <group>
+                                    <field name="biomarkers" nolabel="1"
+                                           placeholder="ER / PR / HER2 / Ki-67 / PSA…"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- ══════════ E. ملخص العلاج ══════════ -->
+                        <page string="E. ملخص العلاج" name="group_e">
+                            <group>
+                                <group string="الجهات والتوقيت">
+                                    <field name="treatment_centre"/>
+                                    <field name="first_course_within_4m" widget="boolean_toggle"
+                                           help="معيار SEER/IARC: علاج أُعطي خلال 4 أشهر من التشخيص"/>
+                                </group>
+                                <group string="الأنواع المُعطاة">
+                                    <field name="surgery_performed" widget="boolean_toggle"/>
+                                    <field name="chemotherapy_given" widget="boolean_toggle"/>
+                                    <field name="radiotherapy_given" widget="boolean_toggle"/>
+                                    <field name="hormonal_given" widget="boolean_toggle"/>
+                                    <field name="immunotherapy_given" widget="boolean_toggle"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="الجراحة">
+                                    <field name="surgery_procedure"/>
+                                </group>
+                                <group string="العلاج الكيميائي">
+                                    <field name="chemo_protocol"/>
+                                    <field name="chemo_cycles"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="العلاج الإشعاعي">
+                                    <field name="radiotherapy_type"/>
+                                    <field name="radiotherapy_dose" placeholder="مثال: 60 Gy / 30 جلسة"/>
+                                </group>
+                                <group string="الاستجابة">
+                                    <field name="treatment_response"/>
+                                </group>
+                            </group>
+                            <group string="ملخص العلاج السردي">
+                                <field name="treatment_summary" nolabel="1"/>
+                            </group>
+                            <separator string="سطور العلاج التفصيلية"/>
+                            <field name="treatment_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="modality" required="1"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="facility"/>
+                                    <field name="protocol" optional="show"/>
+                                    <field name="cycles" optional="show"/>
+                                    <field name="dose" optional="show"/>
+                                    <field name="rt_type" optional="hide"/>
+                                    <field name="response" optional="hide"/>
+                                    <field name="first_course" widget="boolean_toggle"/>
+                                    <field name="physician" optional="hide"/>
+                                    <field name="details" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <!-- ══════════ F. المتابعة والمآل ══════════ -->
+                        <page string="F. المتابعة والمآل" name="group_f">
+                            <group>
+                                <group string="الحالة الحيوية">
+                                    <field name="vitality_status" widget="radio"/>
+                                    <field name="date_of_death"
+                                           invisible="vitality_status not in ('dead','dead_cancer','dead_other','dead_unknown')"
+                                           required="vitality_status in ('dead','dead_cancer','dead_other','dead_unknown')"/>
+                                    <field name="cause_of_death"
+                                           invisible="vitality_status not in ('dead','dead_cancer','dead_other','dead_unknown')"/>
+                                    <field name="cause_of_death_icd10"
+                                           invisible="vitality_status not in ('dead','dead_cancer','dead_other','dead_unknown')"/>
+                                    <field name="death_age" readonly="1"
+                                           invisible="vitality_status not in ('dead','dead_cancer','dead_other','dead_unknown')"/>
+                                </group>
+                                <group string="المتابعة">
+                                    <field name="last_followup_date"/>
+                                    <field name="last_disease_status"/>
+                                    <field name="followup_source"/>
+                                    <field name="survival_months" readonly="1"/>
+                                    <field name="recurrence" widget="boolean_toggle"/>
+                                    <field name="recurrence_date" invisible="not recurrence"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- ══════════ G. المستندات والتدقيق ══════════ -->
+                        <page string="G. المستندات والتدقيق" name="group_g">
+                            <group>
+                                <group string="الاستخراج الآلي">
+                                    <field name="extraction_method"/>
+                                    <field name="extraction_confidence" string="ثقة الاستخراج %"/>
+                                    <field name="document_count" readonly="1"/>
+                                </group>
+                                <group string="الجودة والاعتماد">
+                                    <field name="qc_status" widget="badge"
+                                           decoration-success="qc_status == 'pass'"
+                                           decoration-warning="qc_status == 'warning'"
+                                           decoration-danger="qc_status == 'error'"/>
+                                    <field name="qc_score" widget="progressbar"/>
+                                    <field name="validated_by" readonly="1"/>
+                                    <field name="validated_on" readonly="1"/>
+                                </group>
+                            </group>
+                            <separator string="المستندات المرفقة"/>
+                            <field name="document_ids" nolabel="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="doc_type"/>
+                                    <field name="file_size" string="الحجم"/>
+                                    <field name="pages_count" optional="hide"/>
+                                    <field name="ocr_engine"/>
+                                    <field name="ocr_confidence" widget="percentage"/>
+                                    <field name="extraction_done" widget="boolean_toggle"/>
+                                    <field name="uploaded_on"/>
+                                    <field name="uploaded_by"/>
+                                    <field name="storage_path" optional="hide"/>
+                                </tree>
+                            </field>
+                            <separator string="مشاكل الجودة المسجّلة"/>
+                            <field name="qc_issue_ids" nolabel="1" readonly="1">
+                                <tree decoration-danger="severity == 'error'"
+                                      decoration-warning="severity == 'warning'">
+                                    <field name="code"/>
+                                    <field name="severity" widget="badge"
+                                           decoration-danger="severity == 'error'"
+                                           decoration-warning="severity == 'warning'"
+                                           decoration-info="severity == 'info'"/>
+                                    <field name="field_label"/>
+                                    <field name="message"/>
+                                    <field name="fix" optional="show"/>
+                                    <field name="reference" optional="hide"/>
+                                    <field name="rule_family" optional="show"/>
+                                    <field name="resolved" widget="boolean_toggle"/>
+                                </tree>
+                            </field>
+                            <group string="سجل التدقيق">
+                                <group>
+                                    <field name="created_on" readonly="1"/>
+                                    <field name="written_on" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="company_id" groups="base.group_multi_company"
+                                           readonly="1"/>
+                                </group>
+                            </group>
+                            <separator string="ملخص فحص الجودة النصي"/>
+                            <field name="qc_issues" nolabel="1" readonly="1"/>
+                        </page>
+
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         القائمة (Tree)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_tree" model="ir.ui.view">
+        <field name="name">cancer.registry.case.tree</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <tree string="سجلات السرطان" multi_edit="1"
+                  decoration-danger="qc_status == 'error'"
+                  decoration-warning="qc_status == 'warning'"
+                  decoration-muted="data_entry_status == 'draft'"
+                  decoration-success="data_entry_status == 'validated'"
+                  sample="1">
+                <field name="registry_no" optional="show"/>
+                <field name="full_name" optional="show"/>
+                <field name="national_id" optional="show"/>
+                <field name="sex" optional="show"/>
+                <field name="age_at_diagnosis" optional="show" avg="متوسط العمر"/>
+                <field name="district" optional="show"/>
+                <field name="date_of_diagnosis" optional="show"/>
+                <field name="primary_site" optional="show"/>
+                <field name="primary_site_label" optional="show"/>
+                <field name="morphology" optional="hide"/>
+                <field name="summary_stage" optional="show"/>
+                <field name="vitality_status" optional="show"/>
+                <field name="data_entry_status" widget="badge" optional="show"
+                       decoration-info="data_entry_status in ('draft','scanned')"
+                       decoration-warning="data_entry_status in ('extracted','review')"
+                       decoration-success="data_entry_status == 'validated'"
+                       decoration-danger="data_entry_status == 'qc_failed'"/>
+                <field name="qc_score" widget="progressbar" optional="show"/>
+                <field name="qc_status" widget="badge" optional="hide"
+                       decoration-success="qc_status == 'pass'"
+                       decoration-warning="qc_status == 'warning'"
+                       decoration-danger="qc_status == 'error'"/>
+                <field name="document_count" optional="hide" sum="إجمالي المستندات"/>
+                <field name="nb_issues_open" optional="hide" sum="إجمالي المشاكل"/>
+                <field name="reporting_facility" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <button name="action_data_quality_check" type="object" icon="fa-check-square-o"
+                        string="فحص الجودة" title="فحص جودة البيانات"/>
+                <button name="action_auto_extract" type="object" icon="fa-magic"
+                        string="استخراج" title="التلخيص والاستخراج الذكي"/>
+                <button name="action_export_excel" type="object" icon="fa-file-excel-o"
+                        string="تصدير" title="تصدير إلى Excel"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         البحث
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_search" model="ir.ui.view">
+        <field name="name">cancer.registry.case.search</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <search string="بحث في السجلات">
+                <field name="registry_no" filter_domain="['|','|','|',
+                    ('registry_no','ilike',self),('national_id','ilike',self),
+                    ('medical_file_no','ilike',self),('full_name','ilike',self)]"
+                    string="رقم / اسم / رقم وطني"/>
+                <field name="full_name"/>
+                <field name="national_id"/>
+                <field name="medical_file_no"/>
+                <field name="primary_site"/>
+                <field name="primary_site_label"/>
+                <field name="morphology"/>
+                <field name="morphology_label"/>
+                <field name="histology_text"/>
+                <field name="district"/>
+                <field name="city"/>
+                <field name="reporting_facility"/>
+                <field name="treatment_centre"/>
+                <field name="biomarkers"/>
+                <field name="treatment_summary"/>
+
+                <separator/>
+                <filter string="سجلاتي (غير مكتملة)" name="my_open"
+                        domain="[('data_entry_status','in',('draft','scanned','extracted','review'))]"/>
+                <filter string="معتمدة" name="validated"
+                        domain="[('data_entry_status','=','validated')]"/>
+                <filter string="بها أخطاء جودة" name="qc_error"
+                        domain="[('qc_status','=','error')]"/>
+                <filter string="بها تحذيرات" name="qc_warning"
+                        domain="[('qc_status','=','warning')]"/>
+                <filter string="جودة سليمة" name="qc_pass"
+                        domain="[('qc_status','=','pass')]"/>
+                <filter string="لم تُفحص" name="qc_not_run"
+                        domain="[('qc_status','=','not_run')]"/>
+                <separator/>
+                <filter string="متوفون" name="dead"
+                        domain="[('vitality_status','like','dead')]"/>
+                <filter string="أحياء" name="alive"
+                        domain="[('vitality_status','=','alive')]"/>
+                <filter string="مفقودو المتابعة" name="lost"
+                        domain="[('vitality_status','in',('lost','emigrated','unknown'))]"/>
+                <separator/>
+                <filter string="بلا مستند مرفق" name="no_document"
+                        domain="[('document_count','=',0)]"/>
+                <filter string="به تكرار محتمل" name="duplicated"
+                        domain="[('duplicate_warning','!=',False)]"/>
+                <separator/>
+                <filter string="سرطان الثدي (C50)" name="breast"
+                        domain="[('primary_site','like','C50')]"/>
+                <filter string="البروستاتا (C61)" name="prostate"
+                        domain="[('primary_site','like','C61')]"/>
+                <filter string="القولون والمستقيم (C18–C20)" name="colorectal"
+                        domain="['|',('primary_site','=like','C18%'),'|',
+                                 ('primary_site','=like','C19%'),('primary_site','=like','C20%')]"/>
+                <filter string="الرئة (C34)" name="lung" domain="[('primary_site','=like','C34%')]"/>
+                <filter string="أورام الدم والجهاز اللمفاوي (M9590–9999)" name="haemato"
+                        domain="['|',('primary_site','in',('C42.0','C42.1','C42.3','C42.4',
+                                                           'C88.0','C88.1','C88.9')),
+                                 ('morphology','=like','9%')]"/>
+                <separator/>
+                <filter string="تاريخ التشخيص" name="filter_dx_date"
+                        date="date_of_diagnosis" default_period="this_year"/>
+                <filter string="تاريخ الإدخال" name="filter_created"
+                        date="create_date" default_period="this_month"/>
+                <filter string="تاريخ آخر متابعة" name="filter_followup"
+                        date="last_followup_date"/>
+                <separator/>
+                <filter string="الأرشيف (غير نشط)" name="archived"
+                        domain="[('active','=',False)]"/>
+
+                <group expand="0" string="تجميع حسب">
+                    <filter string="سنة التشخيص" name="group_year" context="{'group_by':'diagnosis_year'}"/>
+                    <filter string="الموقع الأولي" name="group_site" context="{'group_by':'primary_site_label'}"/>
+                    <filter string="رمز ICD-O-3" name="group_code" context="{'group_by':'primary_site'}"/>
+                    <filter string="الفحص النسيجي" name="group_morph" context="{'group_by':'morphology_label'}"/>
+                    <filter string="البلدية" name="group_district" context="{'group_by':'district'}"/>
+                    <filter string="الجنس" name="group_sex" context="{'group_by':'sex'}"/>
+                    <filter string="المرحلة الموجزة" name="group_stage" context="{'group_by':'summary_stage'}"/>
+                    <filter string="الحالة الحيوية" name="group_vitality" context="{'group_by':'vitality_status'}"/>
+                    <filter string="حالة الإدخال" name="group_entry" context="{'group_by':'data_entry_status'}"/>
+                    <filter string="حالة الجودة" name="group_qc" context="{'group_by':'qc_status'}"/>
+                    <filter string="الجهة المبلِّغة" name="group_facility" context="{'group_by':'reporting_facility'}"/>
+                    <filter string="مركز العلاج" name="group_centre" context="{'group_by':'treatment_centre'}"/>
+                    <filter string="شهر التشخيص" name="group_month" context="{'group_by':'date_of_diagnosis:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         كانبان — لوحة متابعة الإدخال
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_kanban" model="ir.ui.view">
+        <field name="name">cancer.registry.case.kanban</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="data_entry_status" quick_create="false"
+                    sample="1" class="o_kanban_small_column">
+                <field name="qc_status"/>
+                <field name="qc_score"/>
+                <field name="primary_site_label"/>
+                <field name="district"/>
+                <field name="nb_documents"/>
+                <field name="nb_issues_open"/>
+                <field name="color"/>
+                <field name="data_entry_status"/>
+                <progressbar field="data_entry_status"
+                             colors='{"validated":"success","extracted":"warning","draft":"muted","qc_failed":"danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click oe_kanban_card
+                             #{kanban_color(record.color.raw_value)}">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="registry_no"/>
+                                </strong>
+                                <div class="text-muted">
+                                    <field name="full_name"/>
+                                </div>
+                                <div class="o_kanban_record_subtitle text-muted"
+                                     style="font-size:11.5px;margin-top:3px">
+                                    <field name="primary_site"/> — <field name="primary_site_label"/>
+                                    <br/>
+                                    <field name="sex"/> • <field name="age_at_diagnosis"/> سنة
+                                    • <field name="district"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom mt-2">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="qc_badge" widget="badge"
+                                           decoration-success="qc_status == 'pass'"
+                                           decoration-warning="qc_status == 'warning'"
+                                           decoration-danger="qc_status == 'error'"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right text-muted"
+                                     style="font-size:11.5px">
+                                    <i class="fa fa-paperclip"/> <field name="nb_documents"/>
+                                    <t t-if="record.nb_issues_open.raw_value &gt; 0">
+                                        &amp;nbsp;<i class="fa fa-exclamation-triangle text-warning"/>
+                                        <field name="nb_issues_open"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         تقويم — حسب تاريخ التشخيص
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_calendar" model="ir.ui.view">
+        <field name="name">cancer.registry.case.calendar</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <calendar string="تواريخ التشخيص" date_start="date_of_diagnosis"
+                      color="primary_site" mode="month" quick_add="False"
+                      event_open_popup="true">
+                <field name="registry_no"/>
+                <field name="full_name"/>
+                <field name="primary_site_label"/>
+                <field name="district"/>
+                <field name="qc_score"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         أنشطة المتابعة
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_activity" model="ir.ui.view">
+        <field name="name">cancer.registry.case.activity</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <activity string="أنشطة متابعة السجل">
+                <field name="id"/>
+                <templates>
+                    <div t-name="activity-box">
+                        <div class="o_activity_vertical_title">
+                            <field name="registry_no"/>
+                            <field name="full_name"/>
+                        </div>
+                        <div class="text-muted">
+                            <field name="primary_site_label"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Pivot + Graph — إحصاءات السجل
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_cancer_case_pivot" model="ir.ui.view">
+        <field name="name">cancer.registry.case.pivot</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل السجل" disable_linking="True">
+                <field name="primary_site_label" type="row"/>
+                <field name="diagnosis_year" type="col"/>
+                <field name="sex" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_cancer_case_graph" model="ir.ui.view">
+        <field name="name">cancer.registry.case.graph</field>
+        <field name="model">cancer.registry.case</field>
+        <field name="arch" type="xml">
+            <graph string="توزيع الحالات" type="bar" sample="1">
+                <field name="primary_site_label"/>
+                <field name="diagnosis_year" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         الإجراءات
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="action_cancer_case_all" model="ir.actions.act_window">
+        <field name="name">سجلات السرطان</field>
+        <field name="res_model">cancer.registry.case</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <field name="search_view_id" ref="view_cancer_case_search"/>
+        <field name="context">{'search_default_my_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">لا توجد سجلات بعد</p>
+            <p>
+                ابدأ بـ <b>إنشاء سجل جديد</b>، ثم ارفع التقرير الممسوح ضوئياً وشغّل
+                <b>التلخيص والاستخراج الذكي</b>. يمكنك أيضاً تشغيل المعالجة الجماعية
+                على مجلد كامل من الأداة المستقلة (<code>python3 cli.py process المجلد/</code>)
+                ثم استيراد النتائج.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_cancer_case_new" model="ir.actions.act_window">
+        <field name="name">سجل جديد</field>
+        <field name="res_model">cancer.registry.case</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'form_view_ref': 'cancer_registry.view_cancer_case_form'}</field>
+    </record>
+
+    <record id="action_cancer_case_qc_queue" model="ir.actions.act_window">
+        <field name="name">قائمة انتظار الجودة</field>
+        <field name="res_model">cancer.registry.case</field>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="search_view_id" ref="view_cancer_case_search"/>
+        <field name="domain">[('qc_status','in',('error','warning','not_run'))]</field>
+        <field name="context">{'search_default_qc_error': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">قائمة الجودة فارغة 🎉</p>
+            <p>كل السجلات اجتازت الفحص أو لم تُفحص بعد.</p>
+        </field>
+    </record>
+
+    <record id="action_cancer_case_validated" model="ir.actions.act_window">
+        <field name="name">السجلات المعتمدة</field>
+        <field name="res_model">cancer.registry.case</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="search_view_id" ref="view_cancer_case_search"/>
+        <field name="domain">[('data_entry_status','=','validated')]</field>
+    </record>
+
+    <record id="action_cancer_case_archive" model="ir.actions.act_window">
+        <field name="name">الأرشيف (غير نشط)</field>
+        <field name="res_model">cancer.registry.case</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'active_test': False, 'search_default_archived': 1}</field>
+    </record>
+
+    <!-- إجراء جماعي من القائمة: تصدير المحدد -->
+    <record id="action_server_export_selected" model="ir.actions.server">
+        <field name="name">تصدير المحدد إلى Excel</field>
+        <field name="model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_export_excel()</field>
+    </record>
+
+    <record id="action_server_qc_batch" model="ir.actions.server">
+        <field name="name">فحص جودة جماعي</field>
+        <field name="model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+total = 0
+for rec in records:
+    rec.run_quality_check()
+    total += 1
+action = {
+    "type": "ir.actions.client", "tag": "display_notification",
+    "params": {"title": _("فحص جودة جماعي"),
+               "message": _("تم فحص %s سجل — راجع عمود «الجودة» وقائمة الانتظار.") % total,
+               "type": "success", "sticky": False,
+               "next": {"type": "ir.actions.client", "tag": "reload"}},
+}
+        </field>
+    </record>
+
+    <record id="action_server_validate_batch" model="ir.actions.server">
+        <field name="name">اعتماد المحدد</field>
+        <field name="model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_model_id" ref="model_cancer_registry_case"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('cancer_registry.group_registry_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">
+ok, bad = 0, []
+for rec in records:
+    try:
+        rec.action_validate()
+        ok += 1
+    except Exception as exc:
+        bad.append("%s ← %s" % (rec.registry_no, exc))
+msg = _("اعتُمد %s سجل.") % ok
+if bad:
+    msg += "\n" + _("تعذّر اعتماد %s:") % len(bad) + "\n" + "\n".join(bad[:10])
+action = {
+    "type": "ir.actions.client", "tag": "display_notification",
+    "params": {"title": _("اعتماد جماعي"), "message": msg,
+               "type": "warning" if bad else "success", "sticky": bool(bad),
+               "next": {"type": "ir.actions.client", "tag": "reload"}},
+}
+        </field>
+    </record>
+
+</odoo>

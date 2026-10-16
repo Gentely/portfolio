@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_qc_wizard_form" model="ir.ui.view">
+        <field name="name">cancer.registry.qc.wizard.form</field>
+        <field name="model">cancer.registry.qc.wizard</field>
+        <field name="arch" type="xml">
+            <form string="نتيجة فحص الجودة">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>فحص جودة البيانات</h1>
+                        <h2 class="text-muted">
+                            <field name="case_id" readonly="1" nolabel="1"/>
+                            <span> • </span>
+                            <field name="registry_no" readonly="1" nolabel="1"/>
+                        </h2>
+                    </div>
+                    <div class="alert alert-info" role="alert"
+                         invisible="not coverage_note" style="font-size:12.5px">
+                        <field name="coverage_note" nolabel="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="score" readonly="1"/>
+                            <field name="status" readonly="1" widget="badge"
+                                   decoration-success="status == 'pass'"
+                                   decoration-warning="status == 'warning'"
+                                   decoration-danger="status == 'error'"/>
+                        </group>
+                        <group>
+                            <field name="errors_count" readonly="1"/>
+                            <field name="warnings_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="report_html" nolabel="1" readonly="1"/>
+                    <separator string="التقرير النصي (قابل للنسخ)"/>
+                    <field name="report_text" nolabel="1" readonly="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_rerun" type="object" string="إعادة الفحص"
+                            class="btn-primary" icon="fa-refresh"/>
+                    <button name="action_mark_resolved" type="object"
+                            string="أعد حساب المشتقات ثم افحص" icon="fa-calculator"
+                            help="يعيد حساب العمر وسنة التشخيص والمرحلة والبقاء من التواريخ ورموز TNM، ثم يعيد الفحص."/>
+                    <button name="action_show_rules" type="object"
+                            string="دليل قواعد الجودة" icon="fa-book"/>
+                    <button string="إغلاق" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_qc_rules_wizard_form" model="ir.ui.view">
+        <field name="name">cancer.registry.qc.rules.wizard.form</field>
+        <field name="model">cancer.registry.qc.rules.wizard</field>
+        <field name="arch" type="xml">
+            <form string="دليل قواعد الجودة">
+                <sheet>
+                    <field name="body_html" nolabel="1" readonly="1"/>
+                </sheet>
+                <footer>
+                    <button string="إغلاق" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_qc_wizard" model="ir.actions.act_window">
+        <field name="name">فحص جودة البيانات</field>
+        <field name="res_model">cancer.registry.qc.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

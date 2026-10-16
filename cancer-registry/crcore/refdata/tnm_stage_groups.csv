@@ -1,0 +1,157 @@
+site,T,N,M,stage,source
+C50,TIS,N0,M0,Stage 0,AJCC 8th Anatomic - Breast
+C50,T1,N0,M0,Stage IA,AJCC 8th Anatomic - Breast
+C50,T0,N1MI,M0,Stage IB,AJCC 8th Anatomic - Breast
+C50,T1,N1MI,M0,Stage IB,AJCC 8th Anatomic - Breast
+C50,T0,N1,M0,Stage IB,AJCC 8th Anatomic - Breast
+C50,T1,N1,M0,Stage IB,AJCC 8th Anatomic - Breast
+C50,T0,N2,M0,Stage IIIA,AJCC 8th Anatomic - Breast
+C50,T1,N2,M0,Stage IIIA,AJCC 8th Anatomic - Breast
+C50,T0,N3,M0,Stage IIIC,AJCC 8th Anatomic - Breast
+C50,T1,N3,M0,Stage IIIC,AJCC 8th Anatomic - Breast
+C50,T2,N0,M0,Stage IIA,AJCC 8th Anatomic - Breast
+C50,T2,N1,M0,Stage IIB,AJCC 8th Anatomic - Breast
+C50,T2,N2,M0,Stage IIIA,AJCC 8th Anatomic - Breast
+C50,T2,N3,M0,Stage IIIC,AJCC 8th Anatomic - Breast
+C50,T3,N0,M0,Stage IIB,AJCC 8th Anatomic - Breast
+C50,T3,N1,M0,Stage IIIA,AJCC 8th Anatomic - Breast
+C50,T3,N2,M0,Stage IIIA,AJCC 8th Anatomic - Breast
+C50,T3,N3,M0,Stage IIIC,AJCC 8th Anatomic - Breast
+C50,T4,N0,M0,Stage IIIB,AJCC 8th Anatomic - Breast
+C50,T4,N1,M0,Stage IIIB,AJCC 8th Anatomic - Breast
+C50,T4,N2,M0,Stage IIIB,AJCC 8th Anatomic - Breast
+C50,T4,N3,M0,Stage IIIC,AJCC 8th Anatomic - Breast
+C50,ANY,ANY,M1,Stage IV,AJCC 8th Anatomic - Breast
+C18,TIS,N0,M0,Stage 0,AJCC 8th - Colon
+C18,T1,N0,M0,Stage I,AJCC 8th - Colon
+C18,T2,N0,M0,Stage I,AJCC 8th - Colon
+C18,T3,N0,M0,Stage IIA,AJCC 8th - Colon
+C18,T4A,N0,M0,Stage IIB,AJCC 8th - Colon
+C18,T4B,N0,M0,Stage IIC,AJCC 8th - Colon
+C18,T1,N1,M0,Stage IIIA,AJCC 8th - Colon
+C18,T2,N1,M0,Stage IIIA,AJCC 8th - Colon
+C18,T1,N2A,M0,Stage IIIB,AJCC 8th - Colon
+C18,T2,N2A,M0,Stage IIIB,AJCC 8th - Colon
+C18,T1,N2B,M0,Stage IIIB,AJCC 8th - Colon
+C18,T2,N2B,M0,Stage IIIB,AJCC 8th - Colon
+C18,T3,N1,M0,Stage IIIB,AJCC 8th - Colon
+C18,T4A,N1,M0,Stage IIIB,AJCC 8th - Colon
+C18,T3,N2,M0,Stage IIIC,AJCC 8th - Colon
+C18,T4A,N2,M0,Stage IIIC,AJCC 8th - Colon
+C18,T4B,N1,M0,Stage IIIC,AJCC 8th - Colon
+C18,T4B,N2,M0,Stage IIIC,AJCC 8th - Colon
+C18,ANY,ANY,M1A,Stage IVA,AJCC 8th - Colon
+C18,ANY,ANY,M1B,Stage IVB,AJCC 8th - Colon
+C18,ANY,ANY,M1C,Stage IVC,AJCC 8th - Colon
+C20,TIS,N0,M0,Stage 0,AJCC 8th - Rectum
+C20,T1,N0,M0,Stage I,AJCC 8th - Rectum
+C20,T2,N0,M0,Stage I,AJCC 8th - Rectum
+C20,T3,N0,M0,Stage IIA,AJCC 8th - Rectum
+C20,T4A,N0,M0,Stage IIB,AJCC 8th - Rectum
+C20,T4B,N0,M0,Stage IIC,AJCC 8th - Rectum
+C20,T1,N1,M0,Stage IIIA,AJCC 8th - Rectum
+C20,T2,N1,M0,Stage IIIA,AJCC 8th - Rectum
+C20,T3,N1,M0,Stage IIIB,AJCC 8th - Rectum
+C20,T4A,N1,M0,Stage IIIB,AJCC 8th - Rectum
+C20,T3,N2,M0,Stage IIIC,AJCC 8th - Rectum
+C20,T4A,N2,M0,Stage IIIC,AJCC 8th - Rectum
+C20,T4B,N1,M0,Stage IIIC,AJCC 8th - Rectum
+C20,T4B,N2,M0,Stage IIIC,AJCC 8th - Rectum
+C20,ANY,ANY,M1,Stage IV,AJCC 8th - Rectum
+C34,TIS,N0,M0,Stage 0,AJCC 8th - Lung
+C34,T1A,N0,M0,Stage IA1,AJCC 8th - Lung
+C34,T1B,N0,M0,Stage IA2,AJCC 8th - Lung
+C34,T1C,N0,M0,Stage IA3,AJCC 8th - Lung
+C34,T2A,N0,M0,Stage IB,AJCC 8th - Lung
+C34,T2B,N0,M0,Stage IIA,AJCC 8th - Lung
+C34,T1A,N1,M0,Stage IIB,AJCC 8th - Lung
+C34,T1B,N1,M0,Stage IIB,AJCC 8th - Lung
+C34,T1C,N1,M0,Stage IIB,AJCC 8th - Lung
+C34,T2A,N1,M0,Stage IIB,AJCC 8th - Lung
+C34,T2B,N1,M0,Stage IIIA,AJCC 8th - Lung
+C34,T3,N0,M0,Stage IIB,AJCC 8th - Lung
+C34,T3,N1,M0,Stage IIIA,AJCC 8th - Lung
+C34,T4,N0,M0,Stage IIIA,AJCC 8th - Lung
+C34,T4,N1,M0,Stage IIIA,AJCC 8th - Lung
+C34,T1,N2,M0,Stage IIIA,AJCC 8th - Lung
+C34,T2,N2,M0,Stage IIIB,AJCC 8th - Lung
+C34,T3,N2,M0,Stage IIIB,AJCC 8th - Lung
+C34,T4,N2,M0,Stage IIIB,AJCC 8th - Lung
+C34,T1,N3,M0,Stage IIIB,AJCC 8th - Lung
+C34,T2,N3,M0,Stage IIIB,AJCC 8th - Lung
+C34,T3,N3,M0,Stage IIIC,AJCC 8th - Lung
+C34,T4,N3,M0,Stage IIIC,AJCC 8th - Lung
+C34,ANY,ANY,M1A,Stage IVA,AJCC 8th - Lung
+C34,ANY,ANY,M1B,Stage IVA,AJCC 8th - Lung
+C34,ANY,ANY,M1C,Stage IVB,AJCC 8th - Lung
+C61,T1,N0,M0,Stage I,AJCC 8th - Prostate (PSA<10 G1)
+C61,T2,N0,M0,Stage II,AJCC 8th - Prostate
+C61,T3,N0,M0,Stage III,AJCC 8th - Prostate
+C61,T4,N0,M0,Stage IV,AJCC 8th - Prostate
+C61,ANY,N1,M0,Stage IV,AJCC 8th - Prostate
+C61,ANY,ANY,M1,Stage IV,AJCC 8th - Prostate
+C53,TIS,N0,M0,Stage 0,FIGO 2018 - Cervix
+C53,T1A1,N0,M0,Stage IA1,FIGO 2018 - Cervix
+C53,T1A2,N0,M0,Stage IA2,FIGO 2018 - Cervix
+C53,T1B1,N0,M0,Stage IB1,FIGO 2018 - Cervix
+C53,T1B2,N0,M0,Stage IB2,FIGO 2018 - Cervix
+C53,T1B3,N0,M0,Stage IB3,FIGO 2018 - Cervix
+C53,T2A1,N0,M0,Stage IIA1,FIGO 2018 - Cervix
+C53,T2A2,N0,M0,Stage IIA2,FIGO 2018 - Cervix
+C53,T2B,ANY,M0,Stage IIB,FIGO 2018 - Cervix
+C53,T3A,ANY,M0,Stage IIIA,FIGO 2018 - Cervix
+C53,T3B,ANY,M0,Stage IIIB,FIGO 2018 - Cervix
+C53,T4,ANY,M0,Stage IVA,FIGO 2018 - Cervix
+C53,ANY,ANY,M1,Stage IVB,FIGO 2018 - Cervix
+C16,T1,N0,M0,Stage IA,AJCC 8th - Stomach
+C16,T1,N1,M0,Stage IB,AJCC 8th - Stomach
+C16,T1,N2,M0,Stage IIA,AJCC 8th - Stomach
+C16,T1,N3,M0,Stage IIB,AJCC 8th - Stomach
+C16,T2,N0,M0,Stage IB,AJCC 8th - Stomach
+C16,T2,N1,M0,Stage IIA,AJCC 8th - Stomach
+C16,T2,N2,M0,Stage IIB,AJCC 8th - Stomach
+C16,T2,N3,M0,Stage IIIA,AJCC 8th - Stomach
+C16,T3,N0,M0,Stage IIA,AJCC 8th - Stomach
+C16,T3,N1,M0,Stage IIB,AJCC 8th - Stomach
+C16,T3,N2,M0,Stage IIIA,AJCC 8th - Stomach
+C16,T3,N3,M0,Stage IIIB,AJCC 8th - Stomach
+C16,T4A,N0,M0,Stage IIB,AJCC 8th - Stomach
+C16,T4A,N1,M0,Stage IIIA,AJCC 8th - Stomach
+C16,T4A,N2,M0,Stage IIIB,AJCC 8th - Stomach
+C16,T4A,N3,M0,Stage IIIC,AJCC 8th - Stomach
+C16,T4B,ANY,M0,Stage IIIC,AJCC 8th - Stomach
+C16,ANY,ANY,M1,Stage IV,AJCC 8th - Stomach
+C67,TIS,N0,M0,Stage 0,AJCC 8th - Bladder
+C67,TA,N0,M0,Stage 0,AJCC 8th - Bladder
+C67,T1,N0,M0,Stage I,AJCC 8th - Bladder
+C67,T2,N0,M0,Stage II,AJCC 8th - Bladder
+C67,T2A,N0,M0,Stage II,AJCC 8th - Bladder
+C67,T2B,N0,M0,Stage II,AJCC 8th - Bladder
+C67,T3,N0,M0,Stage III,AJCC 8th - Bladder
+C67,T3A,N0,M0,Stage III,AJCC 8th - Bladder
+C67,T3B,N0,M0,Stage III,AJCC 8th - Bladder
+C67,T4A,N0,M0,Stage IIIA,AJCC 8th - Bladder
+C67,T4B,N0,M0,Stage IVA,AJCC 8th - Bladder
+C67,ANY,N1,M0,Stage IIIA,AJCC 8th - Bladder
+C67,ANY,N2,M0,Stage IIIB,AJCC 8th - Bladder
+C67,ANY,N3,M0,Stage IIIB,AJCC 8th - Bladder
+C67,T1,N1,M0,Stage IIIA,AJCC 8th - Bladder
+C67,T4,ANY,M1A,Stage IVA,AJCC 8th - Bladder
+C67,ANY,ANY,M1A,Stage IVA,AJCC 8th - Bladder
+C67,ANY,ANY,M1B,Stage IVB,AJCC 8th - Bladder
+C22,T1,N0,M0,Stage IA,AJCC 8th - Liver
+C22,T2,N0,M0,Stage IB,AJCC 8th - Liver
+C22,T3,N0,M0,Stage IIIA,AJCC 8th - Liver
+C22,T3,N1,M0,Stage IIIA,AJCC 8th - Liver
+C22,T4,ANY,M0,Stage IIIB,AJCC 8th - Liver
+C22,ANY,ANY,M1,Stage IV,AJCC 8th - Liver
+C34.9,TX,NX,MX,Unknown,AJCC 8th - Lung
+ANY,ANY,ANY,M1,Stage IV,Generic fallback
+ANY,TIS,N0,M0,Stage 0,Generic fallback
+ANY,T1,N0,M0,Stage I,Generic fallback
+ANY,T2,N0,M0,Stage II,Generic fallback
+ANY,T3,N0,M0,Stage II,Generic fallback
+ANY,T4,N0,M0,Stage III,Generic fallback
+ANY,ANY,N1,M0,Stage III,Generic fallback
+ANY,ANY,N2,M0,Stage III,Generic fallback
+ANY,ANY,N3,M0,Stage III,Generic fallback

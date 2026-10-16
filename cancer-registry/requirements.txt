@@ -1,0 +1,22 @@
+# أدوات سجل السرطان — المتطلبات
+# التثبيت:  pip install -r requirements.txt
+
+# --- إلزامى (بدونه لا يعمل التصدير إلى Excel) ---
+openpyxl>=3.1          # كتابة/قراءة ملفات Excel
+
+# --- قراءة ملفات PDF ---
+pypdf>=4.0             # استخراج النص المدمج من PDF
+pdfminer.six>=20231228 # بديل أدق للجداول
+
+# --- واجهة الويب المحلية ---
+flask>=3.0
+
+# --- اختيارى: OCR للصور الممسوحة ضوئياً ---
+# pytesseract ليس مطلوباً — نستدعى tesseract مباشرة عبر subprocess.
+# لكنك تحتاج تثبيت Tesseract نفسه على النظام:
+#   Windows : https://github.com/UB-Mannheim/tesseract/wiki  (+ حزمة Arabic)
+#   Debian    : sudo apt install tesseract-ocr tesseract-ocr-ara poppler-utils
+#   macOS     : brew install tesseract tesseract-lang poppler
+
+# --- اختيارى: Azure Document Intelligence (أعلى دقة، يحتاج مفاتيح API) ---
+requests>=2.31

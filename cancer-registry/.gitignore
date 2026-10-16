@@ -1,0 +1,10 @@
+# بيانات التشغيل — لا تُرفع إلى Git (سجلات مرضى حقيقية = بيانات حساسة)
+storage/
+!storage/.gitkeep
+*.xlsx
+*.xls
+__pycache__/
+*.py[cod]
+.env
+uploads/
+*.log

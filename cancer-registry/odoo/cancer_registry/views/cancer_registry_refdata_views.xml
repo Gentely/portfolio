@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         ICD-O-3 — Topography (مواقع الورم الأولي)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_topography_tree" model="ir.ui.view">
+        <field name="name">cancer.registry.icdo3.topography.tree</field>
+        <field name="model">cancer.registry.icdo3.topography</field>
+        <field name="arch" type="xml">
+            <tree string="مواقع ICD-O-3" editable="bottom" create="false" sample="1">
+                <field name="code"/>
+                <field name="name_ar"/>
+                <field name="name_en"/>
+                <field name="system_group" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_topography_search" model="ir.ui.view">
+        <field name="name">cancer.registry.icdo3.topography.search</field>
+        <field name="model">cancer.registry.icdo3.topography</field>
+        <field name="arch" type="xml">
+            <search string="بحث في مواقع ICD-O-3">
+                <field name="code" filter_domain="['|',('code','ilike',self),('name_ar','ilike',self)]"
+                       string="الرمز أو الاسم"/>
+                <field name="name_ar"/>
+                <field name="name_en"/>
+                <field name="system_group"/>
+                <separator/>
+                <filter string="الثدي (C50)" name="breast" domain="[('code','=like','C50%')]"/>
+                <filter string="الجهاز الهضمي (C15–C26)" name="gi"
+                        domain="[('code','=like','C1'),('code','=like','C2')]"/>
+                <filter string="الجهاز التنفسي (C30–C39)" name="resp"
+                        domain="[('code','=like','C3')]"/>
+                <filter string="الجلد (C44)" name="skin" domain="[('code','=like','C44%')]"/>
+                <filter string="الجهاز البولي التناسلي (C51–C68)" name="gu"
+                        domain="[('code','=like','C5'),('code','=like','C6')]"/>
+                <filter string="الدم والجهاز اللمفاوي (C42/C77–C88)" name="haem"
+                        domain="['|',('code','=like','C42%'),'|',('code','=like','C77%'),('code','=like','C88%')]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="الجهاز" name="group_system" context="{'group_by':'system_group'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_topography" model="ir.actions.act_window">
+        <field name="name">مواقع ICD-O-3 (Topography)</field>
+        <field name="res_model">cancer.registry.icdo3.topography</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="view_topography_search"/>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         ICD-O-3 — Morphology (الفحص النسيجي)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_morphology_tree" model="ir.ui.view">
+        <field name="name">cancer.registry.icdo3.morphology.tree</field>
+        <field name="model">cancer.registry.icdo3.morphology</field>
+        <field name="arch" type="xml">
+            <tree string="الفحص النسيجي ICD-O-3" editable="bottom" create="false" sample="1"
+                  decoration-info="behaviour in ('0','1')"
+                  decoration-warning="behaviour == '2'"
+                  decoration-danger="behaviour in ('3','6','9')">
+                <field name="code"/>
+                <field name="name_ar"/>
+                <field name="name_en"/>
+                <field name="behaviour" widget="badge"
+                       decoration-success="behaviour == '0'"
+                       decoration-warning="behaviour in ('1','2')"
+                       decoration-danger="behaviour in ('3','6','9')"/>
+                <field name="group_name" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_morphology_search" model="ir.ui.view">
+        <field name="name">cancer.registry.icdo3.morphology.search</field>
+        <field name="model">cancer.registry.icdo3.morphology</field>
+        <field name="arch" type="xml">
+            <search string="بحث في الفحص النسيجي">
+                <field name="code" filter_domain="['|',('code','ilike',self),('name_ar','ilike',self)]"
+                       string="الرمز أو الاسم"/>
+                <field name="name_ar"/>
+                <field name="name_en"/>
+                <field name="group_name"/>
+                <separator/>
+                <filter string="خبيث /3" name="malignant" domain="[('behaviour','=','3')]"/>
+                <filter string="حميد /0" name="benign" domain="[('behaviour','=','0')]"/>
+                <filter string="لابد /2" name="insitu" domain="[('behaviour','=','2')]"/>
+                <filter string="سلوك غير مؤكد /1" name="uncertain" domain="[('behaviour','=','1')]"/>
+                <filter string="ثانوي /6" name="secondary" domain="[('behaviour','=','6')]"/>
+                <separator/>
+                <filter string="سرطانات حرشفية (8070–8084)" name="squamous"
+                        domain="[('code','=like','807%'),('code','=like','808%')]"/>
+                <filter string="أدنوكارسينوما (8140–8389)" name="adeno"
+                        domain="[('code','=like','81%'),('code','=like','82%'),('code','=like','83%')]"/>
+                <filter string="أورام لمفاوية (9590–9999)" name="lymphoma"
+                        domain="[('code','=like','9%')]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="المجموعة" name="group_group" context="{'group_by':'group_name'}"/>
+                    <filter string="السلوك" name="group_behaviour" context="{'group_by':'behaviour'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_morphology" model="ir.actions.act_window">
+        <field name="name">الفحص النسيجي ICD-O-3 (Morphology)</field>
+        <field name="res_model">cancer.registry.icdo3.morphology</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="view_morphology_search"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_export_wizard_form" model="ir.ui.view">
+        <field name="name">cancer.registry.export.wizard.form</field>
+        <field name="model">cancer.registry.export.wizard</field>
+        <field name="arch" type="xml">
+            <form string="تصدير إلى Excel / الأرشيف الوطني">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>حفظ كـ / تصدير</h1>
+                        <h2 class="text-muted">ملف Excel مطابق لقالب السجل الوطني — 6 أوراق</h2>
+                    </div>
+
+                    <group>
+                        <group string="النطاق">
+                            <field name="scope" widget="radio"/>
+                            <field name="date_from"
+                                   invisible="scope != 'period'"/>
+                            <field name="date_to" invisible="scope != 'period'"/>
+                            <field name="diagnosis_year" invisible="scope != 'year'"/>
+                            <field name="district" invisible="scope != 'district'"/>
+                        </group>
+                        <group string="التصفية والترويسة">
+                            <field name="only_validated" widget="boolean_toggle"/>
+                            <field name="qc_min"/>
+                            <field name="facility"/>
+                            <field name="author"/>
+                            <field name="period_label"
+                                   placeholder="يظهر في ترويسة الملف — اختياري"/>
+                        </group>
+                    </group>
+
+                    <group string="أوراق الملف">
+                        <group>
+                            <field name="include_qc" widget="boolean_toggle"/>
+                            <field name="include_dictionary" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="include_refdata" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+
+                    <group invisible="not attachment_id">
+                        <group>
+                            <field name="filename" readonly="1"/>
+                            <field name="attachment_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <button name="action_download" type="object"
+                                    string="تنزيل الملف الجاهز" icon="fa-download"
+                                    class="btn-primary"/>
+                        </group>
+                    </group>
+
+                    <field name="records_count" invisible="1"/>
+                    <field name="preview_html" nolabel="1" readonly="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_export" type="object" string="تصدير وتنزيل"
+                            class="oe_highlight" icon="fa-file-excel-o"/>
+                    <button name="action_export_and_archive" type="object"
+                            string="تصدير وأرشفة على القرص" icon="fa-database"
+                            help="ينشئ الملف وينزّله، ويحفظ نسخة في مجلد أرشيف التصديرات مع تسجيل حدث في سجل التدقيق."/>
+                    <button string="إلغاء" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_export_wizard" model="ir.actions.act_window">
+        <field name="name">تصدير إلى Excel / الأرشيف الوطني</field>
+        <field name="res_model">cancer.registry.export.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

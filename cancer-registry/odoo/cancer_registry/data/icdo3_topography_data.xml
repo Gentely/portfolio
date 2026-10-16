@@ -1,0 +1,2093 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="topo_c00_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.0</field>
+            <field name="name_en">External upper lip</field>
+            <field name="name_ar">الشفة العليا الخارجية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.1</field>
+            <field name="name_en">External lower lip</field>
+            <field name="name_ar">الشفة السفلى الخارجية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.2</field>
+            <field name="name_en">External lip, NOS</field>
+            <field name="name_ar">الشفة, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.3</field>
+            <field name="name_en">Upper lip, inner aspect</field>
+            <field name="name_ar">الشفة العليا, السطح الداخلي</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.4</field>
+            <field name="name_en">Lower lip, inner aspect</field>
+            <field name="name_ar">الشفة السفلى, السطح الداخلي</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.5</field>
+            <field name="name_en">Lip, inner aspect, NOS</field>
+            <field name="name_ar">الشفة, السطح الداخلي, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.6</field>
+            <field name="name_en">Commissure of lip, NOS</field>
+            <field name="name_ar">صوار الشفة, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.8</field>
+            <field name="name_en">Overlapping lesion of lip</field>
+            <field name="name_ar">آفة متداخلة في الشفة</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c00_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C00.9</field>
+            <field name="name_en">Lip, NOS</field>
+            <field name="name_ar">الشفة, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c01_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C01.9</field>
+            <field name="name_en">Base of tongue, NOS</field>
+            <field name="name_ar">قاعدة اللسان, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.0</field>
+            <field name="name_en">Dorsal surface of tongue</field>
+            <field name="name_ar">السطح الظهري للسان</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.1</field>
+            <field name="name_en">Border of tongue</field>
+            <field name="name_ar">حافة اللسان</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.2</field>
+            <field name="name_en">Ventral surface of tongue</field>
+            <field name="name_ar">السطح البطني للسان</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.3</field>
+            <field name="name_en">Anterior 2/3 of tongue, NOS</field>
+            <field name="name_ar">الثلثان الأماميان للسان, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.4</field>
+            <field name="name_en">Lingual tonsil</field>
+            <field name="name_ar">اللوزة اللسانية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.8</field>
+            <field name="name_en">Overlapping lesion of tongue</field>
+            <field name="name_ar">آفة متداخلة في اللسان</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c02_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C02.9</field>
+            <field name="name_en">Tongue, NOS</field>
+            <field name="name_ar">اللسان, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c03_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C03.0</field>
+            <field name="name_en">Upper gum</field>
+            <field name="name_ar">اللثة العليا</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c03_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C03.1</field>
+            <field name="name_en">Lower gum</field>
+            <field name="name_ar">اللثة السفلى</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c03_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C03.9</field>
+            <field name="name_en">Gum, NOS</field>
+            <field name="name_ar">اللثة, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c04_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C04.0</field>
+            <field name="name_en">Anterior floor of mouth</field>
+            <field name="name_ar">أرضية الفم الأمامية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c04_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C04.1</field>
+            <field name="name_en">Lateral floor of mouth</field>
+            <field name="name_ar">أرضية الفم الجانبية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c04_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C04.8</field>
+            <field name="name_en">Overlapping lesion of floor of mouth</field>
+            <field name="name_ar">آفة متداخلة في أرضية الفم</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c04_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C04.9</field>
+            <field name="name_en">Floor of mouth, NOS</field>
+            <field name="name_ar">أرضية الفم, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c05_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C05.0</field>
+            <field name="name_en">Hard palate</field>
+            <field name="name_ar">الحنك الصلب</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c05_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C05.1</field>
+            <field name="name_en">Soft palate</field>
+            <field name="name_ar">الحنك الرخو</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c05_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C05.2</field>
+            <field name="name_en">Uvula</field>
+            <field name="name_ar">اللهاة</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c05_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C05.8</field>
+            <field name="name_en">Overlapping lesion of palate</field>
+            <field name="name_ar">آفة متداخلة في الحنك</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c05_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C05.9</field>
+            <field name="name_en">Palate, NOS</field>
+            <field name="name_ar">الحنك, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c06_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C06.0</field>
+            <field name="name_en">Cheek mucosa</field>
+            <field name="name_ar">غشاء الخد المخاطي</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c06_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C06.1</field>
+            <field name="name_en">Vestibule of mouth</field>
+            <field name="name_ar">دهليز الفم</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c06_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C06.2</field>
+            <field name="name_en">Retromolar area</field>
+            <field name="name_ar">المنطقة خلف الأضراس</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c06_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C06.8</field>
+            <field name="name_en">Overlapping lesion of other parts of mouth</field>
+            <field name="name_ar">آفة متداخلة في أجزاء أخرى من الفم</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c06_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C06.9</field>
+            <field name="name_en">Mouth, NOS</field>
+            <field name="name_ar">الفم, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c07_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C07.9</field>
+            <field name="name_en">Parotid gland, NOS</field>
+            <field name="name_ar">الغدة النكفية, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c08_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C08.0</field>
+            <field name="name_en">Submandibular gland</field>
+            <field name="name_ar">الغدة تحت الفك السفلي</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c08_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C08.1</field>
+            <field name="name_en">Sublingual gland</field>
+            <field name="name_ar">الغدة تحت اللسان</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c08_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C08.8</field>
+            <field name="name_en">Overlapping lesion of major salivary glands</field>
+            <field name="name_ar">آفة متداخلة في الغدد اللعابية الكبرى</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c08_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C08.9</field>
+            <field name="name_en">Major salivary gland, NOS</field>
+            <field name="name_ar">الغدة اللعابية الكبرى, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c09_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C09.0</field>
+            <field name="name_en">Tonsillar fossa</field>
+            <field name="name_ar">الحفرة اللوزية</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c09_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C09.1</field>
+            <field name="name_en">Tonsillar pillar</field>
+            <field name="name_ar">عمود اللوزة</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c09_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C09.8</field>
+            <field name="name_en">Overlapping lesion of tonsil</field>
+            <field name="name_ar">آفة متداخلة في اللوزة</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c09_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C09.9</field>
+            <field name="name_en">Tonsil, NOS</field>
+            <field name="name_ar">اللوزة, غير محدد</field>
+            <field name="system_group">Lip &amp; Oral Cavity</field>
+        </record>
+        <record id="topo_c10_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.0</field>
+            <field name="name_en">Vallecula</field>
+            <field name="name_ar">اللهاة البلعومية</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.1</field>
+            <field name="name_en">Anterior surface of epiglottis</field>
+            <field name="name_ar">السطح الأمامي للسان المزمار</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.2</field>
+            <field name="name_en">Lateral wall of oropharynx</field>
+            <field name="name_ar">الجدار الجانبي للبلعوم الفموي</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.3</field>
+            <field name="name_en">Posterior wall of oropharynx</field>
+            <field name="name_ar">الجدار الخلفي للبلعوم الفموي</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.4</field>
+            <field name="name_en">Branchial cleft</field>
+            <field name="name_ar">الشق الخيشومي</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.8</field>
+            <field name="name_en">Overlapping lesion of oropharynx</field>
+            <field name="name_ar">آفة متداخلة في البلعوم الفموي</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c10_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C10.9</field>
+            <field name="name_en">Oropharynx, NOS</field>
+            <field name="name_ar">البلعوم الفموي, غير محدد</field>
+            <field name="system_group">Oropharynx</field>
+        </record>
+        <record id="topo_c11_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.0</field>
+            <field name="name_en">Superior wall of nasopharynx</field>
+            <field name="name_ar">الجدار العلوي للبلعوم الأنفي</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c11_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.1</field>
+            <field name="name_en">Posterior wall of nasopharynx</field>
+            <field name="name_ar">الجدار الخلفي للبلعوم الأنفي</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c11_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.2</field>
+            <field name="name_en">Lateral wall of nasopharynx</field>
+            <field name="name_ar">الجدار الجانبي للبلعوم الأنفي</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c11_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.3</field>
+            <field name="name_en">Anterior wall of nasopharynx</field>
+            <field name="name_ar">الجدار الأمامي للبلعوم الأنفي</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c11_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.8</field>
+            <field name="name_en">Overlapping lesion of nasopharynx</field>
+            <field name="name_ar">آفة متداخلة في البلعوم الأنفي</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c11_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C11.9</field>
+            <field name="name_en">Nasopharynx, NOS</field>
+            <field name="name_ar">البلعوم الأنفي, غير محدد</field>
+            <field name="system_group">Nasopharynx</field>
+        </record>
+        <record id="topo_c12_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C12.9</field>
+            <field name="name_en">Pyriform sinus, NOS</field>
+            <field name="name_ar">الجيب الكمثري, غير محدد</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c13_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C13.0</field>
+            <field name="name_en">Postcricoid region</field>
+            <field name="name_ar">المنطقة خلف الغضروف الحلقي</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c13_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C13.1</field>
+            <field name="name_en">Hypopharyngeal aspect of aryepiglottic fold</field>
+            <field name="name_ar">الوجه البلعومي لثنية اللسان المزمار</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c13_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C13.2</field>
+            <field name="name_en">Posterior wall of hypopharynx</field>
+            <field name="name_ar">الجدار الخلفي للبلعوم السفلي</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c13_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C13.8</field>
+            <field name="name_en">Overlapping lesion of hypopharynx</field>
+            <field name="name_ar">آفة متداخلة في البلعوم السفلي</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c13_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C13.9</field>
+            <field name="name_en">Hypopharynx, NOS</field>
+            <field name="name_ar">البلعوم السفلي, غير محدد</field>
+            <field name="system_group">Hypopharynx</field>
+        </record>
+        <record id="topo_c14_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C14.0</field>
+            <field name="name_en">Pharynx, NOS</field>
+            <field name="name_ar">البلعوم, غير محدد</field>
+            <field name="system_group">Pharynx</field>
+        </record>
+        <record id="topo_c14_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C14.2</field>
+            <field name="name_en">Waldeyer ring</field>
+            <field name="name_ar">حلقة فالداير</field>
+            <field name="system_group">Pharynx</field>
+        </record>
+        <record id="topo_c14_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C14.8</field>
+            <field name="name_en">Overlapping lesion of lip oral cavity and pharynx</field>
+            <field name="name_ar">آفة متداخلة في الشفة والفم والبلعوم</field>
+            <field name="system_group">Pharynx</field>
+        </record>
+        <record id="topo_c15_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.0</field>
+            <field name="name_en">Cervical esophagus</field>
+            <field name="name_ar">المريء العنقي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.1</field>
+            <field name="name_en">Thoracic esophagus</field>
+            <field name="name_ar">المريء الصدري</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.2</field>
+            <field name="name_en">Abdominal esophagus</field>
+            <field name="name_ar">المريء البطني</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.3</field>
+            <field name="name_en">Upper third of esophagus</field>
+            <field name="name_ar">الثلث العلوي للمريء</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.4</field>
+            <field name="name_en">Middle third of esophagus</field>
+            <field name="name_ar">الثلث الأوسط للمريء</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.5</field>
+            <field name="name_en">Lower third of esophagus</field>
+            <field name="name_ar">الثلث السفلي للمريء</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.8</field>
+            <field name="name_en">Overlapping lesion of esophagus</field>
+            <field name="name_ar">آفة متداخلة في المريء</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c15_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C15.9</field>
+            <field name="name_en">Esophagus, NOS</field>
+            <field name="name_ar">المريء, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.0</field>
+            <field name="name_en">Cardia</field>
+            <field name="name_ar">الفؤاد (مدخل المعدة)</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.1</field>
+            <field name="name_en">Pylorus</field>
+            <field name="name_ar">البواب</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.2</field>
+            <field name="name_en">Antrum, NOS</field>
+            <field name="name_ar">غار المعدة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.3</field>
+            <field name="name_en">Body of stomach</field>
+            <field name="name_ar">جسم المعدة</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.4</field>
+            <field name="name_en">Pyloric canal</field>
+            <field name="name_ar">قناة البواب</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.5</field>
+            <field name="name_en">Lesser curvature of stomach, NOS</field>
+            <field name="name_ar">الانحناء الأصغر للمعدة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.6</field>
+            <field name="name_en">Greater curvature of stomach, NOS</field>
+            <field name="name_ar">الانحناء الأكبر للمعدة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.8</field>
+            <field name="name_en">Overlapping lesion of stomach</field>
+            <field name="name_ar">آفة متداخلة في المعدة</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c16_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C16.9</field>
+            <field name="name_en">Stomach, NOS</field>
+            <field name="name_ar">المعدة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.0</field>
+            <field name="name_en">Duodenum</field>
+            <field name="name_ar">الاثنا عشري</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.1</field>
+            <field name="name_en">Jejunum</field>
+            <field name="name_ar">الصائم</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.2</field>
+            <field name="name_en">Ileum</field>
+            <field name="name_ar">اللفائفي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.3</field>
+            <field name="name_en">Meckel diverticulum</field>
+            <field name="name_ar">رتج ميكل</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.8</field>
+            <field name="name_en">Overlapping lesion of small intestine</field>
+            <field name="name_ar">آفة متداخلة في الأمعاء الدقيقة</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c17_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C17.9</field>
+            <field name="name_en">Small intestine, NOS</field>
+            <field name="name_ar">الأمعاء الدقيقة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.0</field>
+            <field name="name_en">Cecum</field>
+            <field name="name_ar">الأعور</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.1</field>
+            <field name="name_en">Appendix</field>
+            <field name="name_ar">الزائدة الدودية</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.2</field>
+            <field name="name_en">Ascending colon</field>
+            <field name="name_ar">القولون الصاعد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.3</field>
+            <field name="name_en">Hepatic flexure of colon</field>
+            <field name="name_ar">انعطاف القولون الكبدي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.4</field>
+            <field name="name_en">Transverse colon</field>
+            <field name="name_ar">القولون المستعرض</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.5</field>
+            <field name="name_en">Splenic flexure of colon</field>
+            <field name="name_ar">انعطاف القولون الطحالي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.6</field>
+            <field name="name_en">Descending colon</field>
+            <field name="name_ar">القولون النازل</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.7</field>
+            <field name="name_en">Sigmoid colon</field>
+            <field name="name_ar">القولون السيني</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.8</field>
+            <field name="name_en">Overlapping lesion of colon</field>
+            <field name="name_ar">آفة متداخلة في القولون</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c18_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C18.9</field>
+            <field name="name_en">Colon, NOS</field>
+            <field name="name_ar">القولون, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c19_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C19.9</field>
+            <field name="name_en">Rectosigmoid junction, NOS</field>
+            <field name="name_ar">اتصال المستقيم والسيني, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c20_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C20.9</field>
+            <field name="name_en">Rectum, NOS</field>
+            <field name="name_ar">المستقيم, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c21_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C21.0</field>
+            <field name="name_en">Anus, NOS</field>
+            <field name="name_ar">الشرج, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c21_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C21.1</field>
+            <field name="name_en">Anal canal</field>
+            <field name="name_ar">القناة الشرجية</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c21_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C21.2</field>
+            <field name="name_en">Cloacogenic zone</field>
+            <field name="name_ar">المنطقة المذرقية</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c21_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C21.8</field>
+            <field name="name_en">Overlapping lesion of rectum anus and anal canal</field>
+            <field name="name_ar">آفة متداخلة في المستقيم والشرج</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c22_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C22.0</field>
+            <field name="name_en">Liver</field>
+            <field name="name_ar">الكبد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c22_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C22.1</field>
+            <field name="name_en">Intrahepatic bile duct</field>
+            <field name="name_ar">القنوات الصفراوية داخل الكبد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c22_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C22.7</field>
+            <field name="name_en">Other parts of liver</field>
+            <field name="name_ar">أجزاء أخرى من الكبد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c22_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C22.8</field>
+            <field name="name_en">Overlapping lesion of liver</field>
+            <field name="name_ar">آفة متداخلة في الكبد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c22_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C22.9</field>
+            <field name="name_en">Liver, NOS</field>
+            <field name="name_ar">الكبد, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c23_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C23.9</field>
+            <field name="name_en">Gallbladder, NOS</field>
+            <field name="name_ar">المرارة, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c24_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C24.0</field>
+            <field name="name_en">Extrahepatic bile duct</field>
+            <field name="name_ar">القناة الصفراوية خارج الكبد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c24_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C24.1</field>
+            <field name="name_en">Ampulla of Vater</field>
+            <field name="name_ar">أمبولة فاتر</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c24_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C24.8</field>
+            <field name="name_en">Overlapping lesion of biliary tract</field>
+            <field name="name_ar">آفة متداخلة في السبيل الصفراوي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c24_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C24.9</field>
+            <field name="name_en">Biliary tract, NOS</field>
+            <field name="name_ar">السبيل الصفراوي, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.0</field>
+            <field name="name_en">Head of pancreas</field>
+            <field name="name_ar">رأس البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.1</field>
+            <field name="name_en">Body of pancreas</field>
+            <field name="name_ar">جسم البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.2</field>
+            <field name="name_en">Tail of pancreas</field>
+            <field name="name_ar">ذيل البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.3</field>
+            <field name="name_en">Pancreatic duct</field>
+            <field name="name_ar">قناة البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.4</field>
+            <field name="name_en">Islets of Langerhans</field>
+            <field name="name_ar">جزر لانغرهانس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.7</field>
+            <field name="name_en">Other parts of pancreas</field>
+            <field name="name_ar">أجزاء أخرى من البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.8</field>
+            <field name="name_en">Overlapping lesion of pancreas</field>
+            <field name="name_ar">آفة متداخلة في البنكرياس</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c25_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C25.9</field>
+            <field name="name_en">Pancreas, NOS</field>
+            <field name="name_ar">البنكرياس, غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c26_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C26.0</field>
+            <field name="name_en">Intestinal tract NOS</field>
+            <field name="name_ar">السبيل المعوي غير محدد</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c26_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C26.8</field>
+            <field name="name_en">Overlapping lesion of digestive system</field>
+            <field name="name_ar">آفة متداخلة في الجهاز الهضمي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c26_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C26.9</field>
+            <field name="name_en">Ill-defined sites within the digestive system</field>
+            <field name="name_ar">مواقع غير محددة داخل الجهاز الهضمي</field>
+            <field name="system_group">Digestive</field>
+        </record>
+        <record id="topo_c30_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C30.0</field>
+            <field name="name_en">Nasal cavity</field>
+            <field name="name_ar">التجويف الأنفي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c30_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C30.1</field>
+            <field name="name_en">Middle ear</field>
+            <field name="name_ar">الأذن الوسطى</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.0</field>
+            <field name="name_en">Maxillary sinus</field>
+            <field name="name_ar">الجيب الفكي العلوي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.1</field>
+            <field name="name_en">Ethmoid sinus</field>
+            <field name="name_ar">الجيب الغربالي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.2</field>
+            <field name="name_en">Frontal sinus</field>
+            <field name="name_ar">الجيب الجبهي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.3</field>
+            <field name="name_en">Sphenoid sinus</field>
+            <field name="name_ar">الجيب الوتدي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.8</field>
+            <field name="name_en">Overlapping lesion of accessory sinuses</field>
+            <field name="name_ar">آفة متداخلة في الجيوب الأنفية</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c31_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C31.9</field>
+            <field name="name_en">Accessory sinus, NOS</field>
+            <field name="name_ar">الجيب الأنفي, غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.0</field>
+            <field name="name_en">Glottis</field>
+            <field name="name_ar">الحنجرة (مزمار)</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.1</field>
+            <field name="name_en">Supraglottis</field>
+            <field name="name_ar">فوق المزمار</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.2</field>
+            <field name="name_en">Subglottis</field>
+            <field name="name_ar">تحت المزمار</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.3</field>
+            <field name="name_en">Laryngeal cartilage</field>
+            <field name="name_ar">غضروف الحنجرة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.8</field>
+            <field name="name_en">Overlapping lesion of larynx</field>
+            <field name="name_ar">آفة متداخلة في الحنجرة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c32_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C32.9</field>
+            <field name="name_en">Larynx, NOS</field>
+            <field name="name_ar">الحنجرة, غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c33_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C33.9</field>
+            <field name="name_en">Trachea, NOS</field>
+            <field name="name_ar">القصبة الهوائية, غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.0</field>
+            <field name="name_en">Main bronchus</field>
+            <field name="name_ar">القصبة الرئيسية</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.1</field>
+            <field name="name_en">Upper lobe, lung</field>
+            <field name="name_ar">الفص العلوي للرئة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.2</field>
+            <field name="name_en">Middle lobe, lung</field>
+            <field name="name_ar">الفص الأوسط للرئة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.3</field>
+            <field name="name_en">Lower lobe, lung</field>
+            <field name="name_ar">الفص السفلي للرئة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.8</field>
+            <field name="name_en">Overlapping lesion of lung</field>
+            <field name="name_ar">آفة متداخلة في الرئة</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c34_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C34.9</field>
+            <field name="name_en">Lung, NOS</field>
+            <field name="name_ar">الرئة, غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c37_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C37.9</field>
+            <field name="name_en">Thymus, NOS</field>
+            <field name="name_ar">الغدة الزعترية, غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.0</field>
+            <field name="name_en">Heart</field>
+            <field name="name_ar">القلب</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.1</field>
+            <field name="name_en">Mediastinum NOS</field>
+            <field name="name_ar">المنصف غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.2</field>
+            <field name="name_en">Pleura NOS</field>
+            <field name="name_ar">الغشاء البلوري غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.3</field>
+            <field name="name_en">Respiratory system NOS</field>
+            <field name="name_ar">الجهاز التنفسي غير محدد</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.4</field>
+            <field name="name_en">Topography unknown</field>
+            <field name="name_ar">موقع تشريحي غير معروف</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c38_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C38.8</field>
+            <field name="name_en">Overlapping lesion of respiratory system</field>
+            <field name="name_ar">آفة متداخلة في الجهاز التنفسي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c39_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C39.0</field>
+            <field name="name_en">Ill-defined sites respiratory system</field>
+            <field name="name_ar">مواقع غير محددة في الجهاز التنفسي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c39_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C39.8</field>
+            <field name="name_en">Overlapping lesion of respiratory and intrathoracic</field>
+            <field name="name_ar">آفة متداخلة تنفسية وصدرية</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c39_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C39.9</field>
+            <field name="name_en">Ill-defined sites within resp system</field>
+            <field name="name_ar">مواقع غير محددة داخل الجهاز التنفسي</field>
+            <field name="system_group">Respiratory</field>
+        </record>
+        <record id="topo_c40_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.0</field>
+            <field name="name_en">Long bones of upper limb</field>
+            <field name="name_ar">العظام الطويلة للطرف العلوي</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c40_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.1</field>
+            <field name="name_en">Short bones of upper limb</field>
+            <field name="name_ar">العظام القصيرة للطرف العلوي</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c40_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.2</field>
+            <field name="name_en">Long bones of lower limb</field>
+            <field name="name_ar">العظام الطويلة للطرف السفلي</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c40_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.3</field>
+            <field name="name_en">Short bones of lower limb</field>
+            <field name="name_ar">العظام القصيرة للطرف السفلي</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c40_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.8</field>
+            <field name="name_en">Overlapping lesion of bones and articular cartilage</field>
+            <field name="name_ar">آفة متداخلة في العظام والغضاريف</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c40_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C40.9</field>
+            <field name="name_en">Bones of limb, NOS</field>
+            <field name="name_ar">عظام الأطراف, غير محدد</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.0</field>
+            <field name="name_en">Bones of skull and face</field>
+            <field name="name_ar">عظام الجمجمة والوجه</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.1</field>
+            <field name="name_en">Mandible</field>
+            <field name="name_ar">الفك السفلي</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.2</field>
+            <field name="name_en">Vertebral column</field>
+            <field name="name_ar">العمود الفقري</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.3</field>
+            <field name="name_en">Ribs, sternum, clavicle</field>
+            <field name="name_ar">الأضلاع والقص والترقوة</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.4</field>
+            <field name="name_en">Pelvic bones</field>
+            <field name="name_ar">عظام الحوض</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.8</field>
+            <field name="name_en">Overlapping lesion of bone and articular cartilage</field>
+            <field name="name_ar">آفة متداخلة في العظام والغضاريف المفصلية</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c41_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C41.9</field>
+            <field name="name_en">Bone, NOS</field>
+            <field name="name_ar">العظم, غير محدد</field>
+            <field name="system_group">Bone &amp; Cartilage</field>
+        </record>
+        <record id="topo_c42_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C42.0</field>
+            <field name="name_en">Blood</field>
+            <field name="name_ar">الدم</field>
+            <field name="system_group">Hematologic</field>
+        </record>
+        <record id="topo_c42_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C42.1</field>
+            <field name="name_en">Bone marrow</field>
+            <field name="name_ar">نقي العظم</field>
+            <field name="system_group">Hematologic</field>
+        </record>
+        <record id="topo_c42_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C42.2</field>
+            <field name="name_en">Spleen</field>
+            <field name="name_ar">الطحال</field>
+            <field name="system_group">Hematologic</field>
+        </record>
+        <record id="topo_c42_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C42.3</field>
+            <field name="name_en">Reticuloendothelial system NOS</field>
+            <field name="name_ar">الجملة الشبكية البطانية غير محدد</field>
+            <field name="system_group">Hematologic</field>
+        </record>
+        <record id="topo_c42_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C42.4</field>
+            <field name="name_en">Hematopoietic system NOS</field>
+            <field name="name_ar">الجهاز المكون للدم غير محدد</field>
+            <field name="system_group">Hematologic</field>
+        </record>
+        <record id="topo_c44_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.0</field>
+            <field name="name_en">Skin of lip, NOS</field>
+            <field name="name_ar">جلد الشفة, غير محدد</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.1</field>
+            <field name="name_en">Eyelid</field>
+            <field name="name_ar">الجفن</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.2</field>
+            <field name="name_en">External ear</field>
+            <field name="name_ar">الأذن الخارجية</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.3</field>
+            <field name="name_en">Skin of other parts of face</field>
+            <field name="name_ar">جلد أجزاء أخرى من الوجه</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.4</field>
+            <field name="name_en">Scalp and neck</field>
+            <field name="name_ar">فروة الرأس والرقبة</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.5</field>
+            <field name="name_en">Trunk</field>
+            <field name="name_ar">الجذع</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.6</field>
+            <field name="name_en">Upper limb and shoulder</field>
+            <field name="name_ar">الطرف العلوي والكتف</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.7</field>
+            <field name="name_en">Lower limb and hip</field>
+            <field name="name_ar">الطرف السفلي والورك</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.8</field>
+            <field name="name_en">Overlapping lesion of skin</field>
+            <field name="name_ar">آفة متداخلة في الجلد</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c44_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C44.9</field>
+            <field name="name_en">Skin, NOS</field>
+            <field name="name_ar">الجلد, غير محدد</field>
+            <field name="system_group">Skin</field>
+        </record>
+        <record id="topo_c45_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C45.0</field>
+            <field name="name_en">Mesothelium of pleura</field>
+            <field name="name_ar">المتوسطة الجنبيّة</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c45_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C45.1</field>
+            <field name="name_en">Mesothelium of peritoneum</field>
+            <field name="name_ar">المتوسطة الصفاقية</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c45_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C45.2</field>
+            <field name="name_en">Mesothelium of pericardium</field>
+            <field name="name_ar">متوسطة التامور</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c45_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C45.7</field>
+            <field name="name_en">Mesothelium of other sites</field>
+            <field name="name_ar">متوسطة مواقع أخرى</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c45_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C45.9</field>
+            <field name="name_en">Mesothelium, NOS</field>
+            <field name="name_ar">المتوسطة, غير محدد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.0</field>
+            <field name="name_en">Kaposi sarcoma skin</field>
+            <field name="name_ar">ساركوما كابوسي الجلد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.1</field>
+            <field name="name_en">Kaposi sarcoma soft tissue</field>
+            <field name="name_ar">ساركوما كابوسي الأنسجة الرخوة</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.2</field>
+            <field name="name_en">Kaposi sarcoma palate</field>
+            <field name="name_ar">ساركوما كابوسي الحنك</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.3</field>
+            <field name="name_en">Kaposi sarcoma lymph nodes</field>
+            <field name="name_ar">ساركوما كابوسي العقد اللمفية</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.7</field>
+            <field name="name_en">Kaposi sarcoma other sites</field>
+            <field name="name_ar">ساركوما كابوسي مواقع أخرى</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.8</field>
+            <field name="name_en">Kaposi sarcoma multiple organs</field>
+            <field name="name_ar">ساركوما كابوسي أعضاء متعددة</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c46_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C46.9</field>
+            <field name="name_en">Kaposi sarcoma, NOS</field>
+            <field name="name_ar">ساركوما كابوسي, غير محدد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.0</field>
+            <field name="name_en">Peripheral nerves, head</field>
+            <field name="name_ar">الأعصاب الطرفية - الرأس</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.1</field>
+            <field name="name_en">Peripheral nerves, upper limb</field>
+            <field name="name_ar">الأعصاب الطرفية - الطرف العلوي</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.2</field>
+            <field name="name_en">Peripheral nerves, lower limb</field>
+            <field name="name_ar">الأعصاب الطرفية - الطرف السفلي</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.3</field>
+            <field name="name_en">Peripheral nerves, thorax</field>
+            <field name="name_ar">الأعصاب الطرفية - الصدر</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.4</field>
+            <field name="name_en">Peripheral nerves, abdomen</field>
+            <field name="name_ar">الأعصاب الطرفية - البطن</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.5</field>
+            <field name="name_en">Peripheral nerves, pelvis</field>
+            <field name="name_ar">الأعصاب الطرفية - الحوض</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.6</field>
+            <field name="name_en">Peripheral nerves, trunk</field>
+            <field name="name_ar">الأعصاب الطرفية - الجذع</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.8</field>
+            <field name="name_en">Overlapping lesion of peripheral nerves</field>
+            <field name="name_ar">آفة متداخلة في الأعصاب الطرفية</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c47_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C47.9</field>
+            <field name="name_en">Autonomic nervous system, NOS</field>
+            <field name="name_ar">الجهاز العصبي الذاتي, غير محدد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c48_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C48.0</field>
+            <field name="name_en">Retroperitoneum</field>
+            <field name="name_ar">خلف الصفاق</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c48_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C48.1</field>
+            <field name="name_en">Peritoneum NOS</field>
+            <field name="name_ar">الصفاق غير محدد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c48_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C48.2</field>
+            <field name="name_en">Peritoneum, other specified parts</field>
+            <field name="name_ar">الصفاق أجزاء محددة أخرى</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c48_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C48.8</field>
+            <field name="name_en">Overlapping lesion of retroperitoneum and peritoneum</field>
+            <field name="name_ar">آفة متداخلة في خلف الصفاق والصفاق</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.0</field>
+            <field name="name_en">Connective tissue, head</field>
+            <field name="name_ar">النسيج الضام - الرأس</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.1</field>
+            <field name="name_en">Connective tissue, upper limb</field>
+            <field name="name_ar">النسيج الضام - الطرف العلوي</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.2</field>
+            <field name="name_en">Connective tissue, lower limb</field>
+            <field name="name_ar">النسيج الضام - الطرف السفلي</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.3</field>
+            <field name="name_en">Connective tissue, thorax</field>
+            <field name="name_ar">النسيج الضام - الصدر</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.4</field>
+            <field name="name_en">Connective tissue, abdomen</field>
+            <field name="name_ar">النسيج الضام - البطن</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.5</field>
+            <field name="name_en">Connective tissue, pelvis</field>
+            <field name="name_ar">النسيج الضام - الحوض</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.6</field>
+            <field name="name_en">Connective tissue, trunk</field>
+            <field name="name_ar">النسيج الضام - الجذع</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.8</field>
+            <field name="name_en">Overlapping lesion of connective tissue</field>
+            <field name="name_ar">آفة متداخلة في النسيج الضام</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c49_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C49.9</field>
+            <field name="name_en">Connective tissue, NOS</field>
+            <field name="name_ar">النسيج الضام, غير محدد</field>
+            <field name="system_group">Mesothelial &amp; Soft Tissue</field>
+        </record>
+        <record id="topo_c50_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.0</field>
+            <field name="name_en">Nipple</field>
+            <field name="name_ar">الحلمة</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.1</field>
+            <field name="name_en">Central portion of breast</field>
+            <field name="name_ar">الجزء المركزي من الثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.2</field>
+            <field name="name_en">Upper inner quadrant of breast</field>
+            <field name="name_ar">الربع العلوي الإنسي للثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.3</field>
+            <field name="name_en">Lower inner quadrant of breast</field>
+            <field name="name_ar">الربع السفلي الإنسي للثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.4</field>
+            <field name="name_en">Upper outer quadrant of breast</field>
+            <field name="name_ar">الربع العلوي الوحشي للثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.5</field>
+            <field name="name_en">Lower outer quadrant of breast</field>
+            <field name="name_ar">الربع السفلي الوحشي للثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.6</field>
+            <field name="name_en">Axillary tail of breast</field>
+            <field name="name_ar">الذيل الإبطي للثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.8</field>
+            <field name="name_en">Overlapping lesion of breast</field>
+            <field name="name_ar">آفة متداخلة في الثدي</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c50_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C50.9</field>
+            <field name="name_en">Breast, NOS</field>
+            <field name="name_ar">الثدي, غير محدد</field>
+            <field name="system_group">Breast</field>
+        </record>
+        <record id="topo_c51_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C51.0</field>
+            <field name="name_en">Labium majus</field>
+            <field name="name_ar">الشفر الأكبر</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c51_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C51.1</field>
+            <field name="name_en">Labium minus</field>
+            <field name="name_ar">الشفر الأصغر</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c51_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C51.2</field>
+            <field name="name_en">Clitoris</field>
+            <field name="name_ar">البظر</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c51_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C51.8</field>
+            <field name="name_en">Overlapping lesion of vulva</field>
+            <field name="name_ar">آفة متداخلة في الفرج</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c51_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C51.9</field>
+            <field name="name_en">Vulva, NOS</field>
+            <field name="name_ar">الفرج, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c52_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C52.9</field>
+            <field name="name_en">Vagina, NOS</field>
+            <field name="name_ar">المهبل, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c53_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C53.0</field>
+            <field name="name_en">Endocervix</field>
+            <field name="name_ar">باطن عنق الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c53_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C53.1</field>
+            <field name="name_en">Exocervix</field>
+            <field name="name_ar">ظاهر عنق الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c53_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C53.8</field>
+            <field name="name_en">Overlapping lesion of cervix uteri</field>
+            <field name="name_ar">آفة متداخلة في عنق الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c53_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C53.9</field>
+            <field name="name_en">Cervix uteri, NOS</field>
+            <field name="name_ar">عنق الرحم, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.0</field>
+            <field name="name_en">Isthmus uteri</field>
+            <field name="name_ar">بربخ الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.1</field>
+            <field name="name_en">Endometrium</field>
+            <field name="name_ar">بطانة الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.2</field>
+            <field name="name_en">Myometrium</field>
+            <field name="name_ar">عضل الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.3</field>
+            <field name="name_en">Fundus uteri</field>
+            <field name="name_ar">قاع الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.8</field>
+            <field name="name_en">Overlapping lesion of corpus uteri</field>
+            <field name="name_ar">آفة متداخلة في جسم الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c54_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C54.9</field>
+            <field name="name_en">Corpus uteri, NOS</field>
+            <field name="name_ar">جسم الرحم, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c55_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C55.9</field>
+            <field name="name_en">Uterus, NOS</field>
+            <field name="name_ar">الرحم, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c56_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C56.9</field>
+            <field name="name_en">Ovary, NOS</field>
+            <field name="name_ar">المبيض, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.0</field>
+            <field name="name_en">Fallopian tube</field>
+            <field name="name_ar">قناة فالوب</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.1</field>
+            <field name="name_en">Broad ligament</field>
+            <field name="name_ar">الرباط العريض</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.2</field>
+            <field name="name_en">Round ligament</field>
+            <field name="name_ar">الرباط المدور</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.3</field>
+            <field name="name_en">Parametrium</field>
+            <field name="name_ar">النسيج حول الرحم</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.4</field>
+            <field name="name_en">Uterine adnexa, NOS</field>
+            <field name="name_ar">زوائد الرحم, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.7</field>
+            <field name="name_en">Other parts of female genital tract</field>
+            <field name="name_ar">أجزاء أخرى من السبيل التناسلي الأنثوي</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.8</field>
+            <field name="name_en">Overlapping lesion of female genital organs</field>
+            <field name="name_ar">آفة متداخلة في الأعضاء التناسلية الأنثوية</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c57_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C57.9</field>
+            <field name="name_en">Female genital tract, NOS</field>
+            <field name="name_ar">السبيل التناسلي الأنثوي, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c58_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C58.9</field>
+            <field name="name_en">Placenta, NOS</field>
+            <field name="name_ar">المشيمة, غير محدد</field>
+            <field name="system_group">Female Genital</field>
+        </record>
+        <record id="topo_c60_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C60.0</field>
+            <field name="name_en">Prepuce</field>
+            <field name="name_ar">القلفة</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c60_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C60.1</field>
+            <field name="name_en">Glans penis</field>
+            <field name="name_ar">حشفة القضيب</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c60_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C60.2</field>
+            <field name="name_en">Body of penis</field>
+            <field name="name_ar">جسم القضيب</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c60_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C60.8</field>
+            <field name="name_en">Overlapping lesion of penis</field>
+            <field name="name_ar">آفة متداخلة في القضيب</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c60_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C60.9</field>
+            <field name="name_en">Penis, NOS</field>
+            <field name="name_ar">القضيب, غير محدد</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c61_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C61.9</field>
+            <field name="name_en">Prostate gland, NOS</field>
+            <field name="name_ar">الغدة البروستاتية, غير محدد</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c62_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C62.0</field>
+            <field name="name_en">Undescended testis</field>
+            <field name="name_ar">الخصية المعلقة</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c62_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C62.1</field>
+            <field name="name_en">Scrotum</field>
+            <field name="name_ar">كيس الصفن</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c62_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C62.9</field>
+            <field name="name_en">Testis, NOS</field>
+            <field name="name_ar">الخصية, غير محدد</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.0</field>
+            <field name="name_en">Epididymis</field>
+            <field name="name_ar">البربخ</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.1</field>
+            <field name="name_en">Spermatic cord</field>
+            <field name="name_ar">الحبل المنوي</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.2</field>
+            <field name="name_en">Other parts of male genital organs</field>
+            <field name="name_ar">أجزاء أخرى من الأعضاء التناسلية الذكرية</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.7</field>
+            <field name="name_en">Other specified male genital organs</field>
+            <field name="name_ar">أعضاء تناسلية ذكرية محددة أخرى</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.8</field>
+            <field name="name_en">Overlapping lesion of male genital organs</field>
+            <field name="name_ar">آفة متداخلة في الأعضاء التناسلية الذكرية</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c63_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C63.9</field>
+            <field name="name_en">Male genital organs, NOS</field>
+            <field name="name_ar">الأعضاء التناسلية الذكرية, غير محدد</field>
+            <field name="system_group">Male Genital</field>
+        </record>
+        <record id="topo_c64_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C64.9</field>
+            <field name="name_en">Kidney, NOS</field>
+            <field name="name_ar">الكلية, غير محدد</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c65_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C65.9</field>
+            <field name="name_en">Renal pelvis</field>
+            <field name="name_ar">حوض الكلية</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c66_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C66.9</field>
+            <field name="name_en">Ureter</field>
+            <field name="name_ar">الحالب</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.0</field>
+            <field name="name_en">Trigone of bladder</field>
+            <field name="name_ar">مثلث المثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.1</field>
+            <field name="name_en">Dome of bladder</field>
+            <field name="name_ar">قبة المثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.2</field>
+            <field name="name_en">Lateral wall of bladder</field>
+            <field name="name_ar">الجدار الجانبي للمثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.3</field>
+            <field name="name_en">Anterior wall of bladder</field>
+            <field name="name_ar">الجدار الأمامي للمثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.4</field>
+            <field name="name_en">Posterior wall of bladder</field>
+            <field name="name_ar">الجدار الخلفي للمثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.5</field>
+            <field name="name_en">Bladder neck</field>
+            <field name="name_ar">عنق المثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.6</field>
+            <field name="name_en">Ureteric orifice</field>
+            <field name="name_ar">فتحة الحالب</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.7</field>
+            <field name="name_en">Urachus</field>
+            <field name="name_ar">المحاش</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.8</field>
+            <field name="name_en">Overlapping lesion of bladder</field>
+            <field name="name_ar">آفة متداخلة في المثانة</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c67_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C67.9</field>
+            <field name="name_en">Bladder, NOS</field>
+            <field name="name_ar">المثانة, غير محدد</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c68_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C68.0</field>
+            <field name="name_en">Urethra</field>
+            <field name="name_ar">الإحليل</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c68_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C68.1</field>
+            <field name="name_en">Paraurethral gland</field>
+            <field name="name_ar">الغدة المجاورة للإحليل</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c68_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C68.8</field>
+            <field name="name_en">Overlapping lesion of urinary organs</field>
+            <field name="name_ar">آفة متداخلة في الأعضاء البولية</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c68_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C68.9</field>
+            <field name="name_en">Urinary system, NOS</field>
+            <field name="name_ar">الجهاز البولي, غير محدد</field>
+            <field name="system_group">Urinary</field>
+        </record>
+        <record id="topo_c69_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.0</field>
+            <field name="name_en">Conjunctiva</field>
+            <field name="name_ar">الملتحمة</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.1</field>
+            <field name="name_en">Cornea</field>
+            <field name="name_ar">القرنية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.2</field>
+            <field name="name_en">Retina</field>
+            <field name="name_ar">الشبكية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.3</field>
+            <field name="name_en">Choroid</field>
+            <field name="name_ar">المشيمية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.4</field>
+            <field name="name_en">Ciliary body</field>
+            <field name="name_ar">الجسم الهدبي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.5</field>
+            <field name="name_en">Lacrimal gland</field>
+            <field name="name_ar">الغدة الدمعية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.6</field>
+            <field name="name_en">Orbit</field>
+            <field name="name_ar">الحجاج</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.8</field>
+            <field name="name_en">Overlapping lesion of eye and adnexa</field>
+            <field name="name_ar">آفة متداخلة في العين وملحقاتها</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c69_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C69.9</field>
+            <field name="name_en">Eye, NOS</field>
+            <field name="name_ar">العين, غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c70_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C70.0</field>
+            <field name="name_en">Cerebral meninges</field>
+            <field name="name_ar">السحايا الدماغية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c70_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C70.1</field>
+            <field name="name_en">Spinal meninges</field>
+            <field name="name_ar">السحايا الشوكية</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c70_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C70.9</field>
+            <field name="name_en">Meninges, NOS</field>
+            <field name="name_ar">السحايا, غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.0</field>
+            <field name="name_en">Cerebrum</field>
+            <field name="name_ar">المخ</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.1</field>
+            <field name="name_en">Frontal lobe</field>
+            <field name="name_ar">الفص الجبهي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.2</field>
+            <field name="name_en">Temporal lobe</field>
+            <field name="name_ar">الفص الصدغي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.3</field>
+            <field name="name_en">Parietal lobe</field>
+            <field name="name_ar">الفص الجداري</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.4</field>
+            <field name="name_en">Occipital lobe</field>
+            <field name="name_ar">الفص القفوي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.5</field>
+            <field name="name_en">Ventricle NOS</field>
+            <field name="name_ar">البطين غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.6</field>
+            <field name="name_en">Cerebellum</field>
+            <field name="name_ar">المخيخ</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.7</field>
+            <field name="name_en">Brain stem</field>
+            <field name="name_ar">جذع الدماغ</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.8</field>
+            <field name="name_en">Overlapping lesion of brain</field>
+            <field name="name_ar">آفة متداخلة في الدماغ</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c71_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C71.9</field>
+            <field name="name_en">Brain, NOS</field>
+            <field name="name_ar">الدماغ, غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.0</field>
+            <field name="name_en">Spinal cord</field>
+            <field name="name_ar">النخاع الشوكي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.1</field>
+            <field name="name_en">Cauda equina</field>
+            <field name="name_ar">ذيل الفرس</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.2</field>
+            <field name="name_en">Olfactory nerve</field>
+            <field name="name_ar">العصب الشمي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.3</field>
+            <field name="name_en">Optic nerve</field>
+            <field name="name_ar">العصب البصري</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.4</field>
+            <field name="name_en">Acoustic nerve</field>
+            <field name="name_ar">العصب السمعي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.5</field>
+            <field name="name_en">Cranial nerves NOS</field>
+            <field name="name_ar">الأعصاب القحفية غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.8</field>
+            <field name="name_en">Overlapping lesion of brain and CNS</field>
+            <field name="name_ar">آفة متداخلة في الدماغ والجهاز العصبي المركزي</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c72_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C72.9</field>
+            <field name="name_en">Nervous system, NOS</field>
+            <field name="name_ar">الجهاز العصبي, غير محدد</field>
+            <field name="system_group">Eye &amp; CNS</field>
+        </record>
+        <record id="topo_c73_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C73.9</field>
+            <field name="name_en">Thyroid gland, NOS</field>
+            <field name="name_ar">الغدة الدرقية, غير محدد</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c74_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C74.0</field>
+            <field name="name_en">Cortex of adrenal gland</field>
+            <field name="name_ar">قشرة الغدة الكظرية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c74_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C74.1</field>
+            <field name="name_en">Medulla of adrenal gland</field>
+            <field name="name_ar">لب الغدة الكظرية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c74_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C74.9</field>
+            <field name="name_en">Adrenal gland, NOS</field>
+            <field name="name_ar">الغدة الكظرية, غير محدد</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.0</field>
+            <field name="name_en">Parathyroid gland</field>
+            <field name="name_ar">الغدة جارات الدرقية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.1</field>
+            <field name="name_en">Pituitary gland</field>
+            <field name="name_ar">الغدة النخامية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.2</field>
+            <field name="name_en">Craniopharyngeal duct</field>
+            <field name="name_ar">القناة القحفية البلعومية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.3</field>
+            <field name="name_en">Pineal gland</field>
+            <field name="name_ar">الغدة الصنوبرية</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.4</field>
+            <field name="name_en">Carotid body</field>
+            <field name="name_ar">الجسم السباتي</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.5</field>
+            <field name="name_en">Aortic body and other paraganglia</field>
+            <field name="name_ar">الجسم الأبهري والعقد الأخرى</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.8</field>
+            <field name="name_en">Overlapping lesion of endocrine glands</field>
+            <field name="name_ar">آفة متداخلة في الغدد الصم</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c75_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C75.9</field>
+            <field name="name_en">Endocrine gland, NOS</field>
+            <field name="name_ar">الغدة الصماء, غير محدد</field>
+            <field name="system_group">Endocrine</field>
+        </record>
+        <record id="topo_c76_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.0</field>
+            <field name="name_en">Head, face, neck NOS</field>
+            <field name="name_ar">الرأس والوجه والرقبة, غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.1</field>
+            <field name="name_en">Thorax NOS</field>
+            <field name="name_ar">الصدر غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.2</field>
+            <field name="name_en">Abdomen NOS</field>
+            <field name="name_ar">البطن غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.3</field>
+            <field name="name_en">Pelvis NOS</field>
+            <field name="name_ar">الحوض غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.4</field>
+            <field name="name_en">Upper limb NOS</field>
+            <field name="name_ar">الطرف العلوي غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.5</field>
+            <field name="name_en">Lower limb NOS</field>
+            <field name="name_ar">الطرف السفلي غير محدد</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_7" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.7</field>
+            <field name="name_en">Other ill-defined sites</field>
+            <field name="name_ar">مواقع أخرى غير محددة</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c76_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C76.8</field>
+            <field name="name_en">Overlapping lesion of ill-defined sites</field>
+            <field name="name_ar">آفة متداخلة في مواقع غير محددة</field>
+            <field name="system_group">Ill-defined</field>
+        </record>
+        <record id="topo_c77_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.0</field>
+            <field name="name_en">Lymph nodes, head, face, neck</field>
+            <field name="name_ar">العقد اللمفية - الرأس والوجه والرقبة</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_1" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.1</field>
+            <field name="name_en">Intrathoracic lymph nodes</field>
+            <field name="name_ar">العقد اللمفية داخل الصدر</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_2" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.2</field>
+            <field name="name_en">Intra-abdominal lymph nodes</field>
+            <field name="name_ar">العقد اللمفية داخل البطن</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_3" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.3</field>
+            <field name="name_en">Axillary and upper limb lymph nodes</field>
+            <field name="name_ar">العقد اللمفية الإبطية والطرف العلوي</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_4" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.4</field>
+            <field name="name_en">Inguinal and lower limb lymph nodes</field>
+            <field name="name_ar">العقد اللمفية الأربية والطرف السفلي</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_5" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.5</field>
+            <field name="name_en">Intrapelvic lymph nodes</field>
+            <field name="name_ar">العقد اللمفية داخل الحوض</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_6" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.6</field>
+            <field name="name_en">Splenius lymph nodes</field>
+            <field name="name_ar">العقد اللمفية الطحالية</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_8" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.8</field>
+            <field name="name_en">Lymph nodes of multiple regions</field>
+            <field name="name_ar">العقد اللمفية متعددة المناطق</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c77_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C77.9</field>
+            <field name="name_en">Lymph node, NOS</field>
+            <field name="name_ar">العقدة اللمفية, غير محدد</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+        <record id="topo_c80_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C80.0</field>
+            <field name="name_en">Unknown primary site</field>
+            <field name="name_ar">موقع أولي غير معروف</field>
+            <field name="system_group">Unknown</field>
+        </record>
+        <record id="topo_c80_9" model="cancer.registry.icdo3.topography">
+            <field name="code">C80.9</field>
+            <field name="name_en">Unknown primary site / malignant neoplasm NOS</field>
+            <field name="name_ar">موقع أولي غير معروف / ورم خبيث غير محدد</field>
+            <field name="system_group">Unknown</field>
+        </record>
+        <record id="topo_c81_0" model="cancer.registry.icdo3.topography">
+            <field name="code">C81.0</field>
+            <field name="name_en">Lymph nodes, NOS</field>
+            <field name="name_ar">العقد اللمفية غير محدد</field>
+            <field name="system_group">Lymph Nodes</field>
+        </record>
+    </data>
+</odoo>

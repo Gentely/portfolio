@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         إجراءات روابط خارجية (صفحات الوحدة الخاصة)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <record id="action_url_storage_root" model="ir.actions.act_url">
+        <field name="name">مكان الأرشيف على القرص</field>
+        <field name="url">/cancer_registry/storage</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_url_system_status" model="ir.actions.act_url">
+        <field name="name">حالة النظام ومحركات القراءة</field>
+        <field name="url">/cancer_registry/status</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         القائمة الجذرية
+         ═══════════════════════════════════════════════════════════════════ -->
+    <menuitem id="menu_cancer_registry_root"
+              name="سجل السرطان"
+              sequence="25"
+              web_icon="cancer_registry,static/description/icon.png"
+              groups="cancer_registry.group_registry_user"/>
+
+    <!-- إجراء يفتح دليل القواعد من القائمة مباشرة -->
+    <record id="action_qc_rules_catalogue" model="ir.actions.act_window">
+        <field name="name">دليل قواعد الجودة</field>
+        <field name="res_model">cancer.registry.qc.rules.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'catalogue_mode': True}</field>
+    </record>
+
+    <!-- ───────────────────────────── السجلات ───────────────────────────── -->
+    <menuitem id="menu_cases_parent" parent="menu_cancer_registry_root"
+              name="إدارة الحالات" sequence="10"/>
+
+    <menuitem id="menu_cases_all" parent="menu_cases_parent" sequence="10"
+              name="كل السجلات" action="action_cancer_case_all"/>
+
+    <menuitem id="menu_cases_new" parent="menu_cases_parent" sequence="20"
+              name="سجل جديد" action="action_cancer_case_new"/>
+
+    <menuitem id="menu_cases_qc_queue" parent="menu_cases_parent" sequence="30"
+              name="قائمة انتظار الجودة" action="action_cancer_case_qc_queue"/>
+
+    <menuitem id="menu_cases_validated" parent="menu_cases_parent" sequence="40"
+              name="السجلات المعتمدة" action="action_cancer_case_validated"/>
+
+    <menuitem id="menu_cases_archive" parent="menu_cases_parent" sequence="90"
+              name="الأرشيف (غير نشط)" action="action_cancer_case_archive"/>
+
+    <!-- ───────────────────────────── سير العمل ─────────────────────────── -->
+    <menuitem id="menu_workflow" parent="menu_cancer_registry_root"
+              name="سير العمل" sequence="20"/>
+
+    <menuitem id="menu_workflow_documents" parent="menu_workflow" sequence="10"
+              name="أرشيف المستندات" action="action_cancer_documents"/>
+
+    <menuitem id="menu_workflow_pending" parent="menu_workflow" sequence="20"
+              name="بانتظار الاستخراج" action="action_cancer_documents_pending"/>
+
+    <menuitem id="menu_workflow_treatments" parent="menu_workflow" sequence="30"
+              name="سطور العلاج" action="action_cancer_treatments"/>
+
+    <menuitem id="menu_workflow_issues" parent="menu_workflow" sequence="40"
+              name="مشاكل الجودة" action="action_qc_issues"/>
+
+    <menuitem id="menu_workflow_storage" parent="menu_workflow" sequence="50"
+              name="مكان الأرشيف على القرص" action="action_url_storage_root"/>
+
+    <!-- ───────────────────────────── التحليلات ─────────────────────────── -->
+    <menuitem id="menu_analysis" parent="menu_cancer_registry_root"
+              name="التحليلات" sequence="30"/>
+
+    <menuitem id="menu_analysis_site" parent="menu_analysis" sequence="10"
+              name="حسب الموقع الأولي" action="action_analysis_by_site"/>
+
+    <menuitem id="menu_analysis_district" parent="menu_analysis" sequence="20"
+              name="حسب البلدية" action="action_analysis_by_district"/>
+
+    <menuitem id="menu_analysis_year" parent="menu_analysis" sequence="30"
+              name="حسب سنة التشخيص" action="action_analysis_by_year"/>
+
+    <menuitem id="menu_analysis_stage" parent="menu_analysis" sequence="40"
+              name="حسب المرحلة عند التشخيص" action="action_analysis_by_stage"/>
+
+    <menuitem id="menu_analysis_survival" parent="menu_analysis" sequence="50"
+              name="المآل والبقاء" action="action_analysis_survival"/>
+
+    <!-- ───────────────────────────── التصدير ───────────────────────────── -->
+    <menuitem id="menu_export" parent="menu_cancer_registry_root"
+              name="التصدير والأرشفة" sequence="40"/>
+
+    <menuitem id="menu_export_excel" parent="menu_export" sequence="10"
+              name="تصدير إلى Excel / الأرشيف الوطني" action="action_export_wizard"/>
+
+    <menuitem id="menu_export_storage" parent="menu_export" sequence="20"
+              name="مكان الأرشيف على القرص" action="action_url_storage_root"/>
+
+    <!-- ───────────────────────────── المراجع ───────────────────────────── -->
+    <menuitem id="menu_reference" parent="menu_cancer_registry_root"
+              name="المراجع والمعايير" sequence="50"/>
+
+    <menuitem id="menu_ref_topography" parent="menu_reference" sequence="10"
+              name="مواقع ICD-O-3 (Topography)" action="action_topography"/>
+
+    <menuitem id="menu_ref_morphology" parent="menu_reference" sequence="20"
+              name="الفحص النسيجي ICD-O-3 (Morphology)" action="action_morphology"/>
+
+    <menuitem id="menu_ref_rules" parent="menu_reference" sequence="30"
+              name="دليل قواعد الجودة" action="action_qc_rules_catalogue"/>
+
+    <menuitem id="menu_ref_status" parent="menu_reference" sequence="40"
+              name="حالة النظام ومحركات القراءة" action="action_url_system_status"/>
+
+</odoo>
