@@ -186,7 +186,8 @@
 
 <script>
 const $ = id => document.getElementById(id);
-const API = "https://api.mail.tm";
+const API_BASES = ["https://api.mail.tm", "https://api.mail.gw"];
+let API = API_BASES[0];
 
 /* ---------- التبويبات ---------- */
 document.querySelectorAll(".tab").forEach(t => {
