@@ -246,7 +246,12 @@ async function createAccount(){
   $("createBtn").innerHTML = '<span class="spin"></span> جارٍ الإنشاء…';
   setStatus("", "جارٍ الاتصال بخدمة البريد…");
   try {
-    const domData = await api("/domains");
+    let domData = null, lastErr = null;
+    for (const base of API_BASES) {
+      try { API = base; domData = await api("/domains"); break; }
+      catch (err) { lastErr = err; }
+    }
+    if (!domData) throw lastErr || new Error("no mail service reachable");
     const domains = (domData["hydra:member"] || []).filter(d => d.isActive !== false && !d.isPrivate);
     if(!domains.length) throw new Error("لا نطاقات متاحة حالياً");
     const domain = domains[Math.floor(Math.random()*domains.length)].domain;
