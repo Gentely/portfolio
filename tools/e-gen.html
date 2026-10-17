@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Gen — مولّد الإيميلات والبريد المؤقت</title>
+<meta name="description" content="E-Gen — مولّد إيميلات وهمية للاختبار + بريد مؤقت حقيقي بصندوق وارد لاستقبال الرسائل فوراً.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📧</text></svg>">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111c31; --panel2:#0e1729; --line:#1f2f4d;
+    --txt:#eef3fa; --muted:#9fb3c8; --teal:#2dd4a7; --cyan:#22b8cf; --gold:#e3b341;
+    --grad:linear-gradient(135deg,#2dd4a7,#22b8cf);
+    --shadow:0 20px 50px -20px rgba(0,0,0,.6); --max:920px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:
+      radial-gradient(900px 420px at 85% -10%, rgba(45,212,167,.15), transparent 60%),
+      radial-gradient(700px 380px at 5% 10%, rgba(34,184,207,.12), transparent 60%),
+      var(--bg);
+    color:var(--txt); font-family:"Segoe UI",Tahoma,Arial,sans-serif; line-height:1.7; min-height:100vh}
+  .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 60px}
+  header{text-align:center;padding:30px 0 6px}
+  .brand{font-size:3rem;font-weight:900;letter-spacing:.5px}
+  .brand .e{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand .gem{color:var(--gold);font-size:2.2rem;vertical-align:middle}
+  .tag{color:var(--muted);margin-top:4px}
+  .tabs{display:flex;gap:10px;justify-content:center;margin:26px 0 0;flex-wrap:wrap}
+  .tab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:99px;
+    padding:10px 22px;font-weight:800;cursor:pointer;font-family:inherit;font-size:1rem}
+  .tab.active{background:var(--grad);color:#04131a;border-color:transparent}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);margin-top:18px}
+  .card h2{font-size:1.35rem;margin-bottom:6px}
+  .card .desc{color:var(--muted);margin-bottom:18px}
+  label{display:block;font-weight:800;margin-bottom:8px;font-size:.95rem}
+  input[type=text],input[type=number],select{width:100%;background:var(--panel2);border:1px solid var(--line);
+    color:var(--txt);border-radius:12px;padding:12px 14px;font-size:1rem;font-family:inherit}
+  input[type=range]{width:100%;accent-color:#2dd4a7}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .btn{display:inline-block;border:none;cursor:pointer;font-family:inherit;font-weight:900;border-radius:14px;
+    padding:14px 26px;font-size:1.02rem;transition:.2s}
+  .btn-primary{background:var(--grad);color:#04131a;box-shadow:0 12px 30px -10px rgba(45,212,167,.5)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn:disabled{opacity:.55;cursor:wait;transform:none}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center}
+  .addr-box{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+  .addr{flex:1;min-width:260px;background:var(--panel2);border:1px dashed rgba(45,212,167,.5);border-radius:14px;
+    padding:14px 18px;direction:ltr;text-align:left;font-family:Consolas,Menlo,monospace;font-size:1.08rem;
+    display:flex;align-items:center;word-break:break-all}
+  .status{font-size:.92rem;color:var(--muted)}
+  .status .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#64748b;margin-left:6px;vertical-align:middle}
+  .status.on .dot{background:var(--teal);box-shadow:0 0 10px var(--teal)}
+  .status.err{color:#f3a3a3}
+  #inbox{display:flex;flex-direction:column;gap:8px;margin-top:14px;max-height:380px;overflow:auto}
+  .msg{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;cursor:pointer;text-align:right}
+  .msg:hover{border-color:var(--teal)}
+  .msg.unread{border-color:rgba(45,212,167,.55)}
+  .msg .from{font-weight:800}
+  .msg .subj{color:var(--txt)}
+  .msg .meta{color:var(--muted);font-size:.85rem}
+  .msg .intro{color:var(--muted);font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .empty{color:var(--muted);text-align:center;padding:28px;border:1px dashed var(--line);border-radius:14px}
+  #reader{display:none;margin-top:16px;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:18px}
+  #reader h3{margin-bottom:4px}
+  #reader .meta{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+  #readerBody{white-space:pre-wrap;word-break:break-word;background:#0a1322;border:1px solid var(--line);
+    border-radius:10px;padding:14px;max-height:320px;overflow:auto;font-size:.95rem;text-align:right}
+  .list{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow:auto}
+  .mail{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--panel2);
+    border:1px solid var(--line);border-radius:12px;padding:10px 14px;direction:ltr;text-align:left}
+  .mail span{font-family:Consolas,Menlo,monospace;font-size:.95rem;word-break:break-all}
+  .copy-one{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:9px;
+    padding:5px 13px;cursor:pointer;font-family:inherit;font-weight:700;white-space:nowrap}
+  .copy-one:hover{color:var(--teal);border-color:var(--teal)}
+  .note{background:rgba(227,179,65,.08);border:1px solid rgba(227,179,65,.35);color:#f3d489;
+    border-radius:14px;padding:14px 18px;margin-top:22px;font-size:.93rem}
+  .toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(80px);background:var(--teal);color:#04131a;
+    font-weight:900;padding:12px 26px;border-radius:12px;transition:.3s;z-index:50;box-shadow:var(--shadow)}
+  .toast.show{transform:translateX(50%) translateY(0)}
+  footer{text-align:center;color:var(--muted);margin-top:34px;font-size:.9rem}
+  footer a{color:var(--teal);text-decoration:none;font-weight:700}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.25);border-top-color:var(--teal);
+    border-radius:50%;animation:sp 0.8s linear infinite;vertical-align:middle}
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="gem">💎</span> <span class="e">E</span>-Gen</div>
+    <p class="tag">مولّد الإيميلات الوهمية للاختبار + بريد مؤقت حقيقي بصندوق وارد — كل ذلك من صفحة واحدة، مجاناً ودون تسجيل.</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="temp">📥 بريد مؤقت + صندوق وارد</button>
+    <button class="tab" data-tab="fake">🎲 مولّد إيميلات وهمية</button>
+  </div>
+
+  <!-- ========== البريد المؤقت ========== -->
+  <section class="card" id="tab-temp">
+    <h2>📥 بريد مؤقت يستقبل الرسائل فعلياً</h2>
+    <p class="desc">أنشئ عنواناً حقيقياً بنقرة واحدة، أرسل إليه من أي مكان، وستصل الرسائل إلى صندوق الوارد هنا خلال ثوانٍ. يُحدّث الصندوق تلقائياً كل 15 ثانية.</p>
+
+    <div class="addr-box">
+      <div class="addr" id="addrBox">— لم يُنشأ بريد بعد —</div>
+      <button class="btn btn-primary" id="createBtn">➕ إنشاء بريد مؤقت</button>
+      <button class="btn btn-ghost" id="copyAddrBtn">📋 نسخ العنوان</button>
+    </div>
+
+    <div class="actions">
+      <span class="status" id="status"><span class="dot"></span>غير متصل</span>
+      <button class="btn btn-ghost" id="refreshBtn" disabled>🔄 تحديث الوارد الآن</button>
+      <button class="btn btn-ghost" id="newBtn" disabled>🗑 بريد جديد (حذف الحالي)</button>
+    </div>
+
+    <h3 style="margin-top:22px">صندوق الوارد <span id="inboxCount" style="color:var(--muted);font-size:.9rem"></span></h3>
+    <div id="inbox"><div class="empty">أنشئ بريدك المؤقت أولاً، ثم أرسل رسالة اختبار إليه من هاتفك وستظهر هنا 📬</div></div>
+
+    <div id="reader">
+      <h3 id="readerSubj"></h3>
+      <div class="meta" id="readerMeta"></div>
+      <div id="readerBody"></div>
+      <div class="actions"><button class="btn btn-ghost" id="closeReader">✖ إغلاق الرسالة</button></div>
+    </div>
+
+    <div class="note">ℹ️ <b>كيف يعمل؟</b> العناوين تُنشأ عبر خدمة البريد المؤقت المجانية <b>Mail.tm</b> وتعمل فعلياً للاستقبال. بيانات الدخول عشوائية وتُحفظ في متصفحك فقط (تُفقد بمسح بيانات المتصفح). لا تستخدم البريد المؤقت في حسابات مهمة أو لاستقبال بيانات حساسة، فالرسائل قد تُحذف من الخدمة في أي وقت.</div>
+  </section>
+
+  <!-- ========== المولّد الوهمي ========== -->
+  <section class="card" id="tab-fake" style="display:none">
+    <h2>🎲 مولّد إيميلات وهمية (للاختبار فقط)</h2>
+    <p class="desc">عناوين عشوائية فورية لاختبار النماذج والتطبيقات — لا تستقبل رسائل. للاستقبال الحقيقي استخدم تبويب «بريد مؤقت».</p>
+
+    <div class="grid">
+      <div>
+        <label for="count">عدد الإيميلات: <span id="countVal">10</span></label>
+        <input type="range" id="count" min="1" max="100" value="10">
+      </div>
+      <div>
+        <label for="domain">النطاق</label>
+        <select id="domain">
+          <option value="gmail.com">gmail.com</option>
+          <option value="yahoo.com">yahoo.com</option>
+          <option value="outlook.com">outlook.com</option>
+          <option value="hotmail.com">hotmail.com</option>
+          <option value="icloud.com">icloud.com</option>
+          <option value="proton.me">proton.me</option>
+          <option value="custom">نطاق مخصص…</option>
+        </select>
+      </div>
+      <div id="customWrap" style="display:none">
+        <label for="customDomain">النطاق المخصص</label>
+        <input type="text" id="customDomain" placeholder="example.com" dir="ltr">
+      </div>
+      <div>
+        <label for="style">نمط الاسم</label>
+        <select id="style">
+          <option value="mixed">مختلط (عربي مرومن + إنجليزي)</option>
+          <option value="arab">أسماء عربية مرومنة فقط</option>
+          <option value="eng">أسماء إنجليزية فقط</option>
+          <option value="random">حروف عشوائية بالكامل</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="genBtn">🎲 توليد</button>
+      <button class="btn btn-ghost" id="copyAllBtn">📋 نسخ الكل</button>
+      <button class="btn btn-ghost" id="dlBtn">⬇ تحميل TXT</button>
+      <span class="status" id="fakeCount"></span>
+    </div>
+
+    <div class="list" id="fakeList" style="margin-top:18px"></div>
+  </section>
+
+  <footer>
+    E-Gen 💎 — أداة مجانية تعمل في متصفحك · من صانع <a href="../landing/">حزمة «جوهرة» لتدقيق البيانات</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast">تم ✅</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const API = "https://api.mail.tm";
+
+/* ---------- التبويبات ---------- */
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+    $("tab-temp").style.display = t.dataset.tab === "temp" ? "block" : "none";
+    $("tab-fake").style.display = t.dataset.tab === "fake" ? "block" : "none";
+  });
+});
+
+/* ---------- أدوات عامة ---------- */
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1700);
+}
+async function copyText(txt){
+  try { await navigator.clipboard.writeText(txt); }
+  catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+  }
+  toast("تم النسخ ✅");
+}
+function setStatus(mode, msg){
+  const s = $("status");
+  s.className = "status" + (mode === "on" ? " on" : mode === "err" ? " err" : "");
+  s.innerHTML = '<span class="dot"></span>' + msg;
+}
+
+/* ---------- البريد المؤقت (Mail.tm) ---------- */
+let account = null;      // {address, password, token}
+let pollTimer = null;
+
+function randLocal(){
+  const names = ["ahmad","sara","omar","lina","khalid","nour","yusuf","maha","rami","dina","test","user","mail","info","hello"];
+  const n = names[Math.floor(Math.random()*names.length)];
+  return n + Math.floor(Math.random()*90000+10000);
+}
+function randPass(){
+  const c = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let s = ""; for(let i=0;i<14;i++) s += c[Math.floor(Math.random()*c.length)];
+  return s;
+}
+async function api(path, opts = {}){
+  const r = await fetch(API + path, {
+    ...opts,
+    headers: { "Content-Type": "application/json", ...(opts.headers || {}) }
+  });
+  if(!r.ok) throw new Error("HTTP " + r.status);
+  return r.status === 204 ? null : r.json();
+}
+
+async function createAccount(){
+  $("createBtn").disabled = true;
+  $("createBtn").innerHTML = '<span class="spin"></span> جارٍ الإنشاء…';
+  setStatus("", "جارٍ الاتصال بخدمة البريد…");
+  try {
+    const domData = await api("/domains");
+    const domains = (domData["hydra:member"] || []).filter(d => d.isActive !== false && !d.isPrivate);
+    if(!domains.length) throw new Error("لا نطاقات متاحة حالياً");
+    const domain = domains[Math.floor(Math.random()*domains.length)].domain;
+    const address = randLocal() + "@" + domain;
+    const password = [SECURITY_DATA]
+    await api("/accounts", { method:"POST", body: JSON.stringify({ address, password }) });
+    const tok = await api("/token", { method:"POST", body: JSON.stringify({ address, password }) });
+    account = { address, password, token: tok.token };
+    sessionStorage.setItem("egen_account", JSON.stringify(account));
+    onAccountReady("تم إنشاء بريدك — أرسل رسالة إليه وستصلك هنا");
+  } catch(e){
+    setStatus("err", "تعذّر الاتصال بخدمة البريد المؤقت — تحقق من الإنترنت وحاول مجدداً");
+    $("createBtn").disabled = false;
+    $("createBtn").textContent = "➕ إنشاء بريد مؤقت";
+  }
+}
+
+function onAccountReady(msg){
+  $("addrBox").textContent = account.address;
+  $("createBtn").style.display = "none";
+  $("refreshBtn").disabled = false;
+  $("newBtn").disabled = false;
+  setStatus("on", msg || "متصل — بانتظار الرسائل…");
+  fetchInbox();
+  clearInterval(pollTimer);
+  pollTimer = setInterval(fetchInbox, 15000);
+}
+
+async function fetchInbox(){
+  if(!account) return;
+  try {
+    const data = await api("/messages?page=1", { headers: { Authorization: "Bearer " + account.token } });
+    const msgs = data["hydra:member"] || [];
+    renderInbox(msgs);
+    setStatus("on", "متصل — آخر تحديث " + new Date().toLocaleTimeString("ar-LY"));
+  } catch(e){
+    setStatus("err", "انقطع الاتصال — سنعيد المحاولة تلقائياً");
+  }
+}
+
+function renderInbox(msgs){
+  const box = $("inbox");
+  $("inboxCount").textContent = msgs.length ? "(" + msgs.length + " رسالة)" : "";
+  if(!msgs.length){
+    box.innerHTML = '<div class="empty">صندوق الوارد فارغ حتى الآن — أرسل رسالة اختبار إلى عنوانك وستظهر خلال ثوانٍ 📭</div>';
+    return;
+  }
+  box.innerHTML = "";
+  msgs.forEach(m => {
+    const el = document.createElement("div");
+    el.className = "msg" + (m.seen ? "" : " unread");
+    const from = (m.from && m.from.address) || "غير معروف";
+    const date = m.createdAt ? new Date(m.createdAt).toLocaleString("ar-LY") : "";
+    el.innerHTML = '<div class="from"></div><div class="subj"></div><div class="intro"></div><div class="meta"></div>';
+    el.querySelector(".from").textContent = "من: " + from;
+    el.querySelector(".subj").textContent = m.subject || "(بدون عنوان)";
+    el.querySelector(".intro").textContent = m.intro || "";
+    el.querySelector(".meta").textContent = date + (m.seen ? "" : " • غير مقروءة");
+    el.addEventListener("click", () => openMessage(m.id));
+    box.appendChild(el);
+  });
+}
+
+async function openMessage(id){
+  if(!account) return;
+  $("reader").style.display = "block";
+  $("readerSubj").textContent = "جارٍ التحميل…";
+  $("readerMeta").textContent = "";
+  $("readerBody").textContent = "";
+  try {
+    const m = await api("/messages/" + id, { headers: { Authorization: "Bearer " + account.token } });
+    $("readerSubj").textContent = m.subject || "(بدون عنوان)";
+    const from = (m.from && m.from.address) || "";
+    const to = (m.to && m.to[0] && m.to[0].address) || account.address;
+    $("readerMeta").textContent = "من: " + from + "  •  إلى: " + to + "  •  " + (m.createdAt ? new Date(m.createdAt).toLocaleString("ar-LY") : "");
+    $("readerBody").textContent = m.text || m.intro || "(لا يوجد نص في هذه الرسالة)";
+    fetchInbox();
+  } catch(e){
+    $("readerSubj").textContent = "تعذّر فتح الرسالة — حاول مجدداً";
+  }
+}
+
+$("createBtn").addEventListener("click", createAccount);
+$("copyAddrBtn").addEventListener("click", () => {
+  if(account) copyText(account.address); else toast("أنشئ بريدك أولاً");
+});
+$("refreshBtn").addEventListener("click", fetchInbox);
+$("closeReader").addEventListener("click", () => $("reader").style.display = "none");
+$("newBtn").addEventListener("click", async () => {
+  if(account){
+    try { await api("/me", { method:"DELETE", headers: { Authorization: "Bearer " + account.token } }); } catch(e){}
+  }
+  account = null;
+  sessionStorage.removeItem("egen_account");
+  clearInterval(pollTimer);
+  $("addrBox").textContent = "— لم يُنشأ بريد بعد —";
+  $("createBtn").style.display = "inline-block";
+  $("createBtn").disabled = false;
+  $("createBtn").textContent = "➕ إنشاء بريد مؤقت";
+  $("refreshBtn").disabled = true;
+  $("newBtn").disabled = true;
+  $("reader").style.display = "none";
+  $("inbox").innerHTML = '<div class="empty">أنشئ بريدك المؤقت أولاً، ثم أرسل رسالة اختبار إليه من هاتفك وستظهر هنا 📬</div>';
+  $("inboxCount").textContent = "";
+  setStatus("", "غير متصل");
+});
+
+// استعادة جلسة سابقة في نفس المتصفح
+(function restore(){
+  try {
+    const saved = sessionStorage.getItem("egen_account");
+    if(saved){ account = JSON.parse(saved); onAccountReady("تمت استعادة بريدك السابق"); }
+  } catch(e){}
+})();
+
+/* ---------- مولّد الإيميلات الوهمية ---------- */
+const FIRST_AR = ["ahmad","mohamed","ali","sara","fatima","khalid","nour","omar","layla","yusuf","huda","tariq","mona","rami","dina","hassan","amal","sami","rana","bilal"];
+const LAST_AR  = ["haddad","nasser","aziz","saleh","mansour","khalil","habib","najjar","sabbagh","khoury","sleiman","abbas","matar","boulos","fadel","rahal"];
+const FIRST_EN = ["james","mary","john","emma","lucas","mia","liam","ava","noah","sophia","ethan","isabella","mason","charlotte","logan","amelia"];
+const LAST_EN  = ["smith","johnson","brown","taylor","miller","davis","garcia","wilson","moore","anderson","thomas","jackson","white","harris","martin","clark"];
+const LETTERS = "abcdefghijklmnopqrstuvwxyz";
+let fakeCurrent = [];
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+function makeLocal(style){
+  if(style === "random"){
+    let s = ""; const n = 5 + Math.floor(Math.random()*5);
+    for(let i=0;i<n;i++) s += LETTERS[Math.floor(Math.random()*26)];
+    return s + (Math.random() < .6 ? Math.floor(Math.random()*990+10) : "");
+  }
+  let f, l;
+  if(style === "arab"){ f = pick(FIRST_AR); l = pick(LAST_AR); }
+  else if(style === "eng"){ f = pick(FIRST_EN); l = pick(LAST_EN); }
+  else { const ar = Math.random() < .5; f = ar ? pick(FIRST_AR) : pick(FIRST_EN); l = ar ? pick(LAST_AR) : pick(LAST_EN); }
+  return (f + "." + l + (Math.random() < .8 ? Math.floor(Math.random()*990+10) : "")).toLowerCase();
+}
+function genFake(){
+  const count = parseInt($("count").value, 10);
+  let dom = $("domain").value;
+  if(dom === "custom") dom = $("customDomain").value.trim().replace(/^@+/,"") || "example.com";
+  const set = new Set();
+  let guard = 0;
+  while(set.size < count && guard < count * 40){ set.add(makeLocal($("style").value) + "@" + dom); guard++; }
+  fakeCurrent = [...set];
+  $("fakeCount").textContent = fakeCurrent.length + " إيميل جاهز";
+  const box = $("fakeList");
+  box.innerHTML = "";
+  fakeCurrent.forEach(mail => {
+    const row = document.createElement("div");
+    row.className = "mail";
+    const s = document.createElement("span"); s.textContent = mail;
+    const b = document.createElement("button"); b.className = "copy-one"; b.textContent = "نسخ";
+    b.addEventListener("click", ev => { ev.stopPropagation(); copyText(mail); });
+    row.addEventListener("click", () => copyText(mail));
+    row.appendChild(s); row.appendChild(b);
+    box.appendChild(row);
+  });
+}
+$("count").addEventListener("input", e => $("countVal").textContent = e.target.value);
+$("domain").addEventListener("change", e => $("customWrap").style.display = e.target.value === "custom" ? "block" : "none");
+$("genBtn").addEventListener("click", genFake);
+$("copyAllBtn").addEventListener("click", () => fakeCurrent.length ? copyText(fakeCurrent.join("\n")) : toast("ولّد إيميلات أولاً"));
+$("dlBtn").addEventListener("click", () => {
+  if(!fakeCurrent.length) return toast("ولّد إيميلات أولاً");
+  const blob = new Blob([fakeCurrent.join("\n")], { type:"text/plain;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "e-gen-emails.txt"; a.click();
+  URL.revokeObjectURL(a.href); toast("تم التحميل ⬇");
+});
+genFake();
+</script>
+</body>
+</html>
