@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مولّد الإيميلات الوهمية — أداة اختبار مجانية</title>
+<meta name="description" content="أداة مجانية لتوليد عناوين بريد إلكتروني وهمية عشوائية لأغراض الاختبار والتطوير — تعمل بالكامل في متصفحك.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📧</text></svg>">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#111c31; --panel2:#0e1729; --line:#1f2f4d;
+    --txt:#eef3fa; --muted:#9fb3c8; --teal:#2dd4a7; --cyan:#22b8cf; --gold:#e3b341;
+    --grad:linear-gradient(135deg,#2dd4a7,#22b8cf);
+    --shadow:0 20px 50px -20px rgba(0,0,0,.6); --max:880px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:
+      radial-gradient(900px 420px at 85% -10%, rgba(45,212,167,.15), transparent 60%),
+      radial-gradient(700px 380px at 5% 10%, rgba(34,184,207,.12), transparent 60%),
+      var(--bg);
+    color:var(--txt); font-family:"Segoe UI",Tahoma,Arial,sans-serif; line-height:1.7; min-height:100vh}
+  .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 60px}
+  header{text-align:center;padding:26px 0 8px}
+  .logo{font-size:2rem;font-weight:900}
+  .logo span{color:var(--gold)}
+  h1{font-size:1.9rem;font-weight:900;margin:6px 0}
+  h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:620px;margin:0 auto}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);margin-top:26px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-weight:800;margin-bottom:8px;font-size:.95rem}
+  input[type=number],input[type=text],select{
+    width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--txt);
+    border-radius:12px;padding:12px 14px;font-size:1rem;font-family:inherit}
+  input[type=range]{width:100%;accent-color:#2dd4a7}
+  .count-row{display:flex;align-items:center;gap:14px}
+  .count-val{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:6px 16px;font-weight:900;min-width:64px;text-align:center}
+  .checks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:4px}
+  .checks label{display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer;margin:0}
+  .checks input{width:18px;height:18px;accent-color:#2dd4a7}
+  .btn{display:inline-block;border:none;cursor:pointer;font-family:inherit;font-weight:900;border-radius:14px;
+    padding:15px 30px;font-size:1.05rem;transition:.2s;text-decoration:none}
+  .btn-primary{background:var(--grad);color:#04131a;box-shadow:0 12px 30px -10px rgba(45,212,167,.5)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .results-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+  .results-head h2{font-size:1.2rem}
+  .badge{background:rgba(45,212,167,.12);color:var(--teal);border:1px solid rgba(45,212,167,.35);
+    padding:3px 14px;border-radius:99px;font-size:.85rem;font-weight:800}
+  #results{display:flex;flex-direction:column;gap:8px;max-height:420px;overflow:auto;padding-left:4px}
+  .mail{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--panel2);
+    border:1px solid var(--line);border-radius:12px;padding:10px 14px;direction:ltr;text-align:left}
+  .mail span{font-family:Consolas,Menlo,monospace;font-size:.95rem;word-break:break-all}
+  .copy-one{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:9px;
+    padding:5px 13px;cursor:pointer;font-family:inherit;font-weight:700;white-space:nowrap}
+  .copy-one:hover{color:var(--teal);border-color:var(--teal)}
+  .empty{color:var(--muted);text-align:center;padding:26px;border:1px dashed var(--line);border-radius:14px}
+  .note{background:rgba(227,179,65,.08);border:1px solid rgba(227,179,65,.35);color:#f3d489;
+    border-radius:14px;padding:14px 18px;margin-top:22px;font-size:.93rem}
+  .toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(80px);background:var(--teal);color:#04131a;
+    font-weight:900;padding:12px 26px;border-radius:12px;transition:.3s;z-index:50;box-shadow:var(--shadow)}
+  .toast.show{transform:translateX(50%) translateY(0)}
+  footer{text-align:center;color:var(--muted);margin-top:34px;font-size:.9rem}
+  footer a{color:var(--teal);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">📧 <span>مولّد الإيميلات</span></div>
+    <h1>مولّد <span class="hl">الإيميلات الوهمية</span></h1>
+    <p class="sub">ولّد عناوين بريد إلكتروني عشوائية بضغطة واحدة — لأغراض الاختبار والتطوير وتجربة النماذج. تعمل الأداة بالكامل في متصفحك ولا تُرسل أي بيانات.</p>
+  </header>
+
+  <section class="card">
+    <div class="grid">
+      <div>
+        <label for="count">عدد الإيميلات</label>
+        <div class="count-row">
+          <input type="range" id="count" min="1" max="100" value="10">
+          <span class="count-val" id="countVal">10</span>
+        </div>
+      </div>
+      <div>
+        <label for="domain">النطاق (Domain)</label>
+        <select id="domain">
+          <option value="gmail.com">gmail.com</option>
+          <option value="yahoo.com">yahoo.com</option>
+          <option value="outlook.com">outlook.com</option>
+          <option value="hotmail.com">hotmail.com</option>
+          <option value="icloud.com">icloud.com</option>
+          <option value="proton.me">proton.me</option>
+          <option value="custom">نطاق مخصص…</option>
+        </select>
+      </div>
+      <div id="customWrap" style="display:none">
+        <label for="customDomain">النطاق المخصص</label>
+        <input type="text" id="customDomain" placeholder="example.com" dir="ltr">
+      </div>
+      <div>
+        <label for="style">نمط الاسم</label>
+        <select id="style">
+          <option value="mixed">مختلط (عربي مرومن + إنجليزي)</option>
+          <option value="arab">أسماء عربية مرومنة فقط</option>
+          <option value="eng">أسماء إنجليزية فقط</option>
+          <option value="random">حروف عشوائية بالكامل</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+      <label>خيارات إضافية</label>
+      <div class="checks">
+        <label><input type="checkbox" id="optNumbers" checked> إضافة أرقام</label>
+        <label><input type="checkbox" id="optDots" checked> فاصل نقطة بين الاسمين</label>
+        <label><input type="checkbox" id="optUnderscore"> شرطة سفلية (_)</label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="genBtn">🎲 توليد الإيميلات</button>
+      <button class="btn btn-ghost" id="copyAllBtn">📋 نسخ الكل</button>
+      <button class="btn btn-ghost" id="dlBtn">⬇ تحميل TXT</button>
+    </div>
+
+    <div class="results-head" style="margin-top:28px">
+      <h2>النتائج</h2>
+      <span class="badge" id="resCount">0 إيميل</span>
+    </div>
+    <div id="results"><div class="empty">اضغط «توليد الإيميلات» وستظهر النتائج هنا 👆<br>يمكنك نسخ أي إيميل بالضغط عليه.</div></div>
+
+    <div class="note">⚠️ <b>تنبيه:</b> هذه عناوين <b>وهمية عشوائية</b> تُولّد محلياً في متصفحك — ليست حسابات حقيقية ولا يمكنها استقبال الرسائل. مخصّصة لاختبار النماذج والتطبيقات والتطوير فقط. قد يطابق بعضها صدفةً عناوين حقيقية، فلا تستخدمها للتسجيل باسم الغير.</div>
+  </section>
+
+  <footer>
+    أداة مجانية — تعمل دون اتصال بالخادم · جرّب أيضاً <a href="../landing/">حزمة «جوهرة» لتدقيق البيانات 💎</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast">تم النسخ ✅</div>
+
+<script>
+const FIRST_AR = ["ahmad","mohamed","ali","sara","fatima","khalid","nour","omar","layla","yusuf","huda","tariq","mona","rami","dina","hassan","amal","sami","rana","bilal","aya","karim","lina","ziad","maha","fares","salma","nader","haneen","waleed"];
+const LAST_AR  = ["haddad","nasser","aziz","saleh","mansour","khalil","rahman","habib","farouk","najjar","haddad","sabbagh","khoury","sleiman","abbas","dagher","matar","atreides","gerges","boulos","shamas","kassis","fadel","rahal","touma"];
+const FIRST_EN = ["james","mary","john","emma","lucas","mia","liam","ava","noah","sophia","ethan","isabella","mason","charlotte","logan","amelia","lucas","harper","henry","ella"];
+const LAST_EN  = ["smith","johnson","brown","taylor","miller","davis","garcia","wilson","moore","anderson","thomas","jackson","white","harris","martin","clark","lewis","walker","hall","allen"];
+const LETTERS = "abcdefghijklmnopqrstuvwxyz";
+
+const $ = id => document.getElementById(id);
+let current = [];
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function randNum(){ return Math.floor(Math.random()*990+10); }
+function randStr(n){ let s=""; for(let i=0;i<n;i++) s+=LETTERS[Math.floor(Math.random()*26)]; return s; }
+
+function makeLocal(style){
+  if(style === "random") return randStr(5 + Math.floor(Math.random()*5)) + (Math.random()<.6 ? randNum() : "");
+  let first, last;
+  if(style === "arab"){ first = rand(FIRST_AR); last = rand(LAST_AR); }
+  else if(style === "eng"){ first = rand(FIRST_EN); last = rand(LAST_EN); }
+  else { const ar = Math.random() < .5; first = ar ? rand(FIRST_AR) : rand(FIRST_EN); last = ar ? rand(LAST_AR) : rand(LAST_EN); }
+  let sep = "";
+  if($("optDots").checked) sep = ".";
+  if($("optUnderscore").checked) sep = "_";
+  let local = sep ? first + sep + last : first + last;
+  if($("optNumbers").checked && Math.random() < .8) local += randNum();
+  else if(Math.random() < .25) local += Math.floor(Math.random()*9+1);
+  return local.toLowerCase();
+}
+
+function getDomain(){
+  const d = $("domain").value;
+  if(d === "custom"){
+    const c = $("customDomain").value.trim().replace(/^@+/,"");
+    return c || "example.com";
+  }
+  return d;
+}
+
+function generate(){
+  const count = parseInt($("count").value, 10);
+  const dom = getDomain();
+  const style = $("style").value;
+  const set = new Set();
+  let guard = 0;
+  while(set.size < count && guard < count * 40){
+    set.add(makeLocal(style) + "@" + dom);
+    guard++;
+  }
+  current = [...set];
+  render();
+}
+
+function render(){
+  const box = $("results");
+  $("resCount").textContent = current.length + (current.length === 1 ? " إيميل" : " إيميل");
+  if(!current.length){
+    box.innerHTML = '<div class="empty">لا نتائج بعد — اضغط «توليد الإيميلات» 👆</div>';
+    return;
+  }
+  box.innerHTML = "";
+  current.forEach(mail => {
+    const row = document.createElement("div");
+    row.className = "mail";
+    const s = document.createElement("span"); s.textContent = mail;
+    const b = document.createElement("button"); b.className = "copy-one"; b.textContent = "نسخ";
+    b.onclick = () => copyText(mail);
+    row.onclick = () => copyText(mail);
+    row.appendChild(s); row.appendChild(b);
+    box.appendChild(row);
+  });
+}
+
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1600);
+}
+
+async function copyText(txt){
+  try { await navigator.clipboard.writeText(txt); }
+  catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+  }
+  toast("تم النسخ ✅");
+}
+
+$("count").addEventListener("input", e => $("countVal").textContent = e.target.value);
+$("domain").addEventListener("change", e => {
+  $("customWrap").style.display = e.target.value === "custom" ? "block" : "none";
+});
+$("genBtn").addEventListener("click", generate);
+$("copyAllBtn").addEventListener("click", () => {
+  if(!current.length) return toast("ولّد إيميلات أولاً");
+  copyText(current.join("\n"));
+});
+$("dlBtn").addEventListener("click", () => {
+  if(!current.length) return toast("ولّد إيميلات أولاً");
+  const blob = new Blob([current.join("\n")], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "fake-emails.txt";
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast("تم التحميل ⬇");
+});
+
+// توليد أولي عند فتح الصفحة
+generate();
+</script>
+</body>
+</html>
